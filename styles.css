@@ -121,6 +121,12 @@ nav.scrolled {
   letter-spacing: 0.02em;
 }
 
+.nav-logo .logo-icon {
+  width: 36px;
+  height: 36px;
+  display: block;
+}
+
 .nav-links {
   display: flex;
   align-items: center;
