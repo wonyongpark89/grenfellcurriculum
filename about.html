@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — The Grenfell Curriculum</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .page-hero {
+      padding: 180px 40px 100px;
+      background: linear-gradient(160deg, var(--green-50) 0%, var(--white) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(34,197,94,0.1) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .about-text p {
+      font-size: 1.08rem;
+      line-height: 1.8;
+      color: var(--gray-600);
+      margin-bottom: 22px;
+    }
+    .about-text p:first-child::first-letter {
+      font-family: 'Sora', sans-serif;
+      font-size: 3.2rem;
+      font-weight: 800;
+      float: left;
+      line-height: 1;
+      margin-right: 10px;
+      margin-top: 4px;
+      color: var(--green-700);
+    }
+
+    .values-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 8px;
+    }
+    .values-list li {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+    .value-icon {
+      flex-shrink: 0;
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+    }
+    .value-text h4 {
+      font-family: 'Sora', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: var(--green-900);
+    }
+    .value-text p {
+      font-size: 0.98rem;
+      color: var(--gray-500);
+      line-height: 1.6;
+    }
+
+    /* timeline */
+    .timeline-section {
+      background: var(--green-50);
+    }
+    .timeline {
+      position: relative;
+      padding-left: 40px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 15px; top: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, var(--green-400), var(--green-200));
+      border-radius: 2px;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 44px;
+      padding-left: 32px;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -31px; top: 6px;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--green-500);
+      border: 3px solid var(--green-100);
+    }
+    .timeline-item .year {
+      font-family: 'Sora', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--green-600);
+      margin-bottom: 6px;
+    }
+    .timeline-item h4 {
+      font-family: 'Sora', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--green-900);
+      margin-bottom: 6px;
+    }
+    .timeline-item p {
+      font-size: 1rem;
+      color: var(--gray-500);
+      line-height: 1.65;
+      max-width: 560px;
+    }
+
+    @media (max-width: 1024px) {
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+    }
+    @media (max-width: 768px) {
+      .page-hero { padding: 140px 24px 72px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><div class="mark">GC</div> The Grenfell Curriculum</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li class="dropdown">
+        <button class="active">The Project <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="dropdown-menu">
+          <a href="about.html">About Us</a>
+          <a href="approach.html">Our Approach</a>
+          <a href="supporters.html">Supporters</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        <button>Resources <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="dropdown-menu">
+          <a href="resources.html">Teaching Resources</a>
+          <a href="publications.html">Publications</a>
+          <a href="events.html">Events</a>
+        </div>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleMobile()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="section-label">The Project</div>
+    <div class="section-title">About Us</div>
+    <div class="section-subtitle">Born from tragedy, driven by purpose — building a curriculum that transforms grief into lasting social change.</div>
+  </div>
+</section>
+
+<!-- ABOUT CONTENT -->
+<section style="background:var(--white);">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <p>The Grenfell Curriculum is an educational initiative that develops teaching resources inspired by the lessons of the Grenfell Tower fire of 14 June 2017 — a tragedy that claimed 72 lives and exposed deep systemic failures in housing, regulation, and civic accountability.</p>
+        <p>We work with educators, survivors, bereaved families, and community organisations to create age-appropriate, cross-curricular materials that bring these vital lessons into classrooms across the United Kingdom and beyond.</p>
+        <p>Our mission is to ensure that future generations understand not only what happened at Grenfell, but why it happened — and what each of us can do to build a more just and accountable society.</p>
+      </div>
+      <div>
+        <ul class="values-list">
+          <li class="reveal">
+            <div class="value-icon" style="background:var(--green-100);">✦</div>
+            <div class="value-text">
+              <h4>Truth &amp; Accountability</h4>
+              <p>Centring the voices of those most affected and holding power to account through education.</p>
+            </div>
+          </li>
+          <li class="reveal">
+            <div class="value-icon" style="background:var(--amber-100);">◈</div>
+            <div class="value-text">
+              <h4>Community-Led</h4>
+              <p>Every resource is co-developed with the Grenfell community to ensure authenticity and respect.</p>
+            </div>
+          </li>
+          <li class="reveal">
+            <div class="value-icon" style="background:var(--sky-100);">◇</div>
+            <div class="value-text">
+              <h4>Cross-Curricular</h4>
+              <p>Materials designed for citizenship, PSHE, English, history, science, and more.</p>
+            </div>
+          </li>
+          <li class="reveal">
+            <div class="value-icon" style="background:var(--violet-100);">○</div>
+            <div class="value-text">
+              <h4>Accessible to All</h4>
+              <p>Free resources for every school, adaptable across key stages and learning needs.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline-section">
+  <div class="container">
+    <div class="section-label">Our Journey</div>
+    <div class="section-title">Key Milestones</div>
+    <div class="section-subtitle">From the first conversations with the community to classrooms across the country.</div>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="year">June 2017</div>
+        <h4>The Grenfell Tower Fire</h4>
+        <p>72 lives lost. The tragedy exposes systemic failures in housing safety, regulation, and accountability.</p>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="year">2019</div>
+        <h4>First Community Conversations</h4>
+        <p>Listening sessions with survivors, bereaved families, and educators to shape the vision for a curriculum response.</p>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="year">2021</div>
+        <h4>Project Launch</h4>
+        <p>The Grenfell Curriculum is formally established with academic and community partners.</p>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="year">2023</div>
+        <h4>First Resources Published</h4>
+        <p>KS3 and KS4 teaching packs launched, piloted in 50 schools across London and beyond.</p>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="year">2025</div>
+        <h4>National Reach</h4>
+        <p>Over 200 schools engaged. New KS2 and KS5 resources launched. CPD training programme established.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">The Grenfell Curriculum</div>
+      <p>Ensuring the lessons of Grenfell are never forgotten — through education, community, and a commitment to justice.</p>
+    </div>
+    <div class="footer-col"><h5>The Project</h5><a href="about.html">About Us</a><a href="approach.html">Our Approach</a><a href="supporters.html">Supporters</a></div>
+    <div class="footer-col"><h5>Resources</h5><a href="resources.html">Teaching Resources</a><a href="publications.html">Publications</a><a href="events.html">Events</a></div>
+    <div class="footer-col"><h5>Connect</h5><a href="contact.html">Contact Us</a><a href="#">Newsletter</a><a href="#">Twitter / X</a></div>
+  </div>
+  <div class="footer-bottom"><span>&copy; 2026 The Grenfell Curriculum. All rights reserved.</span><span>Made with purpose.</span></div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>

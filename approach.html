@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Approach — The Grenfell Curriculum</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .page-hero {
+      padding: 180px 40px 100px;
+      background: linear-gradient(160deg, var(--green-50) 0%, var(--white) 100%);
+      position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -100px; left: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(14,165,233,0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .approach-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      counter-reset: step;
+    }
+    .step-card {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 40px 32px;
+      border: 1px solid var(--border);
+      transition: all 0.35s cubic-bezier(0.22,1,0.36,1);
+      counter-increment: step;
+      position: relative;
+      overflow: hidden;
+    }
+    .step-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 48px rgba(11,61,46,0.08);
+      border-color: var(--green-200);
+    }
+    .step-card::before {
+      content: counter(step, decimal-leading-zero);
+      font-family: 'Sora', sans-serif;
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--green-100);
+      line-height: 1;
+      display: block;
+      margin-bottom: 20px;
+    }
+    .step-card h3 {
+      font-family: 'Sora', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: var(--green-900);
+    }
+    .step-card p {
+      font-size: 1rem;
+      color: var(--gray-500);
+      line-height: 1.7;
+    }
+
+    /* principles */
+    .principles {
+      background: var(--green-900);
+      position: relative;
+      overflow: hidden;
+    }
+    .principles::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 20% 80%, rgba(34,197,94,0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .principles .section-label { color: var(--green-400); }
+    .principles .section-label::before { background: var(--green-500); }
+    .principles .section-title { color: var(--white); }
+    .principles .section-subtitle { color: rgba(255,255,255,0.55); }
+
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+    .principle-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 36px 32px;
+      transition: all 0.3s;
+    }
+    .principle-card:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.15);
+    }
+    .principle-card .p-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .principle-card h4 {
+      font-family: 'Sora', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .principle-card p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 1024px) {
+      .approach-steps { grid-template-columns: 1fr 1fr; }
+      .principles-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .page-hero { padding: 140px 24px 72px; }
+      .approach-steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><div class="mark">GC</div> The Grenfell Curriculum</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li class="dropdown">
+        <button class="active">The Project <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="dropdown-menu">
+          <a href="about.html">About Us</a>
+          <a href="approach.html">Our Approach</a>
+          <a href="supporters.html">Supporters</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        <button>Resources <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="dropdown-menu">
+          <a href="resources.html">Teaching Resources</a>
+          <a href="publications.html">Publications</a>
+          <a href="events.html">Events</a>
+        </div>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleMobile()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="section-label">The Project</div>
+    <div class="section-title">Our Approach</div>
+    <div class="section-subtitle">A rigorous, community-centred methodology that puts lived experience at the heart of curriculum design.</div>
+  </div>
+</section>
+
+<section style="background:var(--gray-50);">
+  <div class="container">
+    <div class="approach-steps">
+      <div class="step-card reveal">
+        <h3>Listen &amp; Learn</h3>
+        <p>We begin by listening to the Grenfell community — survivors, bereaved families, and local residents — to understand their experiences and priorities for what young people should learn.</p>
+      </div>
+      <div class="step-card reveal">
+        <h3>Research &amp; Develop</h3>
+        <p>Working with academic partners and curriculum experts, we develop evidence-based resources aligned with national curriculum standards and pedagogical best practice.</p>
+      </div>
+      <div class="step-card reveal">
+        <h3>Co-Create &amp; Test</h3>
+        <p>Every resource is co-created with teachers and community members, then piloted in schools to gather feedback and refine content before wider release.</p>
+      </div>
+      <div class="step-card reveal">
+        <h3>Train &amp; Support</h3>
+        <p>We provide CPD training and ongoing support for educators, ensuring they feel confident and prepared to deliver sensitive and impactful lessons.</p>
+      </div>
+      <div class="step-card reveal">
+        <h3>Evaluate &amp; Iterate</h3>
+        <p>Independent evaluation tracks the impact of our resources on student understanding, empathy, and civic engagement, feeding back into continuous improvement.</p>
+      </div>
+      <div class="step-card reveal">
+        <h3>Share &amp; Scale</h3>
+        <p>All resources are made freely available online, with tailored support for schools in diverse contexts — from inner-city London to rural communities nationwide.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="principles">
+  <div class="container">
+    <div class="section-label">Guiding Principles</div>
+    <div class="section-title">What grounds our work</div>
+    <div class="section-subtitle">Four principles guide every decision we make — from the first community conversation to the finished resource.</div>
+    <div class="principles-grid">
+      <div class="principle-card reveal">
+        <div class="p-tag" style="background:rgba(34,197,94,0.15);color:var(--green-400);">Participation</div>
+        <h4>Nothing About Us Without Us</h4>
+        <p>The community is not a subject to be studied — they are co-authors. Meaningful participation at every stage is non-negotiable.</p>
+      </div>
+      <div class="principle-card reveal">
+        <div class="p-tag" style="background:rgba(245,158,11,0.15);color:var(--amber-400);">Rigour</div>
+        <h4>Evidence Over Assumption</h4>
+        <p>Every resource is grounded in academic research, Inquiry findings, and teacher expertise. We hold ourselves to the highest educational standards.</p>
+      </div>
+      <div class="principle-card reveal">
+        <div class="p-tag" style="background:rgba(14,165,233,0.15);color:var(--sky-500);">Sensitivity</div>
+        <h4>Trauma-Informed Practice</h4>
+        <p>We approach difficult content with care, providing frameworks for teachers to handle sensitive topics with confidence and empathy.</p>
+      </div>
+      <div class="principle-card reveal">
+        <div class="p-tag" style="background:rgba(139,92,246,0.15);color:var(--violet-500);">Access</div>
+        <h4>Free for Every School</h4>
+        <p>Cost should never be a barrier. All resources are free, adaptable, and designed to work in any school context or setting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><div class="footer-logo">The Grenfell Curriculum</div><p>Ensuring the lessons of Grenfell are never forgotten — through education, community, and a commitment to justice.</p></div>
+    <div class="footer-col"><h5>The Project</h5><a href="about.html">About Us</a><a href="approach.html">Our Approach</a><a href="supporters.html">Supporters</a></div>
+    <div class="footer-col"><h5>Resources</h5><a href="resources.html">Teaching Resources</a><a href="publications.html">Publications</a><a href="events.html">Events</a></div>
+    <div class="footer-col"><h5>Connect</h5><a href="contact.html">Contact Us</a><a href="#">Newsletter</a><a href="#">Twitter / X</a></div>
+  </div>
+  <div class="footer-bottom"><span>&copy; 2026 The Grenfell Curriculum. All rights reserved.</span><span>Made with purpose.</span></div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>

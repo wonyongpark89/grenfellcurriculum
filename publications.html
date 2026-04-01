@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publications — The Grenfell Curriculum</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .page-hero {
+      padding: 180px 40px 100px;
+      background: linear-gradient(160deg, var(--green-50) 0%, var(--white) 100%);
+      position: relative; overflow: hidden;
+    }
+
+    .pub-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      background: var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .pub-item {
+      background: var(--white);
+      padding: 32px 36px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 28px;
+      align-items: center;
+      transition: background 0.25s;
+      cursor: pointer;
+    }
+    .pub-item:hover { background: var(--green-50); }
+    .pub-year {
+      font-family: 'Sora', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 800;
+      min-width: 56px;
+    }
+    .pub-info h4 {
+      font-family: 'Sora', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: var(--green-900);
+    }
+    .pub-info p {
+      font-size: 0.95rem;
+      color: var(--gray-400);
+      font-weight: 500;
+    }
+    .pub-action {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--green-700);
+      padding: 8px 18px;
+      border: 2px solid var(--green-200);
+      border-radius: 10px;
+      transition: all 0.25s;
+      white-space: nowrap;
+    }
+    .pub-action:hover {
+      background: var(--green-700);
+      color: var(--white);
+      border-color: var(--green-700);
+    }
+
+    @media (max-width: 768px) {
+      .page-hero { padding: 140px 24px 72px; }
+      .pub-item { grid-template-columns: auto 1fr; gap: 16px; padding: 24px; }
+      .pub-action { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><div class="mark">GC</div> The Grenfell Curriculum</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li class="dropdown">
+        <button>The Project <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="dropdown-menu"><a href="about.html">About Us</a><a href="approach.html">Our Approach</a><a href="supporters.html">Supporters</a></div>
+      </li>
+      <li class="dropdown">
+        <button class="active">Resources <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="dropdown-menu"><a href="resources.html">Teaching Resources</a><a href="publications.html">Publications</a><a href="events.html">Events</a></div>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleMobile()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="section-label">Resources</div>
+    <div class="section-title">Publications</div>
+    <div class="section-subtitle">Research papers, reports, and articles from the project team and our academic partners.</div>
+  </div>
+</section>
+
+<section style="background:var(--white);">
+  <div class="container">
+    <div class="pub-list">
+      <div class="pub-item reveal">
+        <div class="pub-year" style="color:var(--green-600);">2025</div>
+        <div class="pub-info">
+          <h4>Learning from Grenfell: A Framework for Justice-Oriented Curriculum Design</h4>
+          <p>Published in the British Journal of Educational Studies</p>
+        </div>
+        <a href="#" class="pub-action">Read</a>
+      </div>
+      <div class="pub-item reveal">
+        <div class="pub-year" style="color:var(--green-600);">2025</div>
+        <div class="pub-info">
+          <h4>After the Inquiry: Translating Findings into Educational Practice</h4>
+          <p>The Grenfell Curriculum Working Paper Series, No. 4</p>
+        </div>
+        <a href="#" class="pub-action">Read</a>
+      </div>
+      <div class="pub-item reveal">
+        <div class="pub-year" style="color:var(--amber-500);">2024</div>
+        <div class="pub-info">
+          <h4>Community Voices in Curriculum Development: A Participatory Methodology</h4>
+          <p>Published in Curriculum Inquiry</p>
+        </div>
+        <a href="#" class="pub-action">Read</a>
+      </div>
+      <div class="pub-item reveal">
+        <div class="pub-year" style="color:var(--amber-500);">2024</div>
+        <div class="pub-info">
+          <h4>Teaching Difficult Histories: Grenfell in the Classroom</h4>
+          <p>The Grenfell Curriculum Working Paper Series, No. 3</p>
+        </div>
+        <a href="#" class="pub-action">Read</a>
+      </div>
+      <div class="pub-item reveal">
+        <div class="pub-year" style="color:var(--sky-500);">2023</div>
+        <div class="pub-info">
+          <h4>Annual Impact Report 2022–23</h4>
+          <p>The Grenfell Curriculum Project</p>
+        </div>
+        <a href="#" class="pub-action">Read</a>
+      </div>
+      <div class="pub-item reveal">
+        <div class="pub-year" style="color:var(--sky-500);">2023</div>
+        <div class="pub-info">
+          <h4>From Tragedy to Pedagogy: Ethical Considerations in Curriculum Design</h4>
+          <p>Published in the Journal of Curriculum Studies</p>
+        </div>
+        <a href="#" class="pub-action">Read</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><div class="footer-logo">The Grenfell Curriculum</div><p>Ensuring the lessons of Grenfell are never forgotten — through education, community, and a commitment to justice.</p></div>
+    <div class="footer-col"><h5>The Project</h5><a href="about.html">About Us</a><a href="approach.html">Our Approach</a><a href="supporters.html">Supporters</a></div>
+    <div class="footer-col"><h5>Resources</h5><a href="resources.html">Teaching Resources</a><a href="publications.html">Publications</a><a href="events.html">Events</a></div>
+    <div class="footer-col"><h5>Connect</h5><a href="contact.html">Contact Us</a><a href="#">Newsletter</a><a href="#">Twitter / X</a></div>
+  </div>
+  <div class="footer-bottom"><span>&copy; 2026 The Grenfell Curriculum. All rights reserved.</span><span>Made with purpose.</span></div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>
