@@ -467,11 +467,9 @@ p {
   padding: clamp(1.6rem, 3.5vw, 2.65rem);
   position: relative;
   overflow: hidden;
-  border-top: 5px solid var(--green-500);
   border-left: none;
 }
 
-.feature-panel { border-top-width: 5px; }
 .card h3, .card h4 { margin-bottom: 0.55rem; }
 .card p:first-child { margin-top: 0; }
 .card p { max-width: 52ch; }
@@ -483,11 +481,8 @@ p {
 .grid.four  { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .grid.five-cards { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 
-.feature-card { position: relative; min-height: 100%; border-top: 5px solid var(--green-500); }
-.news-card, .output-card, .person-card, .resource-card { border-top: 5px solid var(--green-500); }
-.news-card:nth-child(2) { border-top-color: var(--green-700); }
-.news-card:nth-child(3) { border-top-color: var(--green-300); }
-.news-card:nth-child(4) { border-top-color: var(--lime); }
+.feature-card { position: relative; min-height: 100%; }
+
 
 .news-card::before {
   content: "";
@@ -601,7 +596,7 @@ details[open] .accordion summary { border-bottom-color: var(--line); background:
   align-items: end; margin: 1.75rem 0;
   padding: 1.25rem 1.35rem;
   background: var(--white); border: 1px solid var(--line);
-  border-top: 5px solid var(--green-500); border-radius: var(--radius);
+  border-radius: var(--radius);
   box-shadow: var(--shadow-card);
 }
 .field label {
@@ -662,7 +657,6 @@ details[open] .accordion summary { border-bottom-color: var(--line); background:
   display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
   gap: 1.3rem; align-items: start;
 }
-.page-contact .panel { border-top: 5px solid var(--green-500); }
 
 /* Footer */
 .site-footer { background: var(--green-950); color: #edf7f1; padding: 3.4rem 0; border-top: 6px solid var(--green-600); }
