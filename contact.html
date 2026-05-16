@@ -1,251 +1,123 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-GB">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact — The Grenfell Curriculum</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="image/svg+xml" href="heart_green.svg">
-  <style>
-    .page-hero {
-      padding: 180px 40px 100px;
-      background: linear-gradient(160deg, var(--green-50) 0%, var(--white) 100%);
-      position: relative; overflow: hidden;
-    }
-    .page-hero::before {
-      content: '';
-      position: absolute;
-      bottom: -100px; right: -100px;
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(34,197,94,0.1) 0%, transparent 65%);
-      pointer-events: none;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 80px;
-      align-items: start;
-    }
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 22px;
-    }
-    .form-group label {
-      display: block;
-      font-size: 0.92rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: var(--green-900);
-    }
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      width: 100%;
-      padding: 14px 18px;
-      border: 2px solid var(--border);
-      border-radius: 12px;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 1rem;
-      background: var(--white);
-      transition: border-color 0.25s;
-      color: var(--text);
-      outline: none;
-    }
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-      border-color: var(--green-500);
-      box-shadow: 0 0 0 4px rgba(34,197,94,0.1);
-    }
-    .form-group textarea { min-height: 150px; resize: vertical; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
-
-    .contact-info h3 {
-      font-family: 'Sora', sans-serif;
-      font-size: 1.6rem;
-      font-weight: 800;
-      color: var(--green-900);
-      margin-bottom: 16px;
-    }
-    .contact-info > p {
-      font-size: 1.05rem;
-      color: var(--gray-500);
-      line-height: 1.75;
-      margin-bottom: 36px;
-    }
-
-    .contact-detail {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-    .contact-icon {
-      width: 52px; height: 52px;
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .contact-detail-text span {
-      display: block;
-      font-size: 0.82rem;
-      color: var(--gray-400);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-    .contact-detail-text a,
-    .contact-detail-text p {
-      font-size: 1rem;
-      color: var(--green-900);
-      font-weight: 600;
-      margin: 0;
-    }
-
-    /* map placeholder */
-    .map-placeholder {
-      margin-top: 36px;
-      background: var(--green-50);
-      border-radius: 16px;
-      height: 200px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 2px dashed var(--green-200);
-      color: var(--green-600);
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 1024px) {
-      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
-    }
-    @media (max-width: 768px) {
-      .page-hero { padding: 140px 24px 72px; }
-      .form-row { grid-template-columns: 1fr; }
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | The Grenfell Curriculum</title>
+  <meta name="description" content="Contact the Grenfell Curriculum project team for CPD, resource, partnership and collaboration enquiries.">
+  <meta name="theme-color" content="#008a59">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body>
-
-<nav id="navbar">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo"><img src="heart_green.svg" alt="The Grenfell Curriculum logo" class="logo-icon"> The Grenfell Curriculum</a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li class="dropdown">
-        <button>The Project <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
-        <div class="dropdown-menu"><a href="about.html">About Us</a><a href="approach.html">Our Approach</a><a href="supporters.html">Supporters</a></div>
-      </li>
-      <li class="dropdown">
-        <button>Resources <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
-        <div class="dropdown-menu"><a href="resources.html">Teaching Resources</a><a href="publications.html">Publications</a><a href="events.html">Events</a></div>
-      </li>
-      <li><a href="contact.html" class="active">Contact</a></li>
-    </ul>
-    <button class="hamburger" onclick="toggleMobile()" aria-label="Menu"><span></span><span></span><span></span></button>
+<body class="page-contact">
+  <a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html" aria-label="The Grenfell Curriculum home">
+      <span class="brand-title">The Grenfell Curriculum</span>
+        <span class="brand-tagline">Memory, justice and education after Grenfell</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" data-nav-toggle>
+      <span>Menu</span><span aria-hidden="true"></span>
+    </button>
+    <nav class="site-nav" id="site-navigation" aria-label="Primary navigation" data-site-nav>
+      <ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="principles.html">Principles</a></li><li><a href="cpd.html">CPD</a></li><li><a href="resources.html">Resources</a></li><li><a href="contact.html" aria-current="page">Contact</a></li></ul>
+    </nav>
   </div>
-</nav>
+</header>
+  <main id="main">
 
-<section class="page-hero">
-  <div class="container">
-    <div class="section-label">Get in Touch</div>
-    <div class="section-title">Contact Us</div>
-    <div class="section-subtitle">Whether you're an educator, researcher, community member, or supporter — we'd love to hear from you.</div>
-  </div>
-</section>
-
-<section style="background:var(--white);">
-  <div class="container">
-    <div class="contact-grid">
-      <div class="contact-form">
-        <div class="form-row">
-          <div class="form-group">
-            <label>First Name</label>
-            <input type="text" placeholder="Jane">
-          </div>
-          <div class="form-group">
-            <label>Last Name</label>
-            <input type="text" placeholder="Smith">
-          </div>
+    <section class="page-hero page-heading">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Enquiries and collaboration</span>
+          <h1>Contact</h1>
+          <p class="lede">For project, CPD, resource, partnership or collaboration enquiries.</p>
+          <div class="actions"><a class="btn primary" href="mailto:teachgrenfell@soton.ac.uk">Email the project team</a><a class="btn secondary" href="resources.html">Browse resources</a></div>
         </div>
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" placeholder="jane@school.ac.uk">
-        </div>
-        <div class="form-group">
-          <label>I am a…</label>
-          <select>
-            <option value="">Please select</option>
-            <option>Teacher / Educator</option>
-            <option>School Leader</option>
-            <option>Researcher / Academic</option>
-            <option>Community Member</option>
-            <option>Journalist / Media</option>
-            <option>Potential Supporter / Funder</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Message</label>
-          <textarea placeholder="Tell us how we can help or how you'd like to get involved…"></textarea>
-        </div>
-        <button class="btn-primary" type="button" onclick="alert('Thank you for your message. We will be in touch.')">
-          Send Message
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </button>
       </div>
-      <div class="contact-info">
-        <h3>Let's connect</h3>
-        <p>We welcome enquiries from educators looking to use our resources, organisations interested in partnership, and anyone who shares our commitment to learning from Grenfell.</p>
-        <div class="contact-detail">
-          <div class="contact-icon" style="background:var(--green-100);">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green-700)" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg>
-          </div>
-          <div class="contact-detail-text">
-            <span>Email</span>
-            <a href="mailto:hello@grenfellcurriculum.org">hello@grenfellcurriculum.org</a>
-          </div>
+    </section>
+
+    <section class="section compact">
+      <div class="container contact-grid">
+        <div class="panel">
+          <span class="eyebrow">Contact details</span>
+          <h2>Project enquiries</h2>
+          <p><strong>Project lead:</strong> Wonyong Park, Associate Professor, University of Southampton</p>
+          <p><strong>Email:</strong> <a href="mailto:teachgrenfell@soton.ac.uk">teachgrenfell@soton.ac.uk</a></p>
+          <p>Use this address for enquiries about the project, resources, CPD, partnerships, media requests, school engagement or future collaboration.</p>
+          <div class="actions"><a class="btn primary" href="mailto:teachgrenfell@soton.ac.uk">Email the project team</a></div>
         </div>
-        <div class="contact-detail">
-          <div class="contact-icon" style="background:var(--amber-100);">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#92400e" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </div>
-          <div class="contact-detail-text">
-            <span>Location</span>
-            <p>North Kensington, London</p>
-          </div>
+        <div class="panel">
+          <span class="eyebrow">Enquiry areas</span>
+          <h2>What to contact us about</h2>
+          <ul class="inset-list">
+            <li>Using the CPD in schools, departments or teacher education programmes.</li>
+            <li>Accessible versions, corrections or updates to resources.</li>
+            <li>Community partnerships, policy work, events, media and research collaboration.</li>
+          </ul>
         </div>
-        <div class="contact-detail">
-          <div class="contact-icon" style="background:var(--sky-100);">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--sky-500)" stroke-width="1.8"><path d="M23 3a10.9 10.9 0 01-3.14 1.53A4.48 4.48 0 0012 7.5v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
-          </div>
-          <div class="contact-detail-text">
-            <span>Social</span>
-            <a href="#">@GrenfellCurriculum</a>
-          </div>
+      </div>
+    </section>
+
+    <section class="section alt" aria-labelledby="site-statements-heading">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">Site statements</span>
+          <h2 id="site-statements-heading">Accessibility, privacy and copyright</h2>
+          <p>These statements are standard text for the static site and should be reviewed before publication.</p>
         </div>
-        <div class="map-placeholder">
-          📍 Map placeholder — North Kensington, London
+        <div class="grid three">
+          <article class="card feature-card" id="accessibility">
+            <h3>Accessibility</h3>
+            <p>This site aims to meet WCAG 2.2 AA standards. It uses semantic HTML, keyboard-accessible navigation, readable text sizes, strong colour contrast and descriptive link text. If you need a resource in another format, contact <a href="mailto:teachgrenfell@soton.ac.uk">teachgrenfell@soton.ac.uk</a>.</p>
+          </article>
+          <article class="card feature-card" id="privacy">
+            <h3>Privacy</h3>
+            <p>This static site does not collect personal data through forms. If you email the project team, your message will be used only to respond to your enquiry. Any future analytics, mailing lists or forms should be covered by an updated privacy statement.</p>
+          </article>
+          <article class="card feature-card" id="copyright">
+            <h3>Copyright</h3>
+            <p>Unless otherwise stated, site content is © The Grenfell Curriculum. Resources may be used for educational purposes with attribution, subject to the licence or permissions stated on each individual resource.</p>
+          </article>
         </div>
+      </div>
+    </section>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h2>The Grenfell Curriculum</h2>
+        <p>Memory, justice and education after Grenfell.</p>
+        <p><strong>General enquiries:</strong> <a href="mailto:teachgrenfell@soton.ac.uk">teachgrenfell@soton.ac.uk</a></p>
+      </div>
+      <div>
+        <h3>Site links</h3>
+        <ul class="footer-links">
+          <li><a href="about.html">About the project</a></li>
+          <li><a href="principles.html">Principles</a></li>
+          <li><a href="cpd.html">Teacher CPD</a></li>
+          <li><a href="resources.html">Open resources</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Statements</h3>
+        <ul class="footer-links">
+          <li><a href="contact.html#accessibility">Accessibility</a></li>
+          <li><a href="contact.html#privacy">Privacy</a></li>
+          <li><a href="contact.html#copyright">Copyright</a></li>
+        </ul>
       </div>
     </div>
+    <div class="footer-bottom">
+      <p>© <span data-current-year></span> The Grenfell Curriculum. Developed with acknowledgement of community contributors, partners and funders. Partner and funder logos should be added with permission.</p>
+    </div>
   </div>
-</section>
-
-<footer>
-  <div class="footer-inner">
-    <div class="footer-brand"><div class="footer-logo">The Grenfell Curriculum</div><p>Ensuring the lessons of Grenfell are never forgotten — through education, community, and a commitment to justice.</p></div>
-    <div class="footer-col"><h5>The Project</h5><a href="about.html">About Us</a><a href="approach.html">Our Approach</a><a href="supporters.html">Supporters</a></div>
-    <div class="footer-col"><h5>Resources</h5><a href="resources.html">Teaching Resources</a><a href="publications.html">Publications</a><a href="events.html">Events</a></div>
-    <div class="footer-col"><h5>Connect</h5><a href="contact.html">Contact Us</a><a href="#">Newsletter</a><a href="#">Twitter / X</a></div>
-  </div>
-  <div class="footer-bottom"><span>&copy; 2026 The Grenfell Curriculum. All rights reserved.</span><span>Made with purpose.</span></div>
 </footer>
-<script src="main.js"></script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>

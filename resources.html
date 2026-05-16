@@ -1,190 +1,133 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-GB">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Teaching Resources — The Grenfell Curriculum</title>
-  <link rel="stylesheet" href="/styles.css">
-  <link rel="icon" type="image/svg+xml" href="heart_green.svg">
-  <style>
-    .page-hero {
-      padding: 180px 40px 100px;
-      background: linear-gradient(160deg, var(--green-50) 0%, var(--white) 100%);
-      position: relative; overflow: hidden;
-    }
-    .page-hero::before {
-      content: '';
-      position: absolute;
-      bottom: -100px; left: -100px;
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(34,197,94,0.1) 0%, transparent 65%);
-      pointer-events: none;
-    }
-
-    .resources-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-    }
-    .resource-card {
-      background: var(--white);
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      transition: all 0.35s cubic-bezier(0.22,1,0.36,1);
-      cursor: pointer;
-    }
-    .resource-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 48px rgba(11,61,46,0.08);
-      border-color: var(--green-200);
-    }
-    .resource-banner {
-      height: 6px;
-    }
-    .resource-body {
-      padding: 36px 30px;
-    }
-    .resource-type {
-      font-size: 0.82rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 14px;
-    }
-    .resource-card h3 {
-      font-family: 'Sora', sans-serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-      color: var(--green-900);
-      line-height: 1.35;
-    }
-    .resource-card p {
-      font-size: 1rem;
-      color: var(--gray-500);
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-    .resource-link {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--green-700);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: gap 0.25s;
-    }
-    .resource-link:hover { gap: 10px; }
-
-    @media (max-width: 1024px) {
-      .resources-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 768px) {
-      .page-hero { padding: 140px 24px 72px; }
-      .resources-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resources | The Grenfell Curriculum</title>
+  <meta name="description" content="Open searchable repository of teaching materials, teacher guides, reports, policy briefs and project outputs.">
+  <meta name="theme-color" content="#008a59">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body>
-
-<nav id="navbar">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo"><img src="heart_green.svg" alt="The Grenfell Curriculum logo" class="logo-icon"> The Grenfell Curriculum</a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li class="dropdown">
-        <button>The Project <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
-        <div class="dropdown-menu"><a href="about.html">About Us</a><a href="approach.html">Our Approach</a><a href="supporters.html">Supporters</a></div>
-      </li>
-      <li class="dropdown">
-        <button class="active">Resources <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
-        <div class="dropdown-menu"><a href="resources.html">Teaching Resources</a><a href="publications.html">Publications</a><a href="events.html">Events</a></div>
-      </li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <button class="hamburger" onclick="toggleMobile()" aria-label="Menu"><span></span><span></span><span></span></button>
+<body class="page-resources">
+  <a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html" aria-label="The Grenfell Curriculum home">
+      <span class="brand-title">The Grenfell Curriculum</span>
+        <span class="brand-tagline">Memory, justice and education after Grenfell</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" data-nav-toggle>
+      <span>Menu</span><span aria-hidden="true"></span>
+    </button>
+    <nav class="site-nav" id="site-navigation" aria-label="Primary navigation" data-site-nav>
+      <ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="principles.html">Principles</a></li><li><a href="cpd.html">CPD</a></li><li><a href="resources.html" aria-current="page">Resources</a></li><li><a href="contact.html">Contact</a></li></ul>
+    </nav>
   </div>
-</nav>
+</header>
+  <main id="main">
 
-<section class="page-hero">
-  <div class="container">
-    <div class="section-label">Resources</div>
-    <div class="section-title">Teaching Resources</div>
-    <div class="section-subtitle">Free, high-quality curriculum materials developed for educators at every key stage.</div>
-  </div>
-</section>
+    <section class="page-hero page-heading">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Open repository</span>
+          <h1>Resources</h1>
+          <p class="lede">Search teaching materials, teacher guides, reports, policy briefs, lesson resources, CPD materials and public engagement outputs.</p>
+          <div class="actions"><a class="btn primary" href="#repository">Browse the repository</a></div>
+        </div>
+      </div>
+    </section>
 
-<section style="background:var(--gray-50);">
+    <section class="section compact" id="repository">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">Repository</span>
+          <h2>Search and filter resources</h2>
+        </div>
+        <form class="resource-toolbar" aria-label="Resource filters">
+          <div class="field"><label for="resource-search">Search</label><input id="resource-search" type="search" placeholder="Search by title, tag or keyword" data-resource-search></div>
+          <div class="field"><label for="subject-filter">Subject</label><select id="subject-filter" data-resource-filter="subject"><option value="">All subjects</option><option>History</option><option>Citizenship</option><option>English</option><option>PSHE</option><option>Geography</option><option>Religious Education</option><option>Drama</option><option>Design and Technology</option><option>Science</option><option>Media literacy</option></select></div>
+          <div class="field"><label for="stage-filter">Key stage</label><select id="stage-filter" data-resource-filter="stage"><option value="">All stages</option><option>Primary</option><option>Secondary</option><option>Further education</option><option>Key Stage 2</option><option>Key Stage 3</option><option>Key Stage 4</option><option>Key Stage 5</option></select></div>
+          <div class="field"><label for="type-filter">Type</label><select id="type-filter" data-resource-filter="type"><option value="">All types</option><option>Teacher guide</option><option>Lesson material</option><option>Policy brief</option><option>Report</option><option>CPD course</option><option>Teacher planning tool</option><option>Case study</option><option>Parliamentary briefing</option></select></div>
+          <div class="field"><label for="theme-filter">Theme</label><select id="theme-filter" data-resource-filter="theme"><option value="">All themes</option><option>Classroom discussion</option><option>Curriculum planning</option><option>Memorialisation</option><option>Justice</option><option>Community</option><option>Housing</option><option>Disaster education</option><option>Media literacy</option><option>Institutional accountability</option><option>Trauma-informed practice</option></select></div>
+          <div class="field"><label for="format-filter">Format</label><select id="format-filter" data-resource-filter="format"><option value="">All formats</option><option>PDF</option><option>Slides</option><option>Worksheet</option><option>Web course</option><option>Template</option><option>Webpage</option></select></div>
+        </form>
+        <div class="actions" style="margin-top:0;"><button class="btn secondary" type="button" data-resource-reset>Reset filters</button></div>
+        <p class="resource-count" aria-live="polite" data-resource-count></p>
+        <div class="grid three resource-grid" data-resource-list>
+          <article class="card resource-card" data-resource-card data-subject="History,Citizenship,PSHE" data-stage="Secondary,Key Stage 3,Key Stage 4,Key Stage 5" data-type="Report" data-theme="Community,Justice,Curriculum planning" data-format="PDF" data-search="Teaching about Grenfell Recommendations from the Community report community voice teacher guidance justice curriculum">
+            <h3>Teaching about Grenfell: Recommendations from the Community</h3><p>A community-informed report setting out what teaching about Grenfell should include and why it matters.</p><div class="resource-meta"><span>Report</span><span>Community voice</span><span>Teacher guidance</span><span>Justice</span><span>PDF</span></div><a class="btn secondary" href="#">View/download [INSERT RESOURCE LINK]</a>
+          </article>
+          <article class="card resource-card" data-resource-card data-subject="History,Citizenship,English,PSHE,Geography,Religious Education,Drama,Design and Technology,Science,Media literacy" data-stage="Primary,Secondary,Further education,Key Stage 2,Key Stage 3,Key Stage 4,Key Stage 5" data-type="CPD course" data-theme="Disaster education,Justice,Trauma-informed practice,Curriculum planning" data-format="Web course" data-search="Teaching about Grenfell Education and Social Justice after Disasters CPD course teacher education Education for Disaster Justice CARE-LEAD">
+            <h3>Teaching about Grenfell: Education and Social Justice after Disasters</h3><p>A free online professional development course supporting educators to teach about Grenfell with care, accuracy and a commitment to justice.</p><div class="resource-meta"><span>CPD</span><span>Teacher education</span><span>Education for Disaster Justice</span><span>CARE-LEAD</span><span>Web course</span></div><a class="btn secondary" href="https://canvas.instructure.com/courses/13952145/modules" target="_blank" rel="noopener noreferrer">Access the CPD on Canvas</a>
+          </article>
+          <article class="card resource-card" data-resource-card data-subject="English,PSHE,History" data-stage="Primary,Key Stage 2" data-type="Lesson material" data-theme="Memorialisation,Community,Classroom discussion" data-format="Worksheet,PDF" data-search="Remembering Grenfell Pilot Lesson Resource Year 5 North Kensington English memory poetry community lesson material">
+            <h3>Remembering Grenfell: Pilot Lesson Resource</h3><p>A classroom resource developed from pilot work with a Year 5 teacher in North Kensington.</p><div class="resource-meta"><span>Lesson material</span><span>Key Stage 2</span><span>English</span><span>Memory</span><span>Poetry</span></div><a class="btn secondary" href="#">View/download [INSERT RESOURCE LINK]</a>
+          </article>
+          <article class="card resource-card" data-resource-card data-subject="History,Citizenship,English,PSHE,Geography,Religious Education,Drama,Design and Technology,Science,Media literacy" data-stage="Primary,Secondary,Further education,Key Stage 2,Key Stage 3,Key Stage 4,Key Stage 5" data-type="Teacher guide" data-theme="Curriculum planning,Justice,Community" data-format="PDF" data-search="Curriculum Mapping Guide teacher guide curriculum planning history citizenship english PSHE">
+            <h3>Curriculum Mapping Guide</h3><p>A guide to locating Grenfell-related themes across subjects and key stages.</p><div class="resource-meta"><span>Teacher guide</span><span>Curriculum planning</span><span>History</span><span>Citizenship</span><span>English</span><span>PDF</span></div><a class="btn secondary" href="#">View/download [INSERT RESOURCE LINK]</a>
+          </article>
+          <article class="card resource-card" data-resource-card data-subject="History,Citizenship,English,PSHE,Geography,Religious Education,Drama,Design and Technology,Science" data-stage="Primary,Secondary,Further education" data-type="Teacher planning tool" data-theme="Trauma-informed practice,Curriculum planning,Disaster education" data-format="Template,PDF" data-search="CARE-LEAD Planning Template trauma-informed practice planning ethical teaching teacher guide">
+            <h3>CARE-LEAD Planning Template</h3><p>A reflective planning template for teaching about Grenfell and other difficult histories.</p><div class="resource-meta"><span>Teacher planning tool</span><span>Trauma-informed practice</span><span>Template</span></div><a class="btn secondary" href="#">View/download [INSERT RESOURCE LINK]</a>
+          </article>
+          <article class="card resource-card" data-resource-card data-subject="English,PSHE,History" data-stage="Primary,Key Stage 2" data-type="Case study" data-theme="Memorialisation,Community,Classroom discussion" data-format="PDF" data-search="Remembering Grenfell Year 5 pilot lesson case study North Kensington">
+            <h3>Remembering Grenfell: Year 5 pilot lesson</h3><p>A pilot lesson and case study showing one example of careful classroom practice in North Kensington.</p><div class="resource-meta"><span>Case study</span><span>Key Stage 2</span><span>North Kensington</span><span>PDF</span></div><a class="btn secondary" href="#">View/download [INSERT RESOURCE LINK]</a>
+          </article>
+          <article class="card resource-card" data-resource-card data-subject="Citizenship,History,PSHE" data-stage="Secondary,Further education,Key Stage 4,Key Stage 5" data-type="Parliamentary briefing" data-theme="Justice,Disaster education,Institutional accountability" data-format="PDF,Webpage" data-search="From loss to learning national tragedies curriculum parliamentary policy engagement output">
+            <h3>From loss to learning: national tragedies and the curriculum</h3><p>A parliamentary or policy engagement output connecting Grenfell with wider questions about national tragedies and the curriculum.</p><div class="resource-meta"><span>Policy engagement</span><span>Justice</span><span>Curriculum</span></div><a class="btn secondary" href="#">View/download [INSERT RESOURCE LINK]</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" aria-labelledby="outputs-heading">
+      <div class="container">
+        <div class="section-title"><span class="eyebrow">Outputs</span><h2 id="outputs-heading">Project outputs</h2></div>
+        <div class="grid three">
+          <article class="card output-card"><h3>Teaching about Grenfell: Recommendations from the Community</h3><p class="meta">Report · July 2025</p><p>Community-informed recommendations for curriculum and teaching.</p></article>
+          <article class="card output-card"><h3>The Grenfell Curriculum: Honouring the legacy of Grenfell through teacher professional development</h3><p class="meta">Final CPD project report · April 2026</p><p>Report on the CPD strand within the wider project.</p></article>
+          <article class="card output-card"><h3>Teaching about Grenfell: Education and Social Justice after Disasters</h3><p class="meta">Online CPD course · April 2026</p><p>Free online course hosted on Canvas.</p></article>
+          <article class="card output-card"><h3>Remembering Grenfell: Year 5 pilot lesson</h3><p class="meta">Pilot lesson / case study · February 2026</p><p>One example of careful classroom practice in North Kensington.</p></article>
+          <article class="card output-card"><h3>From loss to learning: national tragedies and the curriculum</h3><p class="meta">Parliamentary / policy engagement · [INSERT DATE]</p><p>Placeholder for briefing or public engagement output.</p></article>
+          <article class="card output-card"><h3>New lesson resources</h3><p class="meta">In development</p><p>Additional classroom materials and teacher guidance will be added over time.</p></article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <footer class="site-footer">
   <div class="container">
-    <div class="resources-grid">
-      <div class="resource-card reveal">
-        <div class="resource-banner" style="background:linear-gradient(90deg,var(--green-500),var(--green-400));"></div>
-        <div class="resource-body">
-          <div class="resource-type tag-green" style="display:inline-block;">KS3 Citizenship</div>
-          <h3>Housing Rights &amp; Responsibilities</h3>
-          <p>A six-lesson scheme of work exploring tenants' rights, social housing policy, and the regulatory failures exposed by the Grenfell Tower Inquiry.</p>
-          <a href="#" class="resource-link">Download pack <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
+    <div class="footer-grid">
+      <div>
+        <h2>The Grenfell Curriculum</h2>
+        <p>Memory, justice and education after Grenfell.</p>
+        <p><strong>General enquiries:</strong> <a href="mailto:teachgrenfell@soton.ac.uk">teachgrenfell@soton.ac.uk</a></p>
       </div>
-      <div class="resource-card reveal">
-        <div class="resource-banner" style="background:linear-gradient(90deg,var(--amber-500),var(--amber-400));"></div>
-        <div class="resource-body">
-          <div class="resource-type tag-amber" style="display:inline-block;">KS4 English</div>
-          <h3>Voices of Grenfell: Testimony &amp; Narrative</h3>
-          <p>Analysing oral testimony, media coverage, and literary responses to the fire — developing critical literacy and empathetic writing skills.</p>
-          <a href="#" class="resource-link">Download pack <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
+      <div>
+        <h3>Site links</h3>
+        <ul class="footer-links">
+          <li><a href="about.html">About the project</a></li>
+          <li><a href="principles.html">Principles</a></li>
+          <li><a href="cpd.html">Teacher CPD</a></li>
+          <li><a href="resources.html">Open resources</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
       </div>
-      <div class="resource-card reveal">
-        <div class="resource-banner" style="background:linear-gradient(90deg,var(--sky-500),#38bdf8);"></div>
-        <div class="resource-body">
-          <div class="resource-type tag-sky" style="display:inline-block;">KS2 PSHE</div>
-          <h3>Community, Safety &amp; Belonging</h3>
-          <p>Age-appropriate lessons on community resilience, fire safety, and looking out for one another — rooted in the stories of the Grenfell community.</p>
-          <a href="#" class="resource-link">Download pack <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-      </div>
-      <div class="resource-card reveal">
-        <div class="resource-banner" style="background:linear-gradient(90deg,var(--violet-500),#a78bfa);"></div>
-        <div class="resource-body">
-          <div class="resource-type tag-violet" style="display:inline-block;">KS5 Politics</div>
-          <h3>Power, Regulation &amp; the State</h3>
-          <p>An A-Level resource examining deregulation, corporate lobbying, and democratic accountability through the lens of the Grenfell Inquiry findings.</p>
-          <a href="#" class="resource-link">Download pack <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-      </div>
-      <div class="resource-card reveal">
-        <div class="resource-banner" style="background:linear-gradient(90deg,var(--rose-500),#fb7185);"></div>
-        <div class="resource-body">
-          <div class="resource-type tag-rose" style="display:inline-block;">KS3 Science</div>
-          <h3>Materials, Fire Safety &amp; Building Science</h3>
-          <p>Exploring combustion, material properties, and building regulations through scientific inquiry — connecting classroom science to real-world consequences.</p>
-          <a href="#" class="resource-link">Download pack <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-      </div>
-      <div class="resource-card reveal">
-        <div class="resource-banner" style="background:linear-gradient(90deg,var(--green-500),var(--amber-400));"></div>
-        <div class="resource-body">
-          <div class="resource-type tag-green" style="display:inline-block;">CPD</div>
-          <h3>Teacher Training Toolkit</h3>
-          <p>A comprehensive guide for delivering sensitive and impactful Grenfell-related content — including trauma-informed pedagogy and facilitation strategies.</p>
-          <a href="#" class="resource-link">Download pack <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
+      <div>
+        <h3>Statements</h3>
+        <ul class="footer-links">
+          <li><a href="contact.html#accessibility">Accessibility</a></li>
+          <li><a href="contact.html#privacy">Privacy</a></li>
+          <li><a href="contact.html#copyright">Copyright</a></li>
+        </ul>
       </div>
     </div>
+    <div class="footer-bottom">
+      <p>© <span data-current-year></span> The Grenfell Curriculum. Developed with acknowledgement of community contributors, partners and funders. Partner and funder logos should be added with permission.</p>
+    </div>
   </div>
-</section>
-
-<footer>
-  <div class="footer-inner">
-    <div class="footer-brand"><div class="footer-logo">The Grenfell Curriculum</div><p>Ensuring the lessons of Grenfell are never forgotten — through education, community, and a commitment to justice.</p></div>
-    <div class="footer-col"><h5>The Project</h5><a href="about.html">About Us</a><a href="approach.html">Our Approach</a><a href="supporters.html">Supporters</a></div>
-    <div class="footer-col"><h5>Resources</h5><a href="resources.html">Teaching Resources</a><a href="publications.html">Publications</a><a href="events.html">Events</a></div>
-    <div class="footer-col"><h5>Connect</h5><a href="contact.html">Contact Us</a><a href="#">Newsletter</a><a href="#">Twitter / X</a></div>
-  </div>
-  <div class="footer-bottom"><span>&copy; 2026 The Grenfell Curriculum. All rights reserved.</span><span>Made with purpose.</span></div>
 </footer>
-<script src="main.js"></script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
