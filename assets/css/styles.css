@@ -968,3 +968,18 @@ details[open] .module-tag {
   background: var(--green-500);
   flex-shrink: 0;
 }
+
+/* ─── Team member headshots ─── */
+.person-photo {
+  display: block;
+  height: 210px;
+  width: calc(100% + clamp(1.3rem, 2.6vw, 1.85rem) * 2);
+  object-fit: cover;
+  object-position: center top;
+  margin-top: calc(clamp(1.3rem, 2.6vw, 1.85rem) * -1);
+  margin-left: calc(clamp(1.3rem, 2.6vw, 1.85rem) * -1);
+  margin-right: calc(clamp(1.3rem, 2.6vw, 1.85rem) * -1);
+  margin-bottom: 1.1rem;
+  border-radius: calc(var(--radius) - 1px) calc(var(--radius) - 1px) 0 0;
+  max-width: none;
+}
