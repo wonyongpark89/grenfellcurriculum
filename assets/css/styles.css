@@ -1026,8 +1026,9 @@ details[open] .module-tag {
 }
 .output-card h3 {
   margin: 0 0 0.8rem;
-  font-size: 1rem;
-  line-height: 1.35;
+  font-size: clamp(1.1rem, 1.5vw, 1.38rem);
+  line-height: 1.28;
+  letter-spacing: 0.015em;
 }
 .output-card .resource-meta {
   margin-top: auto;
