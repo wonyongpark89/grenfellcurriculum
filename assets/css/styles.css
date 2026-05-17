@@ -1047,6 +1047,10 @@ details[open] .module-tag {
 }
 .feature-card .btn,
 .news-card .btn {
-  margin-top: auto;
+  margin-top: 1.4rem;
   width: 100%;
+}
+.feature-card p,
+.news-card p:not(.meta) {
+  flex: 1;
 }
