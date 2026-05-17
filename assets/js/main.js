@@ -1,4 +1,3 @@
-
 /*
   The Grenfell Curriculum — shared JavaScript
   ------------------------------------------
@@ -56,7 +55,7 @@
       date: '2026-02-01',
       displayDate: 'February 2026',
       summary: 'A Year 5 pilot lesson explored remembrance through poetry, structured discussion and careful preparation.',
-      href: 'resources.html',
+      href: 'resources/',
       linkText: 'See related outputs',
       selected: true
     },
@@ -65,7 +64,7 @@
       date: '2025-07-01',
       displayDate: 'July 2025',
       summary: 'The report sets out community-informed recommendations for what teaching about Grenfell should include and why it matters.',
-      href: 'resources.html',
+      href: 'resources/',
       linkText: 'Find the report',
       selected: true
     },
@@ -74,7 +73,7 @@
       date: '2026-05-01',
       displayDate: 'In development',
       summary: 'Further classroom materials, teacher guidance and curriculum mapping resources will be added as the project develops.',
-      href: 'resources.html',
+      href: 'resources/',
       linkText: 'Browse resources',
       selected: true
     }
@@ -94,7 +93,7 @@
           <h3>${item.title}</h3>
           <p class="meta">${item.displayDate}</p>
           <p>${item.summary}</p>
-          <a class="btn text-link" href="${item.href}"${attrs}>${item.linkText} →</a>
+          <a class="btn secondary" href="${item.href}"${attrs}>${item.linkText}</a>
         </article>`;
     }).join('');
   }

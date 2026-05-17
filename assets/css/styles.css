@@ -1038,3 +1038,15 @@ details[open] .module-tag {
   margin-top: 0.9rem;
   width: 100%;
 }
+
+/* ─── Feature & news cards: full-width secondary buttons ─── */
+.feature-card,
+.news-card {
+  display: flex;
+  flex-direction: column;
+}
+.feature-card .btn,
+.news-card .btn {
+  margin-top: auto;
+  width: 100%;
+}
