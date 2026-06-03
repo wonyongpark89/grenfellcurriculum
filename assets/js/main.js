@@ -69,12 +69,12 @@
       selected: true
     },
     {
-      title: 'New lesson resources in development',
-      date: '2026-05-01',
-      displayDate: 'In development',
-      summary: 'Further classroom materials, teacher guidance and curriculum mapping resources will be added as the project develops.',
-      href: 'resources/',
-      linkText: 'Browse resources',
+      title: 'Engineering ethics lesson pack added',
+      date: '2026-05-19',
+      displayDate: 'May 2026',
+      summary: 'A KS4 Design &amp; Technology lesson pack, Engineering Ethics: When Buildings Fail, is now available with a scheme of work, slides and student activity sheet.',
+      href: 'resources/#repository',
+      linkText: 'Download the pack',
       selected: true
     }
   ];
@@ -112,9 +112,44 @@
     return String(value || '').trim().toLowerCase();
   }
 
+  function splitValues(value) {
+    return String(value || '')
+      .split(',')
+      .map((item) => item.trim())
+      .filter(Boolean);
+  }
+
   function valueInList(needle, haystack) {
     if (!needle) return true;
-    return normalise(haystack).split(',').map((item) => item.trim()).includes(normalise(needle));
+    return splitValues(haystack).some((item) => normalise(item) === normalise(needle));
+  }
+
+  function populateFilterOptions() {
+    filters.forEach((filter) => {
+      const key = filter.dataset.resourceFilter;
+      const currentValue = filter.value;
+      const defaultOption = filter.querySelector('option[value=""]');
+      const defaultText = defaultOption ? defaultOption.textContent : 'All';
+
+      const values = Array.from(new Set(cards.flatMap((card) => splitValues(card.dataset[key]))))
+        .sort((a, b) => a.localeCompare(b, 'en-GB', { sensitivity: 'base' }));
+
+      filter.innerHTML = '';
+
+      const allOption = document.createElement('option');
+      allOption.value = '';
+      allOption.textContent = defaultText;
+      filter.appendChild(allOption);
+
+      values.forEach((value) => {
+        const option = document.createElement('option');
+        option.value = value;
+        option.textContent = value;
+        filter.appendChild(option);
+      });
+
+      if (values.includes(currentValue)) filter.value = currentValue;
+    });
   }
 
   function filterCards() {
@@ -140,6 +175,8 @@
       count.textContent = `${visibleCount} ${noun} shown`;
     }
   }
+
+  populateFilterOptions();
 
   if (searchInput) searchInput.addEventListener('input', filterCards);
   filters.forEach((filter) => filter.addEventListener('change', filterCards));
