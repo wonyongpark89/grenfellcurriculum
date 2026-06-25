@@ -630,6 +630,50 @@ details[open] .accordion summary { border-bottom-color: var(--line); background:
 }
 .resource-count { margin-top: 0.5rem; color: var(--muted); font-weight: 600; font-size: 0.9rem; }
 .resource-grid { margin-top: 1rem; }
+.resource-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.resource-pagination .page-btn {
+  min-width: 2.75rem;
+  padding: 0.5rem 0.85rem;
+  font: inherit;
+  font-weight: 600;
+  line-height: 1;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--green-950);
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.resource-pagination .page-btn:hover:not(:disabled):not([aria-current="page"]) {
+  background: var(--green-50);
+  border-color: var(--green-600);
+}
+
+.resource-pagination .page-btn[aria-current="page"] {
+  background: var(--green-700);
+  border-color: var(--green-700);
+  color: var(--white);
+  font-weight: 700;
+}
+
+.resource-pagination .page-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.resource-pagination .page-btn:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
 .resource-card { display: flex; flex-direction: column; gap: 0.8rem; }
 .resource-card[hidden] { display: none !important; }
 .resource-meta { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto; }

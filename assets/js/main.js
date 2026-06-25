@@ -98,7 +98,9 @@
     }).join('');
   }
 
-  // Searchable and filterable resources page.
+  // Searchable, filterable and paginated resources page.
+  const PER_PAGE = 6;
+
   const resourceList = document.querySelector('[data-resource-list]');
   if (!resourceList) return;
 
@@ -107,6 +109,11 @@
   const filters = Array.from(document.querySelectorAll('[data-resource-filter]'));
   const resetButton = document.querySelector('[data-resource-reset]');
   const count = document.querySelector('[data-resource-count]');
+  const pager = document.querySelector('[data-resource-pagination]');
+
+  // Theme values are comma-separated on some cards; the other filters are single-value.
+  const MULTI_VALUE_FILTERS = new Set(['theme']);
+  let currentPage = 1;
 
   function normalise(value) {
     return String(value || '').trim().toLowerCase();
@@ -119,9 +126,9 @@
       .filter(Boolean);
   }
 
-  function valueInList(needle, haystack) {
-    if (!needle) return true;
-    return splitValues(haystack).some((item) => normalise(item) === normalise(needle));
+  function valuesForCard(card, key) {
+    const raw = card.getAttribute('data-' + key) || '';
+    return MULTI_VALUE_FILTERS.has(key) ? splitValues(raw) : (raw.trim() ? [raw.trim()] : []);
   }
 
   function populateFilterOptions() {
@@ -131,7 +138,7 @@
       const defaultOption = filter.querySelector('option[value=""]');
       const defaultText = defaultOption ? defaultOption.textContent : 'All';
 
-      const values = Array.from(new Set(cards.flatMap((card) => splitValues(card.dataset[key]))))
+      const values = Array.from(new Set(cards.flatMap((card) => valuesForCard(card, key))))
         .sort((a, b) => a.localeCompare(b, 'en-GB', { sensitivity: 'base' }));
 
       filter.innerHTML = '';
@@ -152,41 +159,137 @@
     });
   }
 
-  function filterCards() {
+  function cardMatches(card) {
     const query = normalise(searchInput ? searchInput.value : '');
-    const activeFilters = filters.map((filter) => ({
-      key: filter.dataset.resourceFilter,
-      value: filter.value
-    })).filter((filter) => filter.value);
+    const searchableText = normalise(card.dataset.search || card.textContent);
 
-    let visibleCount = 0;
+    if (query && !searchableText.includes(query)) return false;
+
+    return filters.every((filter) => {
+      const selectedValue = filter.value;
+      if (!selectedValue) return true;
+
+      const key = filter.dataset.resourceFilter;
+      return valuesForCard(card, key)
+        .some((cardValue) => normalise(cardValue) === normalise(selectedValue));
+    });
+  }
+
+  function renderResources() {
+    const matches = cards.filter(cardMatches);
+    const total = matches.length;
+    const totalPages = Math.max(1, Math.ceil(total / PER_PAGE));
+
+    currentPage = Math.min(Math.max(currentPage, 1), totalPages);
+
+    const start = (currentPage - 1) * PER_PAGE;
+    const end = start + PER_PAGE;
 
     cards.forEach((card) => {
-      const searchableText = normalise(card.dataset.search || card.textContent);
-      const matchesQuery = !query || searchableText.includes(query);
-      const matchesFilters = activeFilters.every((filter) => valueInList(filter.value, card.dataset[filter.key]));
-      const isVisible = matchesQuery && matchesFilters;
-      card.hidden = !isVisible;
-      if (isVisible) visibleCount += 1;
+      card.hidden = true;
     });
 
-    if (count) {
-      const noun = visibleCount === 1 ? 'resource' : 'resources';
-      count.textContent = `${visibleCount} ${noun} shown`;
+    matches.slice(start, end).forEach((card) => {
+      card.hidden = false;
+    });
+
+    updateResourceCount(total, start);
+    renderPagination(totalPages);
+  }
+
+  function updateResourceCount(total, start) {
+    if (!count) return;
+
+    if (total === 0) {
+      count.textContent = 'No resources match your filters.';
+      return;
     }
+
+    const from = start + 1;
+    const to = Math.min(start + PER_PAGE, total);
+    const noun = total === 1 ? 'resource' : 'resources';
+    count.textContent = `Showing ${from}–${to} of ${total} ${noun}`;
+  }
+
+  function createPageButton(label, page, options = {}) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'page-btn';
+    button.textContent = label;
+
+    if (options.disabled) button.disabled = true;
+    if (options.current) button.setAttribute('aria-current', 'page');
+    if (options.ariaLabel) button.setAttribute('aria-label', options.ariaLabel);
+
+    if (!options.disabled && !options.current) {
+      button.addEventListener('click', () => goToPage(page));
+    }
+
+    return button;
+  }
+
+  function renderPagination(totalPages) {
+    if (!pager) return;
+
+    pager.innerHTML = '';
+
+    if (totalPages <= 1) {
+      pager.hidden = true;
+      return;
+    }
+
+    pager.hidden = false;
+
+    pager.appendChild(createPageButton('‹ Prev', currentPage - 1, {
+      disabled: currentPage === 1,
+      ariaLabel: 'Previous page'
+    }));
+
+    for (let page = 1; page <= totalPages; page += 1) {
+      pager.appendChild(createPageButton(String(page), page, {
+        current: page === currentPage,
+        ariaLabel: `Page ${page}`
+      }));
+    }
+
+    pager.appendChild(createPageButton('Next ›', currentPage + 1, {
+      disabled: currentPage === totalPages,
+      ariaLabel: 'Next page'
+    }));
+  }
+
+  function goToPage(page) {
+    currentPage = page;
+    renderResources();
+
+    resourceList.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    if (count) {
+      count.setAttribute('tabindex', '-1');
+      count.focus({ preventScroll: true });
+    }
+  }
+
+  function resetToFirstPageAndRender() {
+    currentPage = 1;
+    renderResources();
   }
 
   populateFilterOptions();
 
-  if (searchInput) searchInput.addEventListener('input', filterCards);
-  filters.forEach((filter) => filter.addEventListener('change', filterCards));
+  if (searchInput) searchInput.addEventListener('input', resetToFirstPageAndRender);
+  filters.forEach((filter) => filter.addEventListener('change', resetToFirstPageAndRender));
+
   if (resetButton) {
     resetButton.addEventListener('click', () => {
       if (searchInput) searchInput.value = '';
-      filters.forEach((filter) => { filter.value = ''; });
-      filterCards();
+      filters.forEach((filter) => {
+        filter.value = '';
+      });
+      resetToFirstPageAndRender();
     });
   }
 
-  filterCards();
+  renderResources();
+
 })();
