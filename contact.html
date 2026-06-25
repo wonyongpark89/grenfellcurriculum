@@ -1,216 +1,148 @@
-```html
-<!doctype html>
-<html lang="en-GB">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contact | The Grenfell Curriculum</title>
-  <meta name="description" content="Contact the Grenfell Curriculum project team for CPD, resource, partnership and collaboration enquiries.">
-  <meta name="theme-color" content="#008a59">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="../assets/css/styles.css">
-</head>
+const TO_EMAIL = 'teachgrenfell@soton.ac.uk';
+const SHEET_NAME = 'Enquiries';
 
-<body class="page-contact">
-<header class="site-header">
-  <div class="header-inner">
-    <a class="brand" href="../" aria-label="The Grenfell Curriculum home">
-      <span class="brand-title">The Grenfell Curriculum</span>
-      <span class="brand-tagline">Memory, justice and education after Grenfell</span>
-    </a>
+function doPost(e) {
+  try {
+    const params = e.parameter || {};
 
-    <button class="nav-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" data-nav-toggle>
-      <span>Menu</span><span aria-hidden="true"></span>
-    </button>
+    // Honeypot field: real users should not fill this.
+    if (params.website) {
+      return textResponse('Thank you. Your enquiry has been sent.');
+    }
 
-    <nav class="site-nav" id="site-navigation" aria-label="Primary navigation" data-site-nav>
-      <ul>
-        <li><a href="../">Home</a></li>
-        <li><a href="../about/">About</a></li>
-        <li><a href="../principles/">Principles</a></li>
-        <li><a href="../cpd/">CPD</a></li>
-        <li><a href="../resources/">Resources</a></li>
-        <li><a href="../contact/" aria-current="page">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+    // Verify Cloudflare Turnstile.
+    const turnstileToken = params['cf-turnstile-response'];
 
-<main id="main">
+    if (!turnstileToken) {
+      return textResponse('Captcha token missing. Please go back and try again.');
+    }
 
-  <section class="page-hero page-heading">
-    <div class="container hero-grid">
-      <div class="hero-copy">
-        <span class="eyebrow">Enquiries and collaboration</span>
-        <h1>Contact</h1>
-        <p class="lede">For project, CPD, resource, partnership or collaboration enquiries.</p>
-        <div class="actions">
-          <a class="btn primary" href="#contact-form">Contact the project team</a>
-          <a class="btn secondary" href="../resources/">Browse resources</a>
-        </div>
-      </div>
-    </div>
-  </section>
+    if (!verifyTurnstile(turnstileToken)) {
+      return textResponse('Captcha verification failed. Please go back and try again.');
+    }
 
-  <section class="section compact" id="contact-form">
-    <div class="container contact-grid">
+    const name = sanitise(params.name, 200);
+    const email = sanitise(params.email, 300);
+    const enquiryArea = sanitise(params.enquiry_area, 200);
+    const message = sanitise(params.message, 5000);
 
-      <div class="panel">
-        <span class="eyebrow">Contact form</span>
-        <h2>Project enquiries</h2>
+    if (!name || !email || !message) {
+      return textResponse('Please complete all required fields.');
+    }
 
-        <p>
-          Please use this form for enquiries about the project, resources, CPD,
-          partnerships, media requests, school engagement or future collaboration.
-        </p>
+    if (!isValidEmail(email)) {
+      return textResponse('Please enter a valid email address.');
+    }
 
-        <form class="contact-form" action="https://script.google.com/macros/s/AKfycbzfjB093kDoOsg5L8nLUl6DMEF6C7qxSYjK4iOCj6PBsE7c0uFng4JQrBNNIWlPvGWT/exec" method="POST">
-          <label for="name">
-            Your name
-            <input id="name" name="name" type="text" autocomplete="name" required>
-          </label>
+    // Save to Google Sheet.
+    const sheet = getOrCreateSheet();
+    sheet.appendRow([
+      new Date(),
+      name,
+      email,
+      enquiryArea,
+      message
+    ]);
 
-          <label for="reply-email">
-            Your email address
-            <input id="reply-email" name="email" type="email" autocomplete="email" required>
-          </label>
+    // Send email.
+    MailApp.sendEmail({
+      to: TO_EMAIL,
+      subject: 'Grenfell Curriculum enquiry',
+      replyTo: email,
+      name: 'Grenfell Curriculum website',
+      body:
+        'New enquiry from the Grenfell Curriculum website\n\n' +
+        'Name: ' + name + '\n' +
+        'Email: ' + email + '\n' +
+        'Enquiry area: ' + enquiryArea + '\n\n' +
+        'Message:\n' + message
+    });
 
-          <label for="enquiry-type">
-            Enquiry area
-            <select id="enquiry-type" name="enquiry_area" required>
-              <option value="">Please select</option>
-              <option value="CPD">CPD</option>
-              <option value="Resources">Resources</option>
-              <option value="School engagement">School engagement</option>
-              <option value="Community partnership">Community partnership</option>
-              <option value="Media or policy enquiry">Media or policy enquiry</option>
-              <option value="Research collaboration">Research collaboration</option>
-              <option value="Other">Other</option>
-            </select>
-          </label>
+    return textResponse('Thank you. Your enquiry has been sent.');
 
-          <label for="message">
-            Message
-            <textarea id="message" name="message" rows="7" required></textarea>
-          </label>
+  } catch (error) {
+    console.error('FORM ERROR:', error);
+    return textResponse(
+      'There was a problem sending your enquiry. Please try again later.'
+    );
+  }
+}
 
-          <!-- Honeypot field: hidden from users, but often filled by bots. -->
-          <div class="visually-hidden" aria-hidden="true">
-            <label for="website">
-              Website
-              <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
-            </label>
-          </div>
+function verifyTurnstile(token) {
+  const secret = PropertiesService
+    .getScriptProperties()
+    .getProperty('TURNSTILE_SECRET_KEY');
 
-          <!-- Cloudflare Turnstile -->
-          <div class="cf-turnstile" data-sitekey="0x4AAAAAADrDKDLxrTs0y9Nm"></div>
+  if (!secret) {
+    console.error('Missing TURNSTILE_SECRET_KEY in Script Properties.');
+    return false;
+  }
 
-          <p class="form-help">
-            Please do not include sensitive personal information in this form.
-          </p>
+  const response = UrlFetchApp.fetch(
+    'https://challenges.cloudflare.com/turnstile/v0/siteverify',
+    {
+      method: 'post',
+      payload: {
+        secret: secret,
+        response: token
+      },
+      muteHttpExceptions: true
+    }
+  );
 
-          <div class="form-actions">
-            <button class="btn primary" type="submit">Send enquiry</button>
-          </div>
-        </form>
-      </div>
+  const resultText = response.getContentText();
+  console.log('Turnstile response:', resultText);
 
-      <div class="panel">
-        <span class="eyebrow">Enquiry areas</span>
-        <h2>What to contact us about</h2>
-        <ul class="inset-list">
-          <li>Using the CPD in schools, departments or teacher education programmes.</li>
-          <li>Accessible versions, corrections or updates to resources.</li>
-          <li>Community partnerships, policy work, events, media and research collaboration.</li>
-        </ul>
-      </div>
+  const result = JSON.parse(resultText);
+  return result.success === true;
+}
 
-    </div>
-  </section>
+function getOrCreateSheet() {
+  const spreadsheetId = PropertiesService
+    .getScriptProperties()
+    .getProperty('SPREADSHEET_ID');
 
-  <section class="section alt" aria-labelledby="site-statements-heading">
-    <div class="container">
-      <div class="section-title">
-        <span class="eyebrow">Site statements</span>
-        <h2 id="site-statements-heading">Accessibility, privacy and copyright</h2>
-        <p>These statements are standard text for the static site and should be reviewed before publication.</p>
-      </div>
+  if (!spreadsheetId) {
+    throw new Error('Missing SPREADSHEET_ID in Script Properties.');
+  }
 
-      <div class="grid three">
-        <article class="card feature-card" id="accessibility">
-          <h3>Accessibility</h3>
-          <p>
-            This site aims to meet WCAG 2.2 AA standards. It uses semantic HTML,
-            keyboard-accessible navigation, readable text sizes, strong colour contrast
-            and descriptive link text. If you need a resource in another format, please
-            contact the project team using the form on this page.
-          </p>
-        </article>
+  const spreadsheet = SpreadsheetApp.openById(spreadsheetId);
+  let sheet = spreadsheet.getSheetByName(SHEET_NAME);
 
-        <article class="card feature-card" id="privacy">
-          <h3>Privacy</h3>
-          <p>
-            This site does not collect personal data except where information is submitted
-            through the contact form. Form submissions are used only to respond to enquiries.
-            Any future analytics, mailing lists or additional forms should be covered by an
-            updated privacy statement.
-          </p>
-        </article>
+  if (!sheet) {
+    sheet = spreadsheet.insertSheet(SHEET_NAME);
+    sheet.appendRow([
+      'Timestamp',
+      'Name',
+      'Email',
+      'Enquiry area',
+      'Message'
+    ]);
+  }
 
-        <article class="card feature-card" id="copyright">
-          <h3>Copyright</h3>
-          <p>
-            Unless otherwise stated, site content is © The Grenfell Curriculum. Resources
-            may be used for educational purposes with attribution, subject to the licence
-            or permissions stated on each individual resource.
-          </p>
-        </article>
-      </div>
-    </div>
-  </section>
+  return sheet;
+}
 
-</main>
+function sanitise(value, maxLength) {
+  return String(value || '')
+    .replace(/[<>]/g, '')
+    .trim()
+    .slice(0, maxLength);
+}
 
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <h2>The Grenfell Curriculum</h2>
-        <p>Memory, justice and education after Grenfell.</p>
-        <p><strong>General enquiries:</strong> please use the contact form on this page.</p>
-      </div>
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
 
-      <div>
-        <h3>Site links</h3>
-        <ul class="footer-links">
-          <li><a href="../about/">About the project</a></li>
-          <li><a href="../principles/">Principles</a></li>
-          <li><a href="../cpd/">Teacher CPD</a></li>
-          <li><a href="../resources/">Open resources</a></li>
-          <li><a href="../contact/">Contact</a></li>
-        </ul>
-      </div>
+function textResponse(message) {
+  return ContentService
+    .createTextOutput(message)
+    .setMimeType(ContentService.MimeType.TEXT);
+}
 
-      <div>
-        <h3>Statements</h3>
-        <ul class="footer-links">
-          <li><a href="../contact/#accessibility">Accessibility</a></li>
-          <li><a href="../contact/#privacy">Privacy</a></li>
-          <li><a href="../contact/#copyright">Copyright</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p>© 2026 The Grenfell Curriculum</p>
-    </div>
-  </div>
-</footer>
-
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-<script src="../assets/js/main.js" defer></script>
-
-</body>
-</html>
-```
+// Optional: run this once manually to trigger Google authorisation.
+function authorise() {
+  getOrCreateSheet();
+  MailApp.getRemainingDailyQuota();
+  UrlFetchApp.fetch('https://challenges.cloudflare.com/');
+}
