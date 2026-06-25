@@ -293,3 +293,109 @@
   renderResources();
 
 })();
+/*
+  The Grenfell Curriculum — contact form
+  --------------------------------------
+  Sends the contact form to a Google Apps Script web app and verifies the
+  submitter with Cloudflare Turnstile. The destination email address lives
+  only in the Apps Script, never in this file.
+*/
+(function () {
+  var form = document.querySelector('[data-contact-form]');
+  if (!form) return;
+
+  // Google Apps Script web app URL (see code.gs for deployment).
+  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbxvMBnIHKR1ncQuCswvFDBmHgKufVj6arybdEd7AhExDKdMU2WjGgmC371cDu748BLr/exec';
+
+  var statusEl = form.querySelector('[data-cf-status]');
+  var submitBtn = form.querySelector('[data-cf-submit]');
+  var defaultLabel = submitBtn ? submitBtn.textContent : 'Send message';
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  function setStatus(type, message) {
+    if (!statusEl) return;
+    statusEl.hidden = false;
+    statusEl.className = 'cf-status cf-status--' + type;
+    statusEl.textContent = message;
+  }
+
+  function resetTurnstile() {
+    try { if (window.turnstile) window.turnstile.reset(); } catch (err) { /* ignore */ }
+  }
+
+  function turnstileToken() {
+    var field = form.querySelector('[name="cf-turnstile-response"]');
+    if (field && field.value) return field.value;
+    try { if (window.turnstile) return window.turnstile.getResponse(); } catch (err) { /* ignore */ }
+    return '';
+  }
+
+  function value(selector) {
+    var el = form.querySelector(selector);
+    return el ? el.value.trim() : '';
+  }
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    var name = value('#cf-name');
+    var email = value('#cf-email');
+    var message = value('#cf-message');
+    var company = value('#cf-company'); // honeypot — should stay empty
+
+    if (!name || !email || !message) {
+      setStatus('error', 'Please complete every field before sending.');
+      return;
+    }
+    if (!EMAIL_RE.test(email)) {
+      setStatus('error', 'Please enter a valid email address.');
+      return;
+    }
+
+    var token = turnstileToken();
+    if (!token) {
+      setStatus('error', 'Please complete the verification challenge, then send.');
+      return;
+    }
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+    }
+    setStatus('pending', 'Sending your message…');
+
+    // Sent as text/plain (no custom headers) so the browser treats this as a
+    // "simple" request and skips the CORS pre-flight that Apps Script cannot answer.
+    fetch(ENDPOINT, {
+      method: 'POST',
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        message: message,
+        company: company,
+        token: token
+      })
+    })
+      .then(function (response) {
+        return response.json().catch(function () { return null; });
+      })
+      .then(function (result) {
+        if (result && result.status === 'success') {
+          form.reset();
+          setStatus('success', result.message || 'Thank you — your message has been sent.');
+        } else {
+          setStatus('error', (result && result.message) || 'Sorry, something went wrong. Please try again.');
+        }
+      })
+      .catch(function () {
+        setStatus('error', 'Sorry, your message could not be sent. Please check your connection and try again.');
+      })
+      .then(function () {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = defaultLabel;
+        }
+        resetTurnstile();
+      });
+  });
+})();

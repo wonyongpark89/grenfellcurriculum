@@ -1198,3 +1198,63 @@ details[open] .module-tag {
   margin-top: 0;
   margin-bottom: 0;
 }
+
+/* ─── Contact form (Apps Script + Cloudflare Turnstile) ─── */
+.contact-form {
+  display: grid;
+  gap: 1.05rem;
+  margin-top: 1.5rem;
+}
+
+.contact-form .field { margin: 0; }
+
+.contact-form .actions { margin-top: 0.3rem; }
+
+.contact-form .btn[data-cf-submit] { min-width: 12rem; }
+
+/* Honeypot — visually removed but still in the DOM for bots to trip on */
+.cf-hp {
+  position: absolute !important;
+  left: -9999px !important;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.cf-turnstile { min-height: 65px; }
+
+.cf-status {
+  margin: 0.2rem 0 0;
+  padding: 0.85rem 1.1rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.55;
+  max-width: none;
+}
+
+.cf-status[hidden] { display: none; }
+
+.cf-status--pending {
+  background: var(--green-50);
+  border-color: rgba(19, 166, 107, 0.28);
+  color: var(--green-900);
+}
+
+.cf-status--success {
+  background: var(--green-100);
+  border-color: var(--green-500);
+  color: var(--green-950);
+}
+
+.cf-status--error {
+  background: var(--danger-soft);
+  border-color: #d8a25a;
+  color: #6b3d12;
+}
+
+@media (max-width: 680px) {
+  .contact-form .btn[data-cf-submit] { width: 100%; }
+}

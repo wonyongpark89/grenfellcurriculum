@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="../assets/css/styles.css">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body class="page-contact">
 <header class="site-header">
@@ -33,20 +34,41 @@
           <span class="eyebrow">Enquiries and collaboration</span>
           <h1>Contact</h1>
           <p class="lede">For project, CPD, resource, partnership or collaboration enquiries.</p>
-          <div class="actions"><a class="btn primary" href="mailto:teachgrenfell@soton.ac.uk">Email the project team</a><a class="btn secondary" href="../resources/">Browse resources</a></div>
+          <div class="actions"><a class="btn primary" href="#contact-form">Send a message</a><a class="btn secondary" href="../resources/">Browse resources</a></div>
         </div>
       </div>
     </section>
 
     <section class="section compact">
       <div class="container contact-grid">
-        <div class="panel">
-          <span class="eyebrow">Contact details</span>
-          <h2>Project enquiries</h2>
-          <p><strong>Project lead:</strong> Wonyong Park, Associate Professor, University of Southampton</p>
-          <p><strong>Email:</strong> <a href="mailto:teachgrenfell@soton.ac.uk">teachgrenfell@soton.ac.uk</a></p>
-          <p>Use this address for enquiries about the project, resources, CPD, partnerships, media requests, school engagement or future collaboration.</p>
-          <div class="actions"><a class="btn primary" href="mailto:teachgrenfell@soton.ac.uk">Email the project team</a></div>
+        <div class="panel contact-form-panel">
+          <span class="eyebrow">Send a message</span>
+          <h2>Contact the project team</h2>
+          <p>Use this form for enquiries about the project, resources, CPD, partnerships, media requests, school engagement or future collaboration. We aim to reply within a few working days.</p>
+          <form id="contact-form" class="contact-form" data-contact-form novalidate>
+            <div class="field">
+              <label for="cf-name">Name</label>
+              <input type="text" id="cf-name" name="name" autocomplete="name" maxlength="100" required>
+            </div>
+            <div class="field">
+              <label for="cf-email">Email</label>
+              <input type="email" id="cf-email" name="email" autocomplete="email" maxlength="254" required>
+            </div>
+            <div class="field">
+              <label for="cf-message">Message</label>
+              <textarea id="cf-message" name="message" rows="6" maxlength="5000" required></textarea>
+            </div>
+            <!-- Honeypot: hidden from people, catches automated bots. Leave empty. -->
+            <div class="cf-hp" aria-hidden="true">
+              <label for="cf-company">Company</label>
+              <input type="text" id="cf-company" name="cf_hp" tabindex="-1" autocomplete="off">
+            </div>
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAADrDKDLxrTs0y9Nm" data-theme="light" data-action="contact"></div>
+            <div class="actions">
+              <button type="submit" class="btn primary" data-cf-submit>Send message</button>
+            </div>
+            <p class="cf-status" role="status" aria-live="polite" data-cf-status hidden></p>
+          </form>
         </div>
         <div class="panel">
           <span class="eyebrow">Enquiry areas</span>
@@ -56,6 +78,7 @@
             <li>Accessible versions, corrections or updates to resources.</li>
             <li>Community partnerships, policy work, events, media and research collaboration.</li>
           </ul>
+          <p class="muted">Prefer not to use the form? You can also reach the project lead, Wonyong Park (Associate Professor, University of Southampton), through the University of Southampton staff directory.</p>
         </div>
       </div>
     </section>
@@ -70,11 +93,11 @@
         <div class="grid three">
           <article class="card feature-card" id="accessibility">
             <h3>Accessibility</h3>
-            <p>This site aims to meet WCAG 2.2 AA standards. It uses semantic HTML, keyboard-accessible navigation, readable text sizes, strong colour contrast and descriptive link text. If you need a resource in another format, contact <a href="mailto:teachgrenfell@soton.ac.uk">teachgrenfell@soton.ac.uk</a>.</p>
+            <p>This site aims to meet WCAG 2.2 AA standards. It uses semantic HTML, keyboard-accessible navigation, readable text sizes, strong colour contrast and descriptive link text. If you need a resource in another format, please use the contact form on this page and we will help.</p>
           </article>
           <article class="card feature-card" id="privacy">
             <h3>Privacy</h3>
-            <p>This static site does not collect personal data through forms. If you email the project team, your message will be used only to respond to your enquiry. Any future analytics, mailing lists or forms should be covered by an updated privacy statement.</p>
+            <p>When you submit the contact form, the name, email address and message you provide are sent to the project team by email and used only to respond to your enquiry. The form uses Cloudflare Turnstile to prevent spam. We do not sell your details or add you to any mailing list without your consent.</p>
           </article>
           <article class="card feature-card" id="copyright">
             <h3>Copyright</h3>
@@ -91,7 +114,7 @@
       <div>
         <h2>The Grenfell Curriculum</h2>
         <p>Memory, justice and education after Grenfell.</p>
-        <p><strong>General enquiries:</strong> <a href="mailto:teachgrenfell@soton.ac.uk">teachgrenfell@soton.ac.uk</a></p>
+        <p><strong>General enquiries:</strong> <a href="../contact/#contact-form">Use our contact form</a></p>
       </div>
       <div>
         <h3>Site links</h3>
