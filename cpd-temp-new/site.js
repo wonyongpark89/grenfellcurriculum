@@ -64,4 +64,27 @@
       });
     }
   });
+
+  // ---- self-check quizzes: reveal correct / incorrect on selection ----
+  document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('.choice-list').forEach(function(list){
+      if(!list.querySelector('[data-correct]')) return;   // only wire real quizzes
+      list.querySelectorAll('li').forEach(function(li){
+        li.setAttribute('role','button');
+        li.tabIndex=0;
+        li.setAttribute('aria-pressed','false');
+        function toggle(){
+          var on=li.classList.toggle('chosen');
+          li.setAttribute('aria-pressed', on?'true':'false');
+          li.classList.remove('correct','incorrect');
+          if(on){ li.classList.add(li.hasAttribute('data-correct')?'correct':'incorrect'); }
+        }
+        li.addEventListener('click', toggle);
+        li.addEventListener('keydown', function(e){
+          if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggle(); }
+        });
+      });
+    });
+  });
+
 })();
