@@ -1,0 +1,354 @@
+[
+  {
+    "title": "Introduction to the Course",
+    "items": [
+      {
+        "kind": "page",
+        "title": "Welcome to the Course",
+        "content_type": "WikiPage",
+        "ref": "g090d8ff7cf46787d5feff2ed32f56287",
+        "filename": "welcome-to-the-course.html"
+      },
+      {
+        "kind": "page",
+        "title": "The Project",
+        "content_type": "WikiPage",
+        "ref": "g7f488cf3fc14b210c2de7b4093f8d3ed",
+        "filename": "the-project.html"
+      },
+      {
+        "kind": "page",
+        "title": "Our approach",
+        "content_type": "WikiPage",
+        "ref": "g7dccbf887fe560f6bc3523923b6f0e93",
+        "filename": "our-approach.html"
+      },
+      {
+        "kind": "page",
+        "title": "People",
+        "content_type": "WikiPage",
+        "ref": "ge7f29ff8564a4a8d724b411525873c0e",
+        "filename": "people.html"
+      }
+    ]
+  },
+  {
+    "title": "CPD Week 1",
+    "items": [
+      {
+        "kind": "page",
+        "title": "Week 1: Learning Objectives",
+        "content_type": "WikiPage",
+        "ref": "g52157d40b2701a7e6d43d5f251d8d0b9",
+        "filename": "week-1-learning-objectives.html"
+      },
+      {
+        "kind": "page",
+        "title": "About You",
+        "content_type": "Quizzes::Quiz",
+        "ref": "gfd9f214097965aa891ebc1e558de3125",
+        "filename": "about-you.html"
+      },
+      {
+        "kind": "subheader",
+        "title": "1-1: THE STORY BEFORE THE FIRE"
+      },
+      {
+        "kind": "page",
+        "title": "A tale of two Kensingtons",
+        "content_type": "WikiPage",
+        "ref": "ga08c332b06466bfc4c6573ab66288c2d",
+        "filename": "a-tale-of-two-kensingtons.html"
+      },
+      {
+        "kind": "page",
+        "title": "Activity: Explore a Tale of Two Kensingtons through Google Maps",
+        "content_type": "WikiPage",
+        "ref": "g605730f3bf95fd1f6e3cd5fe28b25478",
+        "filename": "activity-explore-a-tale-of-two-kensingtons-through-google-maps.html"
+      },
+      {
+        "kind": "page",
+        "title": "The Demographic Contrast",
+        "content_type": "WikiPage",
+        "ref": "g9e5573cc35fbfc102e50fd897dc3845a",
+        "filename": "the-demographic-contrast.html"
+      },
+      {
+        "kind": "page",
+        "title": "Who Lived In The Tower?",
+        "content_type": "WikiPage",
+        "ref": "g8715666db8cb500f48b95d6f980cc98c",
+        "filename": "who-lived-in-the-tower.html"
+      },
+      {
+        "kind": "page",
+        "title": "Unheeded Warnings",
+        "content_type": "WikiPage",
+        "ref": "g4e5a3410ae43c137953c349fc1e448d2",
+        "filename": "unheeded-warnings.html"
+      },
+      {
+        "kind": "page",
+        "title": "\"Show Me the Bodies\"",
+        "content_type": "WikiPage",
+        "ref": "gf0cdcb267aea47af46b95e6977a29f7a",
+        "filename": "show-me-the-bodies.html"
+      },
+      {
+        "kind": "page",
+        "title": "Quiz: Understanding Grenfell",
+        "content_type": "Quizzes::Quiz",
+        "ref": "g279341f0434827ab21c34f3d9f34de49",
+        "filename": "quiz-understanding-grenfell.html"
+      },
+      {
+        "kind": "page",
+        "title": "Grenfell Tower: A Timeline of Failures",
+        "content_type": "WikiPage",
+        "ref": "gc7db2b120345d79fd57f4033cb0f64f1",
+        "filename": "grenfell-tower-a-timeline-of-failures.html"
+      },
+      {
+        "kind": "subheader",
+        "title": "1-2: EDUCATION FOR DISASTER JUSTICE"
+      },
+      {
+        "kind": "page",
+        "title": "How Should We Approach Teaching About Grenfell?",
+        "content_type": "WikiPage",
+        "ref": "g6a2a6a895564b6392ee96aa85caef4ce",
+        "filename": "how-should-we-approach-teaching-about-grenfell.html"
+      },
+      {
+        "kind": "page",
+        "title": "What Is Education For Disaster Justice?",
+        "content_type": "WikiPage",
+        "ref": "g43e53a043ed40204d8b99b4d3f1d50f2",
+        "filename": "what-is-education-for-disaster-justice.html"
+      },
+      {
+        "kind": "page",
+        "title": "How Not To Teach About Disasters",
+        "content_type": "WikiPage",
+        "ref": "g82a22a354e796c12bdc55064a40aef4f",
+        "filename": "how-not-to-teach-about-disasters.html"
+      },
+      {
+        "kind": "page",
+        "title": "Curriculum Mapping: Where Might Grenfell-Related Themes Meaningfully Sit?",
+        "content_type": "Quizzes::Quiz",
+        "ref": "gc617a43ea5a54e8e18fd1010814e1476",
+        "filename": "curriculum-mapping-where-might-grenfell-related-themes-meaningfully-sit.html"
+      },
+      {
+        "kind": "page",
+        "title": "End of Week 1 & Further Reading",
+        "content_type": "WikiPage",
+        "ref": "g92859d550463a270e7bbaa418964243e",
+        "filename": "end-of-week-1-and-further-reading.html"
+      }
+    ]
+  },
+  {
+    "title": "CPD Week 2",
+    "items": [
+      {
+        "kind": "page",
+        "title": "Week 2: Learning Objectives",
+        "content_type": "WikiPage",
+        "ref": "g177f5725152d40392181b79120b75432",
+        "filename": "week-2-learning-objectives.html"
+      },
+      {
+        "kind": "subheader",
+        "title": "2-1: THE NIGHT OF THE FIRE"
+      },
+      {
+        "kind": "page",
+        "title": "Where Were You The Night Of The Fire?",
+        "content_type": "Quizzes::Quiz",
+        "ref": "g74e3617bb2b46684f719bf35d32293c8",
+        "filename": "where-were-you-the-night-of-the-fire-2.html"
+      },
+      {
+        "kind": "page",
+        "title": "The Grenfell Tower Inquiry Report",
+        "content_type": "WikiPage",
+        "ref": "gf3d634cb85179c7ca7f10107a7b2ff7f",
+        "filename": "the-grenfell-tower-inquiry-report.html"
+      },
+      {
+        "kind": "page",
+        "title": "How Did The Fire Start?",
+        "content_type": "WikiPage",
+        "ref": "g4a45b777f1cbf43719a5bb20467a9b48",
+        "filename": "how-did-the-fire-start.html"
+      },
+      {
+        "kind": "page",
+        "title": "How Did It Spread?",
+        "content_type": "WikiPage",
+        "ref": "gbe87fb8e517027d7e1664c4a354c0d19",
+        "filename": "how-did-it-spread.html"
+      },
+      {
+        "kind": "page",
+        "title": "Why Did It Spread So Quickly?",
+        "content_type": "WikiPage",
+        "ref": "g472f5d542d880739e01618987f71926c",
+        "filename": "why-did-it-spread-so-quickly.html"
+      },
+      {
+        "kind": "page",
+        "title": "Survivors' Accounts",
+        "content_type": "WikiPage",
+        "ref": "gd457c94d9288ff24d8767cccbd8a3fed",
+        "filename": "survivors-accounts.html"
+      },
+      {
+        "kind": "subheader",
+        "title": "2-2: WHAT TO TEACH ABOUT GRENFELL"
+      },
+      {
+        "kind": "page",
+        "title": "What Should Learners Understand About Grenfell?",
+        "content_type": "WikiPage",
+        "ref": "gb6b51ca125ed1d06dca2511937e02f63",
+        "filename": "what-should-learners-understand-about-grenfell.html"
+      },
+      {
+        "kind": "page",
+        "title": "What Should Learners Be Able to Do?",
+        "content_type": "WikiPage",
+        "ref": "gff01e419c8d32578ac447a9f11f4a1b8",
+        "filename": "what-should-learners-be-able-to-do.html"
+      },
+      {
+        "kind": "page",
+        "title": "Curriculum Mapping",
+        "content_type": "WikiPage",
+        "ref": "g06f2e2f70fbeb552adfe8cf2a195301b",
+        "filename": "curriculum-mapping.html"
+      },
+      {
+        "kind": "page",
+        "title": "Media Failures and Delayed Justice in Hillsborough and Grenfell",
+        "content_type": "WikiPage",
+        "ref": "g2a91dca0e8374510351431d8f65c1d9b",
+        "filename": "media-failures-and-delayed-justice-in-hillsborough-and-grenfell.html"
+      },
+      {
+        "kind": "page",
+        "title": "Disrupting Media Narratives of Disaster",
+        "content_type": "WikiPage",
+        "ref": "gbf0ded0d2ab312dc7ee53532d30bd1b5",
+        "filename": "disrupting-media-narratives-of-disaster.html"
+      },
+      {
+        "kind": "page",
+        "title": "End of Week 2 & Further Reading",
+        "content_type": "WikiPage",
+        "ref": "gc6d3b2ff3a1c9590c1344af3d3ea30c0",
+        "filename": "end-of-week-2-and-further-reading.html"
+      }
+    ]
+  },
+  {
+    "title": "CPD Week 3",
+    "items": [
+      {
+        "kind": "page",
+        "title": "Week 3: Learning Objectives",
+        "content_type": "WikiPage",
+        "ref": "g59fa9465874dcd23bdc31e7fe45d8ed1",
+        "filename": "week-3-learning-objectives.html"
+      },
+      {
+        "kind": "subheader",
+        "title": "3-1: SINCE THE FIRE"
+      },
+      {
+        "kind": "page",
+        "title": "What Happened After the Fire?",
+        "content_type": "WikiPage",
+        "ref": "g65c2da5434bba6e0cb388445b9cadbb3",
+        "filename": "what-happened-after-the-fire.html"
+      },
+      {
+        "kind": "page",
+        "title": "Bringing a Community Together",
+        "content_type": "WikiPage",
+        "ref": "g918994f65fe2c6796e2ff58d412b224f",
+        "filename": "bringing-a-community-together.html"
+      },
+      {
+        "kind": "page",
+        "title": "How Should We Remember Grenfell?",
+        "content_type": "WikiPage",
+        "ref": "gcf8d3be445947e8f579da8c1cae88a3e",
+        "filename": "how-should-we-remember-grenfell.html"
+      },
+      {
+        "kind": "page",
+        "title": "Literature as Remembrance",
+        "content_type": "WikiPage",
+        "ref": "gc07eb7145c3df199065517cab913b89f",
+        "filename": "literature-as-remembrance.html"
+      },
+      {
+        "kind": "page",
+        "title": "The Future of Grenfell",
+        "content_type": "WikiPage",
+        "ref": "g1172fbfb66d9974e1d0bb4db0d12fe72",
+        "filename": "the-future-of-grenfell.html"
+      },
+      {
+        "kind": "page",
+        "title": "The Future of Grenfell",
+        "content_type": "Quizzes::Quiz",
+        "ref": "g5d8976c83ad6652e7e921229520b2af8",
+        "filename": "the-future-of-grenfell-2.html"
+      },
+      {
+        "kind": "subheader",
+        "title": "3-2: HOW TO TEACH ABOUT GRENFELL"
+      },
+      {
+        "kind": "page",
+        "title": "Exercise: Mapping Your Moral Compass",
+        "content_type": "WikiPage",
+        "ref": "g367ce3efc281813fafc2c2a7070503bf",
+        "filename": "exercise-mapping-your-moral-compass.html"
+      },
+      {
+        "kind": "page",
+        "title": "How Should We Teach About Grenfell? The CARE–LEAD Approach ",
+        "content_type": "WikiPage",
+        "ref": "g38bf8e9fcade14f695c4e87d433660b0",
+        "filename": "how-should-we-teach-about-grenfell-the-care-lead-approach.html"
+      },
+      {
+        "kind": "page",
+        "title": "Teaching Grenfell in an Unfinished Present",
+        "content_type": "WikiPage",
+        "ref": "g5f309feb8446d75015032d4e01bc6d6e",
+        "filename": "teaching-grenfell-in-an-unfinished-present.html"
+      },
+      {
+        "kind": "page",
+        "title": "Exercise: Design Your Grenfell Learning Experience",
+        "content_type": "WikiPage",
+        "ref": "g68384e871a2536abed0357943a6901be",
+        "filename": "exercise-design-your-grenfell-learning-experience.html"
+      },
+      {
+        "kind": "page",
+        "title": "End of Week 3 & Further Reading",
+        "content_type": "WikiPage",
+        "ref": "g68da3dabdf96aa8dfd6f1c79c15caf7a",
+        "filename": "end-of-week-3-and-further-reading.html"
+      }
+    ]
+  }
+]
