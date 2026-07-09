@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap');
 
 /* =========================================================================
-   Teaching about Grenfell — shared design system
+   Teaching about Grenfell: shared design system
    One token set, one type pairing (Fraunces + Inter), reusable components.
    ========================================================================= */
 
@@ -65,7 +65,7 @@ strong{font-weight:600;}
 .sidebar li{margin:.05rem 0;}
 .sidebar a:not(.home-link):not(.brand){display:block;text-decoration:none;padding:.4rem .55rem;border-radius:8px;color:var(--ink);font-size:.86rem;line-height:1.35;transition:background .12s ease,color .12s ease;}
 .sidebar a:not(.home-link):hover{background:var(--tint);color:var(--brand-dark);}
-.sidebar a.active{background:var(--tint-2);color:var(--brand-dark);font-weight:600;box-shadow:inset 3px 0 0 var(--brand);}
+.sidebar a.active{background:var(--tint-2);color:var(--brand-dark);font-weight:600;}
 .sidebar .subheader{font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:700;margin:.8rem .55rem .2rem;padding-top:.55rem;border-top:1px dashed var(--line-strong);}
 .sidebar .disabled{color:#a7aca4;}
 .nav-toggle{display:none;}
