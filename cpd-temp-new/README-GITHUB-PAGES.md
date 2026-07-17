@@ -32,3 +32,7 @@ If your existing website is already on GitHub Pages, you can place this whole fo
 ## Analytics
 
 No external analytics script is included by default. If analytics are added later, provide an appropriate privacy/cookie notice and avoid collecting personal or sensitive learner data through the public site.
+
+## CPD feedback form
+
+A final feedback page has been added at `pages/course-feedback.html`. It requires a Google Apps Script web-app endpoint before it can accept submissions. Follow `../cpd-feedback-apps-script/SETUP.md`, then paste the deployed `/exec` URL into `feedback-config.js`.

@@ -348,6 +348,13 @@
         "content_type": "WikiPage",
         "ref": "g68da3dabdf96aa8dfd6f1c79c15caf7a",
         "filename": "end-of-week-3-and-further-reading.html"
+      },
+      {
+        "kind": "page",
+        "title": "Course Feedback",
+        "content_type": "WikiPage",
+        "ref": "course-feedback",
+        "filename": "course-feedback.html"
       }
     ]
   }
