@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<link href="../site.css?v=20260717b" rel="stylesheet"/>
+<link href="../site.css?v=20260717c" rel="stylesheet"/>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-<script src="../feedback-config.js?v=20260717b"></script>
-<script defer src="../site.js?v=20260717b"></script>
+<script src="../feedback-config.js?v=20260717c"></script>
+<script defer src="../site.js?v=20260717c"></script>
 <title>Course feedback · Teaching about Grenfell: Education and Social Justice after Disasters</title>
 <meta name="description" content="Share feedback on the Teaching about Grenfell CPD course."/>
 <link rel="icon" href="../favicon.svg" type="image/svg+xml"/>
@@ -37,7 +37,7 @@
 </div>
 </div>
 
-<fieldset class="rating-question">
+<fieldset class="rating-question" data-validation-group="rating_overall">
 <legend>Overall, how would you rate the course?</legend>
 <div class="star-rating" aria-label="Overall course rating">
 <input type="radio" id="overall-5" name="rating_overall" value="5" required><label for="overall-5" title="5 stars"><span aria-hidden="true">★</span><span class="visually-hidden">5 stars</span></label>
@@ -46,9 +46,10 @@
 <input type="radio" id="overall-2" name="rating_overall" value="2"><label for="overall-2" title="2 stars"><span aria-hidden="true">★</span><span class="visually-hidden">2 stars</span></label>
 <input type="radio" id="overall-1" name="rating_overall" value="1"><label for="overall-1" title="1 star"><span aria-hidden="true">★</span><span class="visually-hidden">1 star</span></label>
 </div>
+<p class="field-error-message" data-error-for="rating_overall" hidden>Please select an overall course rating.</p>
 </fieldset>
 
-<fieldset class="rating-question">
+<fieldset class="rating-question" data-validation-group="rating_relevance">
 <legend>How relevant was the course to your educational context?</legend>
 <div class="star-rating" aria-label="Relevance rating">
 <input type="radio" id="relevance-5" name="rating_relevance" value="5" required><label for="relevance-5" title="5 stars"><span aria-hidden="true">★</span><span class="visually-hidden">5 stars</span></label>
@@ -57,9 +58,10 @@
 <input type="radio" id="relevance-2" name="rating_relevance" value="2"><label for="relevance-2" title="2 stars"><span aria-hidden="true">★</span><span class="visually-hidden">2 stars</span></label>
 <input type="radio" id="relevance-1" name="rating_relevance" value="1"><label for="relevance-1" title="1 star"><span aria-hidden="true">★</span><span class="visually-hidden">1 star</span></label>
 </div>
+<p class="field-error-message" data-error-for="rating_relevance" hidden>Please select a relevance rating.</p>
 </fieldset>
 
-<fieldset class="rating-question">
+<fieldset class="rating-question" data-validation-group="rating_confidence">
 <legend>How much has the course increased your confidence in approaching Grenfell in education?</legend>
 <div class="star-rating" aria-label="Confidence rating">
 <input type="radio" id="confidence-5" name="rating_confidence" value="5" required><label for="confidence-5" title="5 stars"><span aria-hidden="true">★</span><span class="visually-hidden">5 stars</span></label>
@@ -68,6 +70,7 @@
 <input type="radio" id="confidence-2" name="rating_confidence" value="2"><label for="confidence-2" title="2 stars"><span aria-hidden="true">★</span><span class="visually-hidden">2 stars</span></label>
 <input type="radio" id="confidence-1" name="rating_confidence" value="1"><label for="confidence-1" title="1 star"><span aria-hidden="true">★</span><span class="visually-hidden">1 star</span></label>
 </div>
+<p class="field-error-message" data-error-for="rating_confidence" hidden>Please select a confidence rating.</p>
 </fieldset>
 </section>
 
@@ -94,7 +97,7 @@
 </div>
 </div>
 <div class="form-grid two-columns">
-<div class="form-field">
+<div class="form-field" data-validation-group="educational_role">
 <label for="feedback-role">Your main role</label>
 <select id="feedback-role" name="educational_role" required>
 <option value="">Select one</option>
@@ -108,8 +111,9 @@
 <option>Policy, local-authority or professional-body role</option>
 <option>Other</option>
 </select>
+<p class="field-error-message" data-error-for="educational_role" hidden>Please select your main role.</p>
 </div>
-<div class="form-field">
+<div class="form-field" data-validation-group="educational_setting">
 <label for="feedback-setting">Main educational setting</label>
 <select id="feedback-setting" name="educational_setting" required>
 <option value="">Select one</option>
@@ -123,6 +127,7 @@
 <option>Policy or professional organisation</option>
 <option>Other</option>
 </select>
+<p class="field-error-message" data-error-for="educational_setting" hidden>Please select your main educational setting.</p>
 </div>
 <div class="form-field">
 <label for="feedback-subject">Main subject or area <span class="optional-marker">Optional</span></label>
@@ -132,7 +137,7 @@
 <label for="feedback-location">Country or region <span class="optional-marker">Optional</span></label>
 <input id="feedback-location" name="country_region" type="text" maxlength="150">
 </div>
-<div class="form-field">
+<div class="form-field" data-validation-group="discovery_source">
 <label for="feedback-discovery">How did you find out about the course?</label>
 <select id="feedback-discovery" name="discovery_source" required data-discovery-source>
 <option value="">Select one</option>
@@ -146,10 +151,12 @@
 <option>The Grenfell Curriculum website</option>
 <option>Other</option>
 </select>
+<p class="field-error-message" data-error-for="discovery_source" hidden>Please select how you found out about the course.</p>
 </div>
-<div class="form-field form-field--full" data-discovery-other hidden>
+<div class="form-field form-field--full" data-discovery-other data-validation-group="discovery_other" hidden>
 <label for="feedback-discovery-other">Please tell us how you found it</label>
 <input id="feedback-discovery-other" name="discovery_other" type="text" maxlength="250">
+<p class="field-error-message" data-error-for="discovery_other" hidden>Please tell us how you found the course.</p>
 </div>
 </div>
 </section>
@@ -170,13 +177,15 @@
 <p>We will not add you to a mailing list or use your details for unrelated purposes.</p>
 </div>
 <div class="form-grid two-columns contact-details" data-contact-details hidden>
-<div class="form-field">
+<div class="form-field" data-validation-group="contact_name">
 <label for="feedback-name">Name</label>
 <input id="feedback-name" name="contact_name" type="text" autocomplete="name" maxlength="100">
+<p class="field-error-message" data-error-for="contact_name" hidden>Please enter your name.</p>
 </div>
-<div class="form-field">
+<div class="form-field" data-validation-group="contact_email">
 <label for="feedback-email">Email address</label>
 <input id="feedback-email" name="contact_email" type="email" autocomplete="email" maxlength="254">
+<p class="field-error-message" data-error-for="contact_email" hidden>Please enter a valid email address.</p>
 </div>
 </div>
 </section>
@@ -192,7 +201,10 @@
 <h2>Submit your feedback</h2>
 <p>By submitting, you confirm that you have read the <a href="https://www.grenfellcurriculum.com/contact/#privacy" target="_blank" rel="noopener">privacy information</a>.</p>
 </div>
+<div class="turnstile-validation" data-validation-group="turnstile">
 <div class="cf-turnstile" data-sitekey="0x4AAAAAADrDKDLxrTs0y9Nm" data-theme="light" data-action="cpd-feedback"></div>
+<p class="field-error-message" data-error-for="turnstile" hidden>Please complete the verification challenge.</p>
+</div>
 <button class="feedback-submit" type="submit" data-feedback-submit>Submit feedback</button>
 <p class="feedback-status" role="status" aria-live="polite" data-feedback-status hidden></p>
 </div>

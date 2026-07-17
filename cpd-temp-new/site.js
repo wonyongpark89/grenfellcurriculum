@@ -117,6 +117,19 @@
     var comment=form.querySelector('[name="feedback_comment"]');
     var characterCount=form.querySelector('[data-character-count]');
 
+    var fieldLabels={
+      rating_overall:'overall course rating',
+      rating_relevance:'relevance rating',
+      rating_confidence:'confidence rating',
+      educational_role:'main role',
+      educational_setting:'main educational setting',
+      discovery_source:'how you found out about the course',
+      discovery_other:'how you found the course',
+      contact_name:'name',
+      contact_email:'valid email address',
+      turnstile:'verification challenge'
+    };
+
     function setStatus(type,message){
       if(!statusEl) return;
       statusEl.hidden=false;
@@ -146,7 +159,100 @@
 
     function value(name){
       var field=form.querySelector('[name="'+name+'"]');
-      return field?field.value.trim():'';
+      return field?String(field.value||'').trim():'';
+    }
+
+    function joinNatural(items){
+      if(!items.length) return '';
+      if(items.length===1) return items[0];
+      if(items.length===2) return items[0]+' and '+items[1];
+      return items.slice(0,-1).join(', ')+', and '+items[items.length-1];
+    }
+
+    function groupFor(name){
+      return form.querySelector('[data-validation-group="'+name+'"]');
+    }
+
+    function messageFor(name){
+      return form.querySelector('[data-error-for="'+name+'"]');
+    }
+
+    function fieldsFor(name){
+      if(name==='turnstile') return [];
+      return Array.prototype.slice.call(form.querySelectorAll('[name="'+name+'"]'));
+    }
+
+    function setFieldError(name,message){
+      var group=groupFor(name);
+      var error=messageFor(name);
+      var fields=fieldsFor(name);
+      var errorId='feedback-error-'+name.replace(/[^a-z0-9_-]/gi,'-');
+
+      if(group) group.classList.add('is-invalid');
+      if(error){
+        error.id=errorId;
+        if(message) error.textContent=message;
+        error.hidden=false;
+      }
+
+      fields.forEach(function(field){
+        field.setAttribute('aria-invalid','true');
+        var describedBy=String(field.getAttribute('aria-describedby')||'').split(/\s+/).filter(Boolean);
+        if(describedBy.indexOf(errorId)===-1) describedBy.push(errorId);
+        field.setAttribute('aria-describedby',describedBy.join(' '));
+      });
+    }
+
+    function clearFieldError(name){
+      var group=groupFor(name);
+      var error=messageFor(name);
+      var fields=fieldsFor(name);
+      var errorId='feedback-error-'+name.replace(/[^a-z0-9_-]/gi,'-');
+
+      if(group) group.classList.remove('is-invalid');
+      if(error) error.hidden=true;
+
+      fields.forEach(function(field){
+        field.removeAttribute('aria-invalid');
+        var describedBy=String(field.getAttribute('aria-describedby')||'').split(/\s+/).filter(function(id){
+          return id&&id!==errorId;
+        });
+        if(describedBy.length) field.setAttribute('aria-describedby',describedBy.join(' '));
+        else field.removeAttribute('aria-describedby');
+      });
+    }
+
+    function clearAllErrors(){
+      Object.keys(fieldLabels).forEach(clearFieldError);
+    }
+
+    function focusField(name){
+      var group=groupFor(name);
+      var field=null;
+      if(name!=='turnstile') field=form.querySelector('[name="'+name+'"]');
+      if(field&&typeof field.focus==='function'){
+        field.focus({preventScroll:true});
+      }
+      var target=group||field;
+      if(target&&typeof target.scrollIntoView==='function'){
+        target.scrollIntoView({behavior:'smooth',block:'center'});
+      }
+    }
+
+    function showFieldErrors(names,summaryMessage){
+      var unique=[];
+      names.forEach(function(name){
+        if(fieldLabels[name]&&unique.indexOf(name)===-1) unique.push(name);
+      });
+      unique.forEach(function(name){setFieldError(name);});
+
+      var labels=unique.map(function(name){return fieldLabels[name];});
+      var message=summaryMessage;
+      if(!message&&labels.length){
+        message='Please complete the highlighted '+(labels.length===1?'question':'questions')+': '+joinNatural(labels)+'.';
+      }
+      setStatus('error',message||'Please check the highlighted questions.');
+      if(unique.length) focusField(unique[0]);
     }
 
     function updateContactFields(){
@@ -157,6 +263,8 @@
       if(!enabled){
         if(nameInput) nameInput.value='';
         if(emailInput) emailInput.value='';
+        clearFieldError('contact_name');
+        clearFieldError('contact_email');
       }
     }
 
@@ -165,7 +273,10 @@
       if(discoveryOther) discoveryOther.hidden=!show;
       if(discoveryOtherInput){
         discoveryOtherInput.required=show;
-        if(!show) discoveryOtherInput.value='';
+        if(!show){
+          discoveryOtherInput.value='';
+          clearFieldError('discovery_other');
+        }
       }
     }
 
@@ -173,22 +284,56 @@
       if(characterCount&&comment) characterCount.textContent=comment.value.length+' / 4000';
     }
 
-    if(consent) consent.addEventListener('change',updateContactFields);
-    if(discovery) discovery.addEventListener('change',updateDiscoveryOther);
+    function clientValidationFields(){
+      var missing=[];
+      if(!selected('rating_overall')) missing.push('rating_overall');
+      if(!selected('rating_relevance')) missing.push('rating_relevance');
+      if(!selected('rating_confidence')) missing.push('rating_confidence');
+      if(!value('educational_role')) missing.push('educational_role');
+      if(!value('educational_setting')) missing.push('educational_setting');
+      if(!value('discovery_source')) missing.push('discovery_source');
+      if(value('discovery_source')==='Other'&&!value('discovery_other')) missing.push('discovery_other');
+      if(consent&&consent.checked){
+        if(!value('contact_name')) missing.push('contact_name');
+        if(!value('contact_email')||!(emailInput&&emailInput.validity.valid)) missing.push('contact_email');
+      }
+      return missing;
+    }
+
+    if(consent) consent.addEventListener('change',function(){
+      updateContactFields();
+      hideStatus();
+    });
+    if(discovery) discovery.addEventListener('change',function(){
+      updateDiscoveryOther();
+      clearFieldError('discovery_source');
+      hideStatus();
+    });
     if(comment) comment.addEventListener('input',updateCharacterCount);
+
     updateContactFields();
     updateDiscoveryOther();
     updateCharacterCount();
 
-    form.addEventListener('input',hideStatus);
-    form.addEventListener('change',hideStatus);
+    form.addEventListener('input',function(event){
+      var name=event.target&&event.target.name;
+      if(name) clearFieldError(name);
+      hideStatus();
+    });
+
+    form.addEventListener('change',function(event){
+      var name=event.target&&event.target.name;
+      if(name) clearFieldError(name);
+      hideStatus();
+    });
 
     form.addEventListener('submit',function(event){
       event.preventDefault();
+      clearAllErrors();
 
-      if(!form.checkValidity()){
-        form.reportValidity();
-        setStatus('error','Please complete all required questions before submitting.');
+      var missing=clientValidationFields();
+      if(missing.length){
+        showFieldErrors(missing);
         return;
       }
 
@@ -199,9 +344,10 @@
 
       var token=turnstileToken();
       if(!token){
-        setStatus('error','Please complete the verification challenge before submitting.');
+        showFieldErrors(['turnstile']);
         return;
       }
+      clearFieldError('turnstile');
 
       var payload={
         rating_overall:selected('rating_overall'),
@@ -230,10 +376,13 @@
       fetch(endpoint,{
         method:'POST',
         body:JSON.stringify(payload),
-        redirect:'follow'
+        redirect:'follow',
+        credentials:'omit'
       })
       .then(function(response){
-        return response.json().catch(function(){return null;});
+        return response.text().then(function(text){
+          try{return JSON.parse(text);}catch(err){return null;}
+        });
       })
       .then(function(result){
         if(result&&result.status==='success'){
@@ -241,10 +390,16 @@
           updateContactFields();
           updateDiscoveryOther();
           updateCharacterCount();
+          clearAllErrors();
           try{localStorage.setItem('grenfell_cpd_feedback_submitted','true');}catch(err){}
           setStatus('success',result.message||'Thank you. Your feedback has been submitted.');
         }else{
-          setStatus('error',(result&&result.message)||'Sorry, something went wrong. Please try again.');
+          var backendFields=result&&Array.isArray(result.fields)?result.fields:[];
+          if(backendFields.length){
+            showFieldErrors(backendFields,result.message||'Please check the highlighted questions.');
+          }else{
+            setStatus('error',(result&&result.message)||'Sorry, something went wrong. Please try again.');
+          }
         }
       })
       .catch(function(){
