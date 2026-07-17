@@ -202,6 +202,9 @@ footer p{margin:0 0 .4rem;}
 .check-label input{width:1.15rem;height:1.15rem;flex:none;margin-top:.22rem;accent-color:var(--brand);}
 .consent-box p{margin:.55rem 0 0 1.85rem;color:var(--muted);font-size:.84rem;}
 .contact-details{margin-top:1rem;}
+
+/* Keep JavaScript-controlled feedback fields hidden even when grid rules set display. */
+.feedback-form [hidden]{display:none!important;}
 .form-honeypot{position:absolute!important;left:-9999px!important;top:auto;width:1px;height:1px;overflow:hidden;}
 .feedback-submit-panel{background:var(--brand-deep);color:#fff;border-radius:var(--radius);padding:clamp(1.15rem,3vw,1.7rem);display:grid;gap:1rem;box-shadow:var(--shadow-md);}
 .feedback-submit-panel h2{color:#fff;margin:0 0 .25rem;}
