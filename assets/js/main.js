@@ -2,7 +2,7 @@
   The Grenfell Curriculum — shared JavaScript
   ------------------------------------------
   - Mobile navigation toggle
-  - Automatically sorted selected news cards
+  - Paginated project updates
   - Resource repository search/filter controls
   - Footer year update
 */
@@ -37,56 +37,74 @@
   const year = document.querySelector('[data-current-year]');
   if (year) year.textContent = new Date().getFullYear();
 
-  // Selected updates shown on the home page.
-  // Add future updates here; items marked selected: true will be sorted by date and displayed automatically.
-  const NEWS_ITEMS = [
-    {
-      title: 'CPD course launched',
-      date: '2026-04-01',
-      displayDate: 'April 2026',
-      summary: 'The free online course Teaching about Grenfell: Education and Social Justice after Disasters is available on Canvas.',
-      href: 'https://canvas.instructure.com/courses/13952145/modules',
-      external: true,
-      linkText: 'Access the course',
-      selected: true
-    },
-    {
-      title: 'Pilot lesson completed in North Kensington',
-      date: '2026-02-01',
-      displayDate: 'February 2026',
-      summary: 'A Year 5 pilot lesson explored remembrance through poetry, structured discussion and careful preparation.',
-      href: 'resources/',
-      linkText: 'See related outputs',
-      selected: true
-    },
-    {
-      title: 'Community recommendations report published',
-      date: '2025-07-01',
-      displayDate: 'July 2025',
-      summary: 'The report sets out community-informed recommendations for what teaching about Grenfell should include and why it matters.',
-      href: 'resources/',
-      linkText: 'Find the report',
-      selected: true
-    },
-    {
-      title: 'Engineering ethics lesson pack added',
-      date: '2026-05-19',
-      displayDate: 'May 2026',
-      summary: 'A KS4 Design &amp; Technology lesson pack, Engineering Ethics: When Buildings Fail, is now available with a scheme of work, slides and student activity sheet.',
-      href: 'resources/#repository',
-      linkText: 'Download the pack',
-      selected: true
-    }
-  ];
+  // Paginated project updates shown on the home page.
+  // The update content itself lives in assets/js/news.js.
+  const NEWS_PER_PAGE = 4;
+  const newsItems = Array.isArray(window.GRENFELL_NEWS_ITEMS)
+    ? [...window.GRENFELL_NEWS_ITEMS].sort((a, b) => new Date(b.date) - new Date(a.date))
+    : [];
 
   const newsList = document.querySelector('[data-news-list]');
-  if (newsList) {
-    const selectedNews = NEWS_ITEMS
-      .filter((item) => item.selected)
-      .sort((a, b) => new Date(b.date) - new Date(a.date))
-      .slice(0, 4);
+  const newsPager = document.querySelector('[data-news-pagination]');
+  let newsPage = 1;
 
-    newsList.innerHTML = selectedNews.map((item) => {
+  function createNewsPageButton(label, page, options = {}) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'page-btn';
+    button.textContent = label;
+
+    if (options.disabled) button.disabled = true;
+    if (options.current) button.setAttribute('aria-current', 'page');
+    if (options.ariaLabel) button.setAttribute('aria-label', options.ariaLabel);
+
+    if (!options.disabled && !options.current) {
+      button.addEventListener('click', () => goToNewsPage(page));
+    }
+
+    return button;
+  }
+
+  function renderNewsPagination(totalPages) {
+    if (!newsPager) return;
+
+    newsPager.innerHTML = '';
+
+    if (totalPages <= 1) {
+      newsPager.hidden = true;
+      return;
+    }
+
+    newsPager.hidden = false;
+
+    newsPager.appendChild(createNewsPageButton('‹ Prev', newsPage - 1, {
+      disabled: newsPage === 1,
+      ariaLabel: 'Previous project updates page'
+    }));
+
+    for (let page = 1; page <= totalPages; page += 1) {
+      newsPager.appendChild(createNewsPageButton(String(page), page, {
+        current: page === newsPage,
+        ariaLabel: `Project updates page ${page}`
+      }));
+    }
+
+    newsPager.appendChild(createNewsPageButton('Next ›', newsPage + 1, {
+      disabled: newsPage === totalPages,
+      ariaLabel: 'Next project updates page'
+    }));
+  }
+
+  function renderNews() {
+    if (!newsList) return;
+
+    const totalPages = Math.max(1, Math.ceil(newsItems.length / NEWS_PER_PAGE));
+    newsPage = Math.min(Math.max(newsPage, 1), totalPages);
+
+    const start = (newsPage - 1) * NEWS_PER_PAGE;
+    const pageItems = newsItems.slice(start, start + NEWS_PER_PAGE);
+
+    newsList.innerHTML = pageItems.map((item) => {
       const attrs = item.external ? ' target="_blank" rel="noopener noreferrer"' : '';
       return `
         <article class="card news-card">
@@ -96,7 +114,17 @@
           <a class="btn secondary" href="${item.href}"${attrs}>${item.linkText}</a>
         </article>`;
     }).join('');
+
+    renderNewsPagination(totalPages);
   }
+
+  function goToNewsPage(page) {
+    newsPage = page;
+    renderNews();
+    newsList.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  renderNews();
 
   // Searchable, filterable and paginated resources page.
   const PER_PAGE = 6;
@@ -293,6 +321,7 @@
   renderResources();
 
 })();
+
 /*
   The Grenfell Curriculum — contact form
   --------------------------------------
@@ -300,6 +329,7 @@
   submitter with Cloudflare Turnstile. The destination email address lives
   only in the Apps Script, never in this file.
 */
+
 (function () {
   var form = document.querySelector('[data-contact-form]');
   if (!form) return;
@@ -347,6 +377,7 @@
       setStatus('error', 'Please complete every field before sending.');
       return;
     }
+
     if (!EMAIL_RE.test(email)) {
       setStatus('error', 'Please enter a valid email address.');
       return;
@@ -362,6 +393,7 @@
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending…';
     }
+
     setStatus('pending', 'Sending your message…');
 
     // Sent as text/plain (no custom headers) so the browser treats this as a
