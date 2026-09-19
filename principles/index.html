@@ -9,6 +9,31 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="../assets/css/styles.css">
+  <style>
+    /* Keep the heading and EDJ link legible on the dark section. */
+    .page-principles #disaster-justice-heading {
+      color: #ffffff;
+    }
+
+    .page-principles .section.dark .btn.edj-framework-link,
+    .page-principles .section.dark .btn.edj-framework-link:visited {
+      color: #005c3b;
+      background: #ffffff;
+      border-color: #ffffff;
+    }
+
+    .page-principles .section.dark .btn.edj-framework-link:hover,
+    .page-principles .section.dark .btn.edj-framework-link:focus-visible {
+      color: #005c3b;
+      background: #e7f3ed;
+      border-color: #e7f3ed;
+    }
+
+    .page-principles .section.dark .btn.edj-framework-link:focus-visible {
+      outline: 3px solid #ffffff;
+      outline-offset: 4px;
+    }
+  </style>
 </head>
 <body class="page-principles">
 <header class="site-header">
@@ -76,7 +101,7 @@
           <article class="card"><h3>Support emotional safety and dialogue.</h3><p>Create structured, reflective and non-extractive spaces.</p></article>
         </div>
         <div class="actions">
-          <a class="btn secondary" href="../edj/">Explore the EDJ framework: what learners should know and be able to do</a>
+          <a class="btn secondary edj-framework-link" href="../edj/">Explore the EDJ framework: what learners should know and be able to do</a>
         </div>
       </div>
     </section>
