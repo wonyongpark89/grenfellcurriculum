@@ -13,26 +13,73 @@
   const nav = document.querySelector('[data-site-nav]');
 
   if (navToggle && nav) {
+    const mobileNav = window.matchMedia('(max-width: 1100px)');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let closeTimer;
+
+    nav.classList.add('t-dropdown');
+    nav.dataset.origin = 'top-center';
+
+    function setNavOpen(open) {
+      clearTimeout(closeTimer);
+      const wasOpen = nav.classList.contains('is-open');
+      open = mobileNav.matches && open;
+      if (!open && mobileNav.matches && nav.contains(document.activeElement)) {
+        navToggle.focus();
+      }
+      body.classList.toggle('nav-open', open);
+      navToggle.setAttribute('aria-expanded', String(open));
+      nav.classList.remove('is-closing');
+      nav.classList.toggle('is-open', open);
+      // Opacity/pointer-events alone do not remove hidden links from Tab order.
+      nav.inert = mobileNav.matches && !open;
+
+      if (!open && wasOpen && mobileNav.matches && !reducedMotion.matches) {
+        nav.classList.add('is-closing');
+        const closeMs = parseFloat(getComputedStyle(nav).getPropertyValue('--dropdown-close-dur')) || 150;
+        closeTimer = setTimeout(() => nav.classList.remove('is-closing'), closeMs);
+      }
+    }
+
+    setNavOpen(false);
     navToggle.addEventListener('click', () => {
-      const isOpen = body.classList.toggle('nav-open');
-      navToggle.setAttribute('aria-expanded', String(isOpen));
+      setNavOpen(!body.classList.contains('nav-open'));
     });
 
     nav.addEventListener('click', (event) => {
       if (event.target.closest('a')) {
-        body.classList.remove('nav-open');
-        navToggle.setAttribute('aria-expanded', 'false');
+        setNavOpen(false);
       }
     });
 
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape' && body.classList.contains('nav-open')) {
-        body.classList.remove('nav-open');
-        navToggle.setAttribute('aria-expanded', 'false');
+        setNavOpen(false);
         navToggle.focus();
       }
     });
+
+    mobileNav.addEventListener('change', () => {
+      const toggleHadFocus = document.activeElement === navToggle;
+      setNavOpen(false);
+      if (!mobileNav.matches && toggleHadFocus) {
+        (nav.querySelector('a[aria-current="page"]') || nav.querySelector('a')).focus();
+      }
+    });
+    reducedMotion.addEventListener('change', () => {
+      if (reducedMotion.matches) {
+        clearTimeout(closeTimer);
+        nav.classList.remove('is-closing');
+      }
+    });
   }
+
+  // Transitions.dev Learn more hover: decorative arrows on selected actions only.
+  document.querySelectorAll('.feature-card a.btn[href], .resource-card a.btn[href]').forEach((link) => {
+    if (link.getAttribute('aria-disabled') === 'true') return;
+    link.classList.add('t-learn');
+    link.insertAdjacentHTML('beforeend', '<span class="t-learn-chevron" aria-hidden="true"><svg viewBox="0 0 16 16" focusable="false"><path class="t-learn-arm t-learn-arm-top" d="M6 4L10 8"/><path class="t-learn-arm t-learn-arm-bot" d="M10 8L6 12"/></svg></span>');
+  });
 
   const year = document.querySelector('[data-current-year]');
   if (year) year.textContent = new Date().getFullYear();

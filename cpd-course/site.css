@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap');
+@import url('../assets/css/transitions.css');
 
 /* =========================================================================
    Teaching about Grenfell: shared design system
@@ -80,7 +81,9 @@ article > .measure > p,article > p{max-width:var(--measure);}
 /* ---------- Prev / next ---------- */
 .page-nav{display:flex;justify-content:space-between;gap:1rem;margin:3rem 0 .5rem;padding-top:1.5rem;border-top:1px solid var(--line);flex-wrap:wrap;}
 .page-nav a{display:inline-flex;align-items:center;gap:.45rem;max-width:47%;background:var(--tint);border:1px solid var(--line);padding:.75rem 1.15rem;border-radius:12px;text-decoration:none;font-weight:600;font-size:.92rem;color:var(--brand-dark);transition:border-color .15s ease,background .15s ease,box-shadow .15s ease,transform .15s ease;}
-.page-nav a:hover{border-color:var(--brand);background:var(--tint-2);text-decoration:none;transform:translateY(-1px);box-shadow:var(--shadow-sm);}
+.page-nav a:hover{border-color:var(--brand);background:var(--tint-2);text-decoration:none;box-shadow:var(--shadow-sm);}
+.page-nav .prev{--learn-shift:-2px;}
+.page-nav .prev .t-learn-chevron svg{transform:scaleX(-1);}
 .page-nav .next{margin-left:auto;}
 .page-nav a .nav-label{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;}
 .page-nav a .nav-ar{flex:none;font-weight:600;}

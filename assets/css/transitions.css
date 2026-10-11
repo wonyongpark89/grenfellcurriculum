@@ -1,0 +1,83 @@
+/* Transitions.dev: Menu dropdown and Learn more hover, tuned for this site.
+   https://github.com/Jakubantalik/transitions.dev/tree/main/skills/transitions-dev */
+:root {
+  --dropdown-open-dur: 200ms;
+  --dropdown-close-dur: 150ms;
+  --dropdown-pre-scale: 0.995;
+  --dropdown-closing-scale: 0.995;
+  --dropdown-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --learn-shift: 2px;
+  --learn-spread: 8deg;
+  --learn-in: 180ms;
+  --learn-out: 180ms;
+  --learn-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* The shared primary navigation is a dropdown only on mobile. */
+@media (max-width: 1100px) {
+  .t-dropdown {
+    transform-origin: top left;
+    transform: scale(var(--dropdown-pre-scale));
+    opacity: 0;
+    pointer-events: none;
+    transition:
+      transform var(--dropdown-open-dur) var(--dropdown-ease),
+      opacity var(--dropdown-open-dur) var(--dropdown-ease);
+    will-change: transform, opacity;
+  }
+  .t-dropdown[data-origin="top-center"] { transform-origin: top center; }
+  .t-dropdown.is-open {
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .t-dropdown.is-closing {
+    transform: scale(var(--dropdown-closing-scale));
+    opacity: 0;
+    pointer-events: none;
+    transition:
+      transform var(--dropdown-close-dur) var(--dropdown-ease),
+      opacity var(--dropdown-close-dur) var(--dropdown-ease);
+  }
+}
+
+.t-learn-chevron {
+  display: inline-flex;
+  transform: translateX(0);
+  transition: transform var(--learn-out) var(--learn-ease);
+}
+.t-learn-chevron svg {
+  width: 1em;
+  height: 1em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.t-learn-arm {
+  transform-box: view-box;
+  transform-origin: 10px 8px;
+  vector-effect: non-scaling-stroke;
+  transition: transform var(--learn-out) var(--learn-ease);
+}
+/* Touch keeps the resting icon; keyboard focus gets the same cue as hover. */
+@media (hover: hover) {
+  .t-learn:hover .t-learn-chevron { transform: translateX(var(--learn-shift)); transition-duration: var(--learn-in); }
+  .t-learn:hover .t-learn-arm { transition-duration: var(--learn-in); }
+  .t-learn:hover .t-learn-arm-top { transform: rotate(var(--learn-spread)); }
+  .t-learn:hover .t-learn-arm-bot { transform: rotate(calc(var(--learn-spread) * -1)); }
+}
+.t-learn:focus-visible .t-learn-chevron { transform: translateX(var(--learn-shift)); transition-duration: var(--learn-in); }
+.t-learn:focus-visible .t-learn-arm { transition-duration: var(--learn-in); }
+.t-learn:focus-visible .t-learn-arm-top { transform: rotate(var(--learn-spread)); }
+.t-learn:focus-visible .t-learn-arm-bot { transform: rotate(calc(var(--learn-spread) * -1)); }
+
+@media (prefers-reduced-motion: reduce) {
+  .t-dropdown,
+  .t-learn-chevron,
+  .t-learn-arm {
+    transition: none !important;
+    transform: none !important;
+  }
+}
