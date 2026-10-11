@@ -39,6 +39,13 @@
   }
 
   document.addEventListener('DOMContentLoaded', function(){
+    // Enhance existing navigation icons without changing link text or destinations.
+    document.querySelectorAll('.page-nav a .nav-ar').forEach(function(arrow){
+      arrow.parentElement.classList.add('t-learn');
+      arrow.classList.add('t-learn-chevron');
+      arrow.innerHTML='<svg viewBox="0 0 16 16" focusable="false"><path class="t-learn-arm t-learn-arm-top" d="M6 4L10 8"/><path class="t-learn-arm t-learn-arm-bot" d="M10 8L6 12"/></svg>';
+    });
+
     var nav=document.querySelector('nav.sidebar');
     if(!nav) return;
     buildNav(nav);

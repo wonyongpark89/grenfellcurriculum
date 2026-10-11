@@ -8,6 +8,7 @@
 */
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap');
+@import url('transitions.css');
 
 :root {
   --green-980: #031b12;
@@ -415,6 +416,7 @@ p {
 
 .btn::after { content: "→"; font-weight: 400; margin-left: 0.2em; transition: transform 0.16s ease; }
 .btn:hover::after { transform: translateX(4px); }
+.btn.t-learn::after { content: none; }
 
 .btn.primary {
   background: var(--green-800); color: var(--white); border-color: var(--green-800);
@@ -473,6 +475,12 @@ p {
   transform: translateY(-3px);
   box-shadow: 0 12px 32px rgba(3,27,18,0.10), 0 2px 6px rgba(3,27,18,0.05);
 }
+
+/* Keep attention on the action link instead of lifting its content card. */
+.feature-card:hover,
+.resource-card:hover,
+.feature-card .btn.t-learn:hover,
+.resource-card .btn.t-learn:hover { transform: none; }
 
 .panel {
   padding: clamp(1.6rem, 3.5vw, 2.65rem);
@@ -799,9 +807,9 @@ details[open] .accordion summary { border-bottom-color: var(--line); background:
     position: fixed; inset: var(--header-height) 0 auto 0; padding: 1rem; display: block;
     background: rgba(253,249,242,0.98); border-bottom: 1px solid var(--line);
     max-height: calc(100vh - var(--header-height)); max-height: calc(100dvh - var(--header-height)); overflow-y: auto; visibility: hidden;
-    backdrop-filter: blur(8px); transform: translateY(-120%); transition: transform 0.22s ease;
+    backdrop-filter: blur(8px);
   }
-  body.nav-open .site-nav { transform: translateY(0); visibility: visible; }
+  .site-nav.is-open, .site-nav.is-closing { visibility: visible; }
   .site-nav ul { display: grid; gap: 0; }
   .site-nav li { display: block; }
   .site-nav a {
