@@ -37,9 +37,9 @@
 html{scroll-behavior:smooth;}
 body{margin:0;font-family:var(--font-body);color:var(--ink);background:var(--bg);line-height:1.75;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
 
-h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;line-height:1.18;letter-spacing:-.01em;color:var(--brand-deep);}
-h1{font-size:clamp(1.8rem,3.4vw,2.5rem);margin:.1rem 0 1rem;}
-h2{font-size:1.4rem;}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:500;line-height:1.18;letter-spacing:-.01em;color:var(--brand-deep);}
+h1{font-size:clamp(1.8rem,3.4vw,2.5rem);font-weight:750;margin:.1rem 0 1rem;}
+h2{font-size:1.4rem;font-weight:700;}
 h3{font-size:1.15rem;}
 p{margin:0 0 1.2rem;}
 a{color:var(--brand-dark);text-decoration:none;}
@@ -56,7 +56,7 @@ strong{font-weight:600;}
 .layout{display:grid;grid-template-columns:300px minmax(0,1fr);min-height:100vh;}
 .sidebar{background:var(--surface);border-right:1px solid var(--line);padding:1.15rem 1rem 2rem;overflow:auto;position:sticky;top:0;height:100vh;}
 .sidebar .brand{display:block;padding:.15rem .35rem 1rem;border-bottom:1px solid var(--line);margin-bottom:.6rem;text-decoration:none;}
-.sidebar .brand .b-title{font-family:var(--font-display);font-weight:600;font-size:1.02rem;color:var(--brand-deep);line-height:1.2;display:block;}
+.sidebar .brand .b-title{font-family:var(--font-display);font-weight:500;font-size:1.02rem;color:var(--brand-deep);line-height:1.2;display:block;}
 .sidebar .brand .b-sub{font-size:.72rem;color:var(--muted);display:block;margin-top:.15rem;}
 .sidebar .home-link{display:inline-flex;align-items:center;gap:.35rem;font-size:.82rem;font-weight:600;color:var(--brand-dark);margin-bottom:.9rem;text-decoration:none;}
 .sidebar .home-link::before{content:"\2190";}
@@ -97,10 +97,10 @@ article > .measure > p,article > p{max-width:var(--measure);}
 
 /* ---------- Cards ---------- */
 .ccard{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-sm);overflow:hidden;margin:0 0 1.25rem;}
-.card-head{background:var(--tint);border-bottom:1px solid var(--line);color:var(--brand-deep);font-family:var(--font-display);font-weight:600;font-size:1.05rem;padding:.85rem 1.3rem;}
+.card-head{background:var(--tint);border-bottom:1px solid var(--line);color:var(--brand-deep);font-family:var(--font-display);font-weight:500;font-size:1.05rem;padding:.85rem 1.3rem;}
 .ccard-body{padding:1.15rem 1.35rem;}
 .ccard-body > *:last-child{margin-bottom:0;}
-.sec-h{font-family:var(--font-display);font-size:1.3rem;color:var(--brand-deep);font-weight:600;margin:1.6rem 0 .9rem;padding-bottom:.4rem;border-bottom:2px solid var(--brand);}
+.sec-h{font-family:var(--font-display);font-size:1.3rem;color:var(--brand-deep);font-weight:700;margin:1.6rem 0 .9rem;padding-bottom:.4rem;border-bottom:2px solid var(--brand);}
 
 /* ---------- Quiz / self-check (de-boxed) ---------- */
 .activity-card{border:0;background:transparent;padding:0;margin:2.9rem 0;border-top:1px solid var(--line);padding-top:1.9rem;}

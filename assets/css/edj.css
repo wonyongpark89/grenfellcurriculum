@@ -29,7 +29,7 @@ body.page-edj { background: #fff; }
 .edj-page h3,
 .edj-page p { margin:0 }
 .edj-page h1,
-.edj-page h2 { font-family:var(--display);font-weight:400;line-height:1.12;letter-spacing:-.02em }
+.edj-page h2 { font-family:var(--display);line-height:1.12;letter-spacing:-.02em }
 .edj-page h3 { font-size:1rem;line-height:1.4 }
 .edj-page p+p { margin-top:.9rem }
 .edj-page .wrap { max-width:1240px;margin:0 auto;padding-left:32px;padding-right:32px }
@@ -89,7 +89,7 @@ body.page-edj { background: #fff; }
 .edj-page .adapt-note p { font-size:.88rem;color:var(--muted) }
 .edj-page .cpd-link { font-weight:600;display:inline-block;margin-top:22px;font-size:.88rem }
 .edj-page .detail-panel blockquote { margin:24px 0 25px;padding:4px 0 4px 18px;border-left:3px solid var(--brand) }
-.edj-page blockquote p { font-family:var(--display);font-size:1.3rem;line-height:1.45;font-weight:400;color:var(--deep) }
+.edj-page blockquote p { font-family:var(--display);font-size:1.3rem;line-height:1.45;font-weight:500;color:var(--deep) }
 .edj-page blockquote footer { font-size:.76rem;color:var(--muted);line-height:1.6;margin-top:11px }
 .edj-page .reading-links { padding:0;margin:0;list-style:none }
 .edj-page .reading-links li { padding:14px 0;border-bottom:1px solid var(--line) }

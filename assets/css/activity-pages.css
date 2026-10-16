@@ -981,7 +981,7 @@ body.page-activity .activity-page h1 {
   max-width: 980px !important;
   font-family: var(--font-heading) !important;
   font-size: clamp(2.35rem, 4.7vw, 4.25rem) !important;
-  font-weight: 400 !important;
+  font-weight: 750 !important;
   line-height: 1.08 !important;
   letter-spacing: 0.005em !important;
 }
