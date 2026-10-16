@@ -2,12 +2,12 @@
   The Grenfell Curriculum — shared static-site stylesheet
   ------------------------------------------------------
   Version 6.1 — Enhanced design
-  - Friendlier, rounder typography using DM Sans + Fraunces
+  - Bricolage Grotesque headings with Figtree body text
   - Softer, more approachable card/box styles
   - Improved line-height and character spacing
 */
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
 @import url('transitions.css');
 
 :root {
@@ -40,8 +40,8 @@
   --radius-lg: 26px;
   --shadow-soft: 0 12px 32px rgba(3, 27, 18, 0.07);
   --shadow-card: 0 4px 16px rgba(3, 27, 18, 0.06), 0 1px 3px rgba(3, 27, 18, 0.04);
-  --font-sans:    'DM Sans', 'Segoe UI', system-ui, sans-serif;
-  --font-heading: 'DM Serif Display', Georgia, serif;
+  --font-sans:    'Figtree', 'Segoe UI', system-ui, sans-serif;
+  --font-heading: 'Bricolage Grotesque', 'Figtree', 'Segoe UI', system-ui, sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -355,9 +355,9 @@ h1, h2, h3, h4 {
   margin: 0;
   color: var(--green-950);
   font-family: var(--font-heading);
-  font-weight: 400;          /* DM Serif Display reads best at regular weight */
+  font-weight: 400;
   line-height: 1.15;
-  letter-spacing: 0.01em;   /* slight positive spacing opens up the dense serif */
+  letter-spacing: 0.01em;
 }
 h1 { font-size: clamp(2.4rem, 5.5vw, 5rem); line-height: 1.06; letter-spacing: 0.005em; max-width: 13ch; }
 .page-heading h1 { max-width: 14ch; }
