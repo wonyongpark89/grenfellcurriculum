@@ -128,3 +128,115 @@ blockquote{border:1px solid var(--line);border-radius:8px}
 .booklet-content .principle-unit{grid-template-columns:3.2rem minmax(0,1fr);gap:1.2rem;padding-block:1.5rem;border-bottom:1px solid var(--line)}.booklet-content .principle-number{display:grid;place-items:center;align-self:start;width:3rem;height:3rem;background:var(--tint-2);border:1px solid var(--line);border-radius:8px;font:700 1.65rem var(--font-display);color:var(--brand-deep)}.booklet-content .lead-principle .principle-number{background:var(--brand-deep);color:var(--surface)}.booklet-content .principle-copy h3{font-size:1.2rem;margin:0 0 .8rem}.booklet-content .principle-copy p:last-child{margin-bottom:0}
 .booklet-content .disaster-comparison{font-size:.93rem;min-width:36rem}.disaster-comparison th,.disaster-comparison td{padding:1rem;line-height:1.65}.disaster-comparison thead th{background:var(--brand-deep);color:var(--surface)}.disaster-comparison tbody th{width:22%;background:var(--tint);font-weight:700}.disaster-comparison td{width:39%;background:var(--surface)}
 @media(max-width:600px){.community-profile .cs-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}.community-profile .cs-st{padding:.8rem}.community-profile .cs-num{font-size:1.75rem}.community-profile .cs-lab{font-size:.85rem}.booklet-content .semantic-unit:has(.timed-event){padding:1.1rem}.booklet-content .timed-event{grid-template-columns:3.2rem minmax(0,1fr);gap:1.2rem}.booklet-content .timed-event:not(:last-child)::before{left:3.7rem}.booklet-content .timed-event::after{left:calc(3.7rem - 3px)}.booklet-content .event-time{font-size:.8rem}.booklet-content .principle-unit{grid-template-columns:2.5rem minmax(0,1fr);gap:.9rem}.booklet-content .principle-number{width:2.4rem;height:2.4rem;font-size:1.4rem}.booklet-content .table-scroll:has(.disaster-comparison){overflow:visible}.booklet-content .disaster-comparison,.disaster-comparison tbody{display:block;min-width:0;width:100%}.disaster-comparison thead{display:none}.disaster-comparison tr{display:block;border:1px solid var(--line);border-radius:8px;margin-bottom:1.2rem;overflow:hidden}.disaster-comparison tbody th,.disaster-comparison td{display:block;width:100%;border:0;padding:.9rem 1rem}.disaster-comparison td+td{border-top:1px solid var(--line)}.disaster-comparison td::before{content:attr(data-label);display:block;font-weight:700;font-size:.8rem;color:var(--brand-dark);margin-bottom:.4rem}}
+
+/* Course reading rhythm: headings and space carry the structure. */
+.content{padding-block:3.5rem;--measure:72ch}
+.content>h1{font-size:3rem;line-height:1.16;margin:0 0 1rem;max-width:26ch}
+.course-context{margin:0 0 2.75rem;color:var(--muted);font-size:.9rem}
+.content article{border:0;margin-top:0;padding-top:0}
+.content article h2{font-size:1.75rem;line-height:1.3;margin:3.5rem 0 1.1rem}
+.content article h3{font-size:1.3rem;line-height:1.4;margin:2.5rem 0 .85rem}
+.content article h4{font-size:1.1rem;line-height:1.45;margin:2rem 0 .65rem}
+.content article>h2:first-child,.content article>h3:first-child{margin-top:0}
+.content article :is(p,li){max-width:72ch}
+.content article a:not(.resource-ref){text-decoration:underline;text-underline-offset:.2em}
+.content article .plain-label{font-weight:700;color:var(--brand-deep);margin:2rem 0 .5rem}
+.content article .sec-h{border:0;padding:0}
+.content article .lesson-heading{margin:0;padding:1.4rem 1.5rem;background:var(--tint);font-size:1.4rem}
+.content article .lead{font-size:1.12rem;line-height:1.75}
+.content figure{margin-block:2.5rem}
+.content figcaption{text-align:left;line-height:1.6;margin-top:.8rem;max-width:80ch}
+.content .watch-panel{margin-block:3rem}
+.content .watch-panel h2,.content .watch-panel h3{margin-top:.5rem}
+.content .watch-panel .label{font-size:.9rem;color:var(--muted);font-weight:600}
+
+/* One quotation treatment, including testimony and paired pull quotes. */
+.content blockquote,.booklet-content .quotation-panel{
+ margin:2rem 0;padding:1.5rem 1.75rem;
+ background:var(--tint);border:1px solid var(--line);border-radius:8px;
+ color:var(--brand-deep);font-size:1.13rem;line-height:1.7;
+}
+.content blockquote p{margin-bottom:.85rem}
+.content blockquote p:last-child{margin-bottom:0}
+.content blockquote cite,.content blockquote .pull-src{
+ display:block;font:600 .9rem/1.6 var(--font-body);color:var(--muted);margin:.8rem 0 0;
+}
+.booklet-content .ip-pulls{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;padding:0;border:0;background:none;margin-block:2rem}
+.booklet-content .ip-pulls blockquote{margin:0}
+.community-quotes blockquote{margin-block:1.1rem}
+
+/* Activities share a quiet workspace; prompts, inputs and answers stay together. */
+.content :is(.exercise-panel,.activity-card){
+ padding:1.5rem 1.75rem;margin:2.5rem 0;
+ border:1px solid var(--line);border-radius:8px;background:var(--tint);
+}
+.content :is(.exercise-panel,.activity-card)>:is(h2,h3):first-child{margin:0 0 1rem;font-size:1.35rem}
+.content :is(.exercise-panel,.activity-card)>:last-child{margin-bottom:0}
+.booklet-content .exercise-unit{margin-block:2.5rem}
+.booklet-content .exercise-unit>.exercise-panel{margin-bottom:.75rem}
+.booklet-content .reflection-field{margin:1.5rem 0 0}
+.booklet-content .reflection-field label{font-size:.92rem;font-weight:700;margin-bottom:.6rem}
+.booklet-content textarea{min-height:9rem;padding:1rem;line-height:1.7;background:var(--surface);border-color:var(--line-strong)}
+.booklet-content textarea:hover{border-color:var(--brand)}
+.content article details{border:0;padding:0;margin:1rem 0 2rem}
+.content article details>summary{
+ display:list-item;list-style:disclosure-closed;padding:.85rem 1rem;
+ border-radius:6px;background:var(--tint);color:var(--brand-dark);
+ font-size:.95rem;font-weight:700;line-height:1.5;cursor:pointer;
+}
+.content article details[open]>summary{list-style:disclosure-open;margin-bottom:1rem}
+.content article details>summary::-webkit-details-marker{display:revert}
+.content article details>summary::before{content:none}
+.content article details>summary:hover{background:var(--tint-2)}
+.content .activity-card details{margin-bottom:0}
+.content .activity-card details>summary{background:var(--surface)}
+.content article details>p{padding-inline:1rem}
+.content .choice-list{gap:.7rem;margin-block:1.25rem}
+.content .choice-list li{min-height:48px;padding-block:.85rem}
+.content .list-item{gap:1rem;margin-top:2.5rem}
+.content .list-item>span{font-weight:700;color:var(--brand-dark)}
+.content .list-item p{margin:0}
+.content .exercise-panel>.list-item:first-child{margin-top:0}
+
+/* Remove repeated rules while retaining boundaries around controls and tables. */
+.sidebar .brand{border:0;padding-bottom:.6rem}
+.sidebar h2{font-size:.9rem;color:var(--brand-deep);margin-top:2rem}
+.sidebar .subheader{border:0;padding-top:0;margin-top:1.4rem;color:var(--muted)}
+.sidebar a.active{background:var(--tint-2);font-weight:700}
+.module-card li.subheader{border:0;margin-top:1.5rem;padding-top:0;color:var(--brand-deep);font-weight:700}
+.module-card>h2{border:0;font-size:1.3rem;padding-block:1.5rem}
+.module-card ul{padding:.65rem .65rem 1.25rem}
+.module-grid{gap:2rem}
+.community-profile{border:0;padding:0;margin-block:3rem}
+.booklet-content .principle-unit{border:0;margin-block:1.5rem;padding-block:1rem}
+.booklet-content .principle-copy h3{margin-top:0}
+.glossary dd{border:0;padding-bottom:.5rem}
+.glossary dt{font-family:var(--font-display);font-size:1.2rem;margin-top:2rem}
+.page-nav{border:0;padding-top:0;margin-top:3.5rem;gap:1rem}
+.page-nav a{align-items:center;max-width:48%;padding:1rem 1.2rem;min-height:60px}
+.page-nav a .nav-label{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.5}
+.content>footer{margin-top:2rem;padding-top:1.75rem}
+.course-resources{display:flex;flex-wrap:wrap;align-items:center;gap:.3rem .65rem}
+.course-resources a{display:inline-block;padding-block:.35rem;text-decoration:underline}
+.feedback-section-head,.rating-question+.rating-question{border:0}
+.feedback-section-head{padding-bottom:.25rem}
+.wrap h2{border:0;margin-top:3rem;padding-top:0}
+.wrap ol.res li{border:0;padding-block:.8rem}
+
+@media(max-width:900px){
+ .content{padding:2.5rem 1.5rem 3rem}
+ .content>h1{font-size:2.5rem}
+ .page-nav a{max-width:100%}
+}
+@media(max-width:600px){
+ .content{padding:2rem 1.25rem 2.5rem}
+ .content>h1{font-size:2rem;line-height:1.2}
+ .course-context{margin-bottom:2rem}
+ .content article h2{font-size:1.5rem;margin-top:2.75rem}
+ .content article h3{font-size:1.2rem;margin-top:2rem}
+ .content :is(.exercise-panel,.activity-card),.content blockquote,.booklet-content .quotation-panel{padding:1.2rem}
+ .content blockquote{font-size:1.06rem}
+ .booklet-content .ip-pulls{grid-template-columns:1fr;gap:1rem}
+ .content article .lesson-heading{padding:1.2rem;font-size:1.25rem}
+ .module-grid{gap:1.5rem}
+}
