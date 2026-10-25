@@ -15,6 +15,23 @@
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <link rel="stylesheet" href="/assets/css/redesign.css?v=20261025-chrome">
 <noscript><style>@media(max-width:1100px){.nav-toggle{display:none!important}.header-inner{flex-wrap:wrap}.site-nav{display:block!important;position:static!important;opacity:1!important;visibility:visible!important;pointer-events:auto!important;transform:none!important;max-height:none!important;width:100%;padding:0 0 16px}.site-nav ul{display:flex;flex-wrap:wrap;gap:4px 14px}.site-nav a{padding:8px 0}}</style></noscript>
+<style>
+/* Supporting statements stay available without dominating the contact page. */
+.site-information{padding:38px 0 44px;border-top:1px solid var(--line)}
+.site-information h2{font-size:1.3rem;line-height:1.3;margin:0 0 20px}
+.site-statement{border-top:1px solid var(--line);scroll-margin-top:24px}
+.site-statement:last-child{border-bottom:1px solid var(--line)}
+.site-statement summary{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:52px;padding:12px 0;color:var(--green-950);font-weight:600;cursor:pointer;list-style:none}
+.site-statement summary::-webkit-details-marker{display:none}
+.site-statement summary:hover{color:var(--green-800)}
+.site-statement summary svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;flex:none;transition:transform .2s}
+.site-statement[open] summary svg{transform:rotate(180deg)}
+.statement-copy{max-width:75ch;padding:0 0 22px;color:var(--muted);font-size:1rem;line-height:1.7}
+.statement-copy p{margin:0;max-width:none}
+.site-statement:focus-within summary{outline-offset:4px}
+@media(max-width:680px){.site-information{padding:28px 0 32px}.site-information h2{font-size:1.2rem}}
+@media(prefers-reduced-motion:reduce){.site-statement summary svg{transition:none}}
+</style>
 </head>
 <body class="page-contact">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -89,27 +106,21 @@
       </div>
     </section>
 
-    <section class="section alt" aria-labelledby="site-statements-heading">
+    <section class="site-information" aria-labelledby="site-statements-heading">
       <div class="container">
-        <div class="section-title">
-          <span class="eyebrow">Site statements</span>
-          <h2 id="site-statements-heading">Accessibility, privacy and copyright</h2>
-          <p>These statements are standard text for the static site and should be reviewed before publication.</p>
-        </div>
-        <div class="grid three">
-          <article class="card feature-card" id="accessibility">
-            <h3>Accessibility</h3>
-            <p>This site aims to meet WCAG 2.2 AA standards. It uses semantic HTML, keyboard-accessible navigation, readable text sizes, strong colour contrast and descriptive link text. If you need a resource in another format, please use the contact form on this page and we will help.</p>
-          </article>
-          <article class="card feature-card" id="privacy">
-            <h3>Privacy</h3>
-            <p>When you submit the contact form, the name, email address and message you provide are sent to the project team and used only to respond to your enquiry. When you submit CPD feedback, your ratings, written comments and educational-context information are stored in a restricted Google Sheet and used to evaluate and improve the course. CPD feedback can be submitted anonymously; name and email are collected only if you choose to be contacted. The forms use Cloudflare Turnstile to prevent spam. We do not sell your details or add you to any mailing list without your consent.</p>
-          </article>
-          <article class="card feature-card" id="copyright">
-            <h3>Copyright</h3>
-            <p>Unless otherwise stated, site content is © The Grenfell Curriculum. Resources may be used for educational purposes with attribution, subject to the licence or permissions stated on each individual resource.</p>
-          </article>
-        </div>
+        <h2 id="site-statements-heading">Site information</h2>
+        <details class="site-statement" id="accessibility">
+          <summary>Accessibility<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+          <div class="statement-copy"><p>This site aims to meet WCAG 2.2 AA standards. It uses semantic HTML, keyboard-accessible navigation, readable text sizes, strong colour contrast and descriptive link text. If you need a resource in another format, please use the contact form on this page and we will help.</p></div>
+        </details>
+        <details class="site-statement" id="privacy">
+          <summary>Privacy<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+          <div class="statement-copy"><p>When you submit the contact form, the name, email address and message you provide are sent to the project team and used only to respond to your enquiry. When you submit CPD feedback, your ratings, written comments and educational-context information are stored in a restricted Google Sheet and used to evaluate and improve the course. CPD feedback can be submitted anonymously; name and email are collected only if you choose to be contacted. The forms use Cloudflare Turnstile to prevent spam. We do not sell your details or add you to any mailing list without your consent.</p></div>
+        </details>
+        <details class="site-statement" id="copyright">
+          <summary>Copyright<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+          <div class="statement-copy"><p>Unless otherwise stated, site content is © The Grenfell Curriculum. Resources may be used for educational purposes with attribution, subject to the licence or permissions stated on each individual resource.</p></div>
+        </details>
       </div>
     </section>
 
@@ -146,5 +157,15 @@
   </div>
 </footer>
   <script src="../assets/js/main.js" defer></script>
+<script>
+(() => {
+  const revealStatement = () => {
+    const statement = document.getElementById(location.hash.slice(1));
+    if (statement?.matches('details.site-statement')) statement.open = true;
+  };
+  revealStatement();
+  addEventListener('hashchange', revealStatement);
+})();
+</script>
 </body>
 </html>
