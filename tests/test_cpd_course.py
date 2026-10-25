@@ -63,13 +63,16 @@ class CourseTests(unittest.TestCase):
         for filename in ('glossary.html', 'in-memory.html'):
             self.assertIn('pages/' + filename, read('index.html'))
 
-    def test_course_links_open_separately_but_skip_links_stay_on_page(self):
+    def test_only_external_links_open_separately(self):
         for path in COURSE.rglob('*.html'):
             for tag, attrs in Page(path.read_text(encoding='utf-8')).elements:
                 href = attrs.get('href', '')
                 if tag != 'a' or not href:
                     continue
-                if href.startswith('#'):
+                url = urlsplit(href)
+                external = ((url.scheme in ('http', 'https') or bool(url.netloc))
+                            and url.hostname not in ('grenfellcurriculum.com', 'www.grenfellcurriculum.com'))
+                if not external:
                     self.assertNotEqual(attrs.get('target'), '_blank', str(path))
                 else:
                     self.assertEqual(attrs.get('target'), '_blank', f'{path.name}: {href}')

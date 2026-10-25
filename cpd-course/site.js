@@ -30,16 +30,16 @@
   function buildNav(nav){
     var here=location.pathname.split('/').pop();
     var html=''+
-      '<a class="brand" href="../index.html" target="_blank" rel="noopener"><span class="b-title">Teaching about Grenfell</span>'+
+      '<a class="brand" href="../index.html"><span class="b-title">Teaching about Grenfell</span>'+
       '<span class="b-sub">Education and Social Justice after Disasters</span></a>'+
-      '<a class="home-link" href="../index.html" target="_blank" rel="noopener">All modules</a>';
+      '<a class="home-link" href="../index.html">All modules</a>';
     COURSE.forEach(function(group){
       html+='<h2>'+esc(group.t)+'</h2><ul>';
       group.i.forEach(function(it){
         if(it.k==='s'){ html+='<li class="subheader">'+esc(it.t)+'</li>'; }
         else{
           var active=(it.f===here);
-          html+='<li><a href="'+esc(it.f)+'" target="_blank" rel="noopener"'+(active?' class="active" aria-current="page"':'')+'>'+esc(it.t)+'</a></li>';
+          html+='<li><a href="'+esc(it.f)+'"'+(active?' class="active" aria-current="page"':'')+'>'+esc(it.t)+'</a></li>';
         }
       });
       html+='</ul>';

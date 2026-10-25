@@ -171,7 +171,11 @@ function render(){
     h+='<li class="ev'+(seen.has(id)?" seen":"")+'"><button class="ev-btn" aria-expanded="'+open+'" aria-controls="b-'+id+'" data-id="'+id+'"><span class="ev-date">'+e[0]+'</span><span class="ev-title">'+e[1]+'</span><span class="ev-chev" aria-hidden="true">&#9662;</span></button>'+
        '<div class="ev-body" id="b-'+id+'"'+(open?"":" hidden")+'>'+e[2].map(p=>"<p>"+p+"</p>").join("")+'<p class="ev-q"><span>Reflect</span>'+e[3]+'</p></div></li>';});
   $("#panel").innerHTML=h+"</ol>";$("#panel").setAttribute("aria-labelledby","tab-"+phase);
-  $("#panel").querySelectorAll('a[href]').forEach(a=>{a.target='_blank';a.relList.add('noopener');});
+  $("#panel").querySelectorAll('a[href]').forEach(a=>{
+    const url=new URL(a.href),external=/^https?:$/.test(url.protocol)&&url.origin!==location.origin&&!['grenfellcurriculum.com','www.grenfellcurriculum.com'].includes(url.hostname);
+    if(external){a.target='_blank';a.relList.add('noopener');}
+    else{a.removeAttribute('target');a.relList.remove('noopener','noreferrer');}
+  });
 }
 const openSet=new Set();
 document.addEventListener("click",ev=>{const b=ev.target.closest(".ev-btn");if(b){const id=b.dataset.id,o=b.getAttribute("aria-expanded")==="true";
