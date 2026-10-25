@@ -357,5 +357,24 @@
         "filename": "course-feedback.html"
       }
     ]
+  },
+  {
+    "title": "Supporting resources",
+    "items": [
+      {
+        "kind": "page",
+        "title": "Glossary",
+        "content_type": "WikiPage",
+        "ref": "glossary",
+        "filename": "glossary.html"
+      },
+      {
+        "kind": "page",
+        "title": "In memory",
+        "content_type": "WikiPage",
+        "ref": "in-memory",
+        "filename": "in-memory.html"
+      }
+    ]
   }
 ]

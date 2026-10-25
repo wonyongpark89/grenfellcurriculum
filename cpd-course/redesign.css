@@ -61,3 +61,62 @@ input:focus,select:focus,textarea:focus{outline:3px solid #956209!important;outl
 /* Complete the outline of tinted quotations and preserve focus on dark panels. */
 blockquote{border:1px solid var(--line);border-radius:8px}
 .hero :focus-visible,.feedback-submit-panel :focus-visible,.skip-link:focus-visible{outline-color:#e4eed9!important}
+
+/* Reader additions retain the course's typography and responsive reading layout. */
+.booklet-content{overflow-wrap:anywhere}
+.booklet-content h2:first-child{margin-top:0}
+.booklet-content .src,.booklet-content .small{font-size:.88rem;color:var(--muted)}
+.booklet-content .resource-ref{white-space:nowrap;font-size:.8rem}
+.booklet-content figure img{width:100%;height:auto;max-width:100%}
+.booklet-content .watch-panel{margin-block:2.5rem}
+.booklet-content .label{display:block;font-weight:700;color:var(--brand-dark);margin-bottom:.5rem}
+.booklet-content .exercise-panel,.booklet-content .quiz-unit,.booklet-content .exercise-unit{margin-block:1.8rem}
+.booklet-content .reflection-field{margin-block:1rem 1.8rem}
+.booklet-content label{display:block;font-weight:600;margin-bottom:.5rem}
+.booklet-content textarea{display:block;width:100%;min-height:8rem;resize:vertical;padding:.8rem;border:1px solid var(--line-strong);border-radius:6px;background:var(--surface);color:var(--ink);font:inherit}
+.booklet-content .reflection-field .small{margin-top:.4rem}
+.booklet-content details{margin-block:1.2rem 2rem;padding-block:1rem;border-block:1px solid var(--line)}
+.booklet-content summary{cursor:pointer;font-weight:700;color:var(--brand-dark)}
+.booklet-content details[open] summary{margin-bottom:1rem}
+.booklet-content .list-item,.booklet-content .principle-unit{display:grid;grid-template-columns:2rem minmax(0,1fr);gap:.75rem;margin-block:1.4rem}
+.booklet-content .principle-unit h2,.booklet-content .principle-unit h3{margin-top:0;font-size:1.2rem}
+.booklet-content .principle-number{font-weight:700;color:var(--brand-dark);font-size:1.2rem}
+.booklet-content .timed-heading{display:flex;flex-direction:column;gap:.35rem}
+.booklet-content .time-range{font-size:.95rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.booklet-content .timed-event{display:grid;grid-template-columns:7rem minmax(0,1fr);gap:1rem}
+.booklet-content .event-time{font-weight:700;font-variant-numeric:tabular-nums}
+.booklet-content .semantic-unit{margin-block:2rem}
+.booklet-content .quotation-panel,.booklet-content .ip-pulls{margin-block:1.5rem;padding:1rem 1.3rem;border:1px solid var(--line);border-radius:8px;background:var(--tint)}
+.booklet-content .pull-src{font-size:.88rem;color:var(--muted)}
+.booklet-content .table-scroll{overflow-x:auto;margin-block:1.5rem;max-width:100%}
+.booklet-content .table-scroll table{min-width:36rem}
+.community-profile{margin-block:2.5rem;padding-block:1.5rem;border-block:1px solid var(--line)}
+.community-profile .cs-h{font-family:var(--font-display);font-size:1.3rem;font-weight:700;line-height:1.4}
+.community-profile .cs-scope{margin-block:1.5rem .8rem}
+.community-profile .cs-scope b,.community-profile .cs-scope span{display:block}
+.community-profile .cs-scope span,.community-profile .cs-note{font-size:.88rem;color:var(--muted)}
+.community-profile .cs-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2rem}
+.community-profile .cs-st{padding-bottom:.8rem;border-bottom:1px solid var(--line)}
+.community-profile .cs-num,.community-profile .cs-sm b{display:block;font-weight:700;font-size:1.4rem;color:var(--brand-deep)}
+.community-profile .cs-lab{display:block;line-height:1.5}
+.community-profile .cs-lang>div{margin-bottom:1rem}
+.community-profile .cs-words{line-height:1.9}
+.community-profile .cs-key{display:flex;gap:1rem;flex-wrap:wrap;margin-block:1rem}
+.community-profile .cs-sm{margin-bottom:1.5rem}
+.community-quotes cite{font-style:normal;font-size:.9rem;font-weight:600}
+.fire-locations{max-width:22rem}
+.fire-locations svg{width:100%;height:auto;max-height:30rem}
+.glossary{margin-bottom:3rem}
+.glossary dt{font-weight:700;color:var(--brand-deep);margin-top:1.8rem}
+.glossary dd{margin:.5rem 0 0;padding-bottom:1rem;border-bottom:1px solid var(--line)}
+.glossary dd p:last-child{margin-bottom:0}
+.memorial-names{list-style:none;padding:0;columns:2;column-gap:2rem;margin-block:2rem}
+.memorial-names li{break-inside:avoid;margin-bottom:.65rem;line-height:1.5}
+.act details summary{cursor:pointer;color:var(--brand-dark);font-weight:700}
+.act #curriculum-reflection,.act #dilemma-reflection{display:block;width:100%;margin-block:.6rem 1rem;font:inherit}
+.pair-reference{font-weight:700;color:var(--brand-dark)}
+@media(max-width:600px){
+ .booklet-content .timed-event{grid-template-columns:1fr;gap:.15rem}
+ .community-profile .cs-grid{grid-template-columns:1fr}
+ .memorial-names{columns:1}
+}
