@@ -77,11 +77,13 @@ class CourseTests(unittest.TestCase):
         expectations = {
             'a-tale-of-two-kensingtons': ('55%', '25%', '2011 Census'),
             'the-demographic-contrast': ('34%', '22%', 'relative deprivation rather than average income'),
-            'who-lived-in-the-tower': ('Constantine Gras', 'artist’s permission', 'not tower residents alone', 'Gillian Slovo'),
+            'who-lived-in-the-tower': ('not tower residents alone', '2011 Census'),
+            'who-lived-in-the-tower-2': ('Constantine Gras', 'artist’s permission', 'Gillian Slovo'),
             'show-me-the-bodies': ('Martin denied making the remark', 'Sam Webb', 'Guidance was revised in 1992'),
             'the-grenfell-tower-inquiry-report': ('02:35', '02:44', '02:47', 'avoid judging residents'),
             'why-did-it-spread-so-quickly': ('dry rising main', 'gas did not play a significant part', 'normal operation'),
-            'media-failures-and-delayed-justice-in-hillsborough-and-grenfell': ('Andrew Devine', 'Graham Mackrell', '1998', '116', '49 in full and nine in principle'),
+            'media-failures-and-delayed-justice-in-hillsborough-and-grenfell': ('Andrew Devine', '1998', '116'),
+            'media-failures-and-delayed-justice-in-hillsborough-and-grenfell-2': ('Graham Mackrell', '49 in full and nine in principle'),
             'the-future-of-grenfell': ('Freehaus', '165 million', '700 organisations', '49 recommendations in full and nine in principle', 'specified buildings'),
             'our-approach': ('p. 8.', 'Centring community voices'),
             'welcome-to-the-course': ('A note on wellbeing', 'The fire burned for over 60 hours'),
@@ -113,6 +115,20 @@ class CourseTests(unittest.TestCase):
         self.assertIn('other connections may also be justified', matching)
         for slug in ('glossary', 'in-memory'):
             self.assertIn('Supporting resources', read('pages/' + slug + '.html'))
+
+    def test_split_lessons_keep_the_course_sequence(self):
+        for first, second, following in (
+            ('who-lived-in-the-tower', 'who-lived-in-the-tower-2', 'unheeded-warnings'),
+            ('media-failures-and-delayed-justice-in-hillsborough-and-grenfell',
+             'media-failures-and-delayed-justice-in-hillsborough-and-grenfell-2',
+             'disrupting-media-narratives-of-disaster'),
+        ):
+            for source, direction, target in ((first, 'next', second), (second, 'prev', first),
+                                               (second, 'next', following), (following, 'prev', second)):
+                links = [attrs for tag, attrs in Page(read('pages/' + source + '.html')).elements
+                         if tag == 'a' and attrs.get('class') == direction]
+                self.assertEqual([a['href'] for a in links], [target + '.html'])
+            self.assertIn('pages/' + second + '.html', read('index.html'))
 
 
 if __name__ == '__main__':

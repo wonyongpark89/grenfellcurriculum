@@ -40,4 +40,11 @@ The previous course shell remains authoritative: retain its index, sidebar, page
 
 The course keeps its established green-and-cream theme, fonts, index and sidebar. Page titles lead, with the course/week context underneath. Lesson h2/h3 headings use distinct sizes and generous space above; section rhythm comes from whitespace rather than repeated rules. The footer keeps one quiet boundary, while navigation groups, glossary entries, resource rows, activity answers and CARE–LEAD entries use spacing.
 
-Quotations use pale green, a complete 1px outline, 8px corners, larger reading text and smaller upright attribution. Reflection and quiz panels share consistent padding, headings and input styling; answer disclosures sit immediately below the prompt. Keep educational feedback colors and all existing activity behavior. The repeated temporary-platform and unsaved-notes notices have been removed at the user's request. The feedback form retains its specific submission disclosure.
+Quotations use an unfilled surface, a dotted green outline, 6px corners, larger reading text and smaller upright attribution. Reflection and quiz panels share consistent padding, headings and input styling; answer disclosures sit immediately below the prompt. Keep educational feedback colors and all existing activity behavior. The repeated temporary-platform and unsaved-notes notices have been removed at the user's request. The feedback form retains its specific submission disclosure.
+
+
+## CPD lesson presentation revisions
+
+All lesson paragraphs, figures, source notes and the feedback form use the shared content width. Avoid nested fixed-width wrappers. Resource headings put a small outlined Read / Watch / Read & listen label immediately beside the title, without an enclosing card. Source lines and figure captions use the same muted 0.88rem style.
+
+The residents lesson is split into community context and lives/voices; the media lesson is split into Hillsborough and Grenfell/comparison. Preserve the original URLs as part 1 and keep part 2 in the index, course map and sequential navigation. Fire locations use side-by-side maps with bounded heights, with an accessible dated list for 1991–2009–2017. Failure mechanisms, investigation figures and reform commitments use aligned semantic lists. Feedback section numbers sit directly beside their headings; field edges align below. The Week 3 conclusion pairs an understated project link with a deep-green feedback invitation.

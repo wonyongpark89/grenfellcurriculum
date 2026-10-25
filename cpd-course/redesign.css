@@ -240,3 +240,152 @@ blockquote{border:1px solid var(--line);border-radius:8px}
  .content article .lesson-heading{padding:1.2rem;font-size:1.25rem}
  .module-grid{gap:1.5rem}
 }
+
+/* Consistent lesson width, source notes and unboxed resource headings. */
+.content{max-width:1100px}
+.content>h1{max-width:none}
+.content article,.content article :is(p,li),.content .measure,.content .feedback-form,
+.content figcaption{max-width:none}
+.content .feedback-form{width:100%;margin-inline:0}
+.content .lesson-content>div[style*="margin: 0px auto"],
+.content .lesson-content>div[style*="margin: 0 auto"]{width:100%;max-width:none!important}
+.content article .source-line,.content article .src,.content figcaption{
+ font:400 .88rem/1.65 var(--font-body);color:var(--muted);margin:1rem 0 1.8rem;
+}
+.content article .source-line a{color:inherit;text-decoration:underline}
+.content article .source-line sup{font-size:.85em}
+.content blockquote,.booklet-content .quotation-panel{
+ background:transparent;border:2px dotted var(--brand);border-radius:6px;
+ padding:1.5rem 1.75rem;color:var(--ink);
+}
+.content blockquote :is(cite,.pull-src){color:var(--muted);margin-top:1rem}
+.content .resource-section,.content .watch-panel{background:none;border:0;border-radius:0;padding:0;margin-block:3rem}
+.content article .resource-heading{
+ display:flex;align-items:baseline;gap:.6rem 1rem;margin:2.75rem 0 1rem;
+ padding:0;background:none;border:0;font-size:1.35rem;line-height:1.45;text-wrap:wrap;
+}
+.resource-heading .resource-label{
+ flex:0 0 auto;display:inline-block;padding:.2rem .55rem;
+ border:1px solid var(--brand);border-radius:4px;color:var(--brand-dark);
+ font:700 .8rem/1.5 var(--font-body);letter-spacing:0;white-space:nowrap;
+}
+.resource-heading .resource-title{min-width:0;flex:1}
+.content article .resource-heading a{text-decoration:underline;text-decoration-thickness:1px}
+.resource-section .embed,.watch-panel .embed{margin-top:1.25rem}
+.lesson-parts{display:flex;flex-wrap:wrap;gap:.7rem 1.75rem;margin:-1rem 0 2.75rem}
+.lesson-parts a{font-size:.9rem;padding:.4rem 0;text-decoration:underline;text-underline-offset:.35em}
+.lesson-parts [aria-current]{font-weight:700;text-decoration-thickness:2px;color:var(--brand-deep)}
+.lesson-outline{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;margin:0 0 2.75rem}
+.lesson-outline a{font-size:.9rem;text-decoration:underline}
+.lesson-content :is(h2,h3)[id]{scroll-margin-top:5rem}
+
+/* The project's three complementary approaches. */
+.content .approach-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem;list-style:none;padding:0;margin:1.5rem 0 3rem}
+.content .approach-list li{padding-top:1rem;border-top:2px dotted var(--brand);line-height:1.7}
+.content .approach-list h3{font-size:1.15rem;line-height:1.45;margin:0 0 1rem}
+
+/* Community context and residents' voices, each with its own lesson. */
+.content .community-profile{margin-top:3rem}
+.content .community-profile h2{margin-bottom:.7rem}
+.community-profile .profile-intro{font-size:1.1rem;color:var(--muted)}
+.community-profile .cs-scope{margin:2.25rem 0 1.25rem}
+.community-profile .cs-scope b{font:700 1.25rem/1.5 var(--font-display);color:var(--brand-deep)}
+.community-profile .cs-grid{gap:1.8rem 2.5rem}
+.community-profile .cs-st{padding:0;border:0;border-radius:0;background:none;gap:.6rem}
+.community-profile .cs-num{font-size:1.8rem}
+.community-profile .stat-bar{height:6px;margin-top:.4rem}
+.community-profile .cs-lang{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem 2.5rem}
+.community-profile .cs-lang>div{margin:0}
+.community-profile .cs-words{grid-column:1/-1;padding:1.25rem 0;margin:0;color:var(--muted)}
+.community-profile .cs-sec{display:grid;grid-template-columns:1.5fr 1fr;gap:2rem;margin:2rem 0}
+.community-profile .cs-sh{font-weight:700;color:var(--brand-deep)}
+.community-profile .cs-key{gap:.75rem 1.5rem}
+.community-profile .cs-sm{padding:0 0 0 1.5rem;border-left:1px solid var(--line)}
+.community-profile .cs-sm span{display:block}
+.content .community-profile .cs-note{margin-top:2rem}
+.quote-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;align-items:start}
+.content .quote-grid blockquote{margin:0}
+.content .community-quotes>h3{margin-bottom:1.5rem}
+
+/* Maps retain their source geometry at a useful, bounded height. */
+.content .fire-locations{max-width:none;width:100%;margin-block:2rem}
+.map-pair{display:grid;grid-template-columns:1fr 1.25fr;gap:2rem;align-items:start}
+.content .map-panel h4{font-size:.95rem;margin:0 0 1rem}
+.fire-locations .map-panel svg{display:block;width:100%;height:320px;max-height:320px}
+.content .event-timeline{list-style:none;padding:0;margin:2rem 0 2.5rem}
+.event-timeline li{display:grid;grid-template-columns:5rem minmax(0,1fr);gap:1.5rem;position:relative;padding-bottom:1.75rem}
+.event-timeline li:not(:last-child)::before{content:"";position:absolute;left:5.6rem;top:.6rem;bottom:-.6rem;border-left:1px solid var(--line-strong)}
+.event-timeline li::after{content:"";position:absolute;left:calc(5.6rem - 3px);top:.6rem;width:7px;height:7px;border-radius:50%;background:var(--brand)}
+.event-year{font:700 1.25rem/1.5 var(--font-display);color:var(--brand-deep);font-variant-numeric:tabular-nums}
+.content .event-copy h3{font-size:1.15rem;margin:0 0 .6rem}
+.content .event-copy p{margin:0}
+.event-copy{min-width:0;max-width:100%}
+.content .fire-history{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.8rem}
+.fire-history li{display:block;padding:1rem 0 0;border-top:2px solid var(--brand)}
+.fire-history li::before,.fire-history li::after{display:none}
+.fire-history .event-year{display:block;font-size:1.7rem;margin-bottom:1rem}
+
+/* Explanations and evidence use aligned lists rather than repeated boxes. */
+.spread-sequence{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.75rem;list-style:none;padding:0;margin:2rem 0 3rem}
+.spread-sequence li{border-top:2px solid var(--brand);padding-top:1rem}
+.spread-sequence strong,.spread-sequence span{display:block}
+.spread-sequence strong{color:var(--brand-deep);margin-bottom:.5rem}
+.spread-sequence span{color:var(--muted);font-size:.95rem}
+.failure-list,.reform-list{display:grid;grid-template-columns:minmax(9rem,1fr) minmax(0,3fr);gap:1.5rem 2rem;margin:2rem 0}
+.failure-list dt,.reform-list dt{font:700 1.05rem/1.55 var(--font-display);color:var(--brand-deep)}
+.failure-list dd,.reform-list dd{margin:0}
+.investigation-figures,.evidence-facts{display:grid;grid-template-columns:max-content minmax(0,1fr) max-content minmax(0,1fr);gap:1.25rem 1rem;padding:1.5rem 0;margin:1.5rem 0 2rem}
+.investigation-figures dt,.evidence-facts dt{font:700 1.5rem/1.4 var(--font-display);color:var(--brand-deep);font-variant-numeric:tabular-nums;white-space:nowrap;overflow-wrap:normal}
+.investigation-figures dd,.evidence-facts dd{margin:0;align-self:center;font-size:.95rem}
+.investigation-figures dd strong{display:block}
+.content .memorial-vision{padding:1.4rem 0;margin:2rem 0;border-block:2px dotted var(--brand)}
+.content .memorial-vision h3{margin:0 0 1rem}
+.content .memorial-vision p{margin:0}
+.content .disaster-comparison{font-size:.95rem}
+.content .disaster-comparison td,.content .disaster-comparison th{border-color:var(--line);padding:1.2rem;line-height:1.7}
+
+/* Feedback numbers align with their questions, and controls share one edge. */
+.content .feedback-section-head{display:block;margin:0 0 1.5rem;padding:0;border:0}
+.content .feedback-section-head h2{display:flex;align-items:baseline;gap:.8rem;margin:0;font-size:1.35rem;line-height:1.45;text-wrap:wrap}
+.feedback-section-head h2>span:last-child{min-width:0}
+.content .feedback-step{display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;flex:0 0 2rem;font:700 .95rem/1 var(--font-body);position:relative;top:-.05rem}
+.content .feedback-section-head p{margin:.6rem 0 0 2.8rem}
+.feedback-section>:is(.rating-question,.form-field,.form-grid,.consent-box){margin-left:2.8rem}
+.feedback-section .rating-question{width:calc(100% - 2.8rem);min-width:0}
+.feedback-section .rating-question legend{max-width:none;font-weight:700;margin-bottom:.7rem}
+.feedback-section .form-grid.two-columns{align-items:start;gap:1.4rem 1.5rem}
+.feedback-section .form-grid.two-columns>.form-field:not([hidden]){display:flex;flex-direction:column}
+.feedback-section .form-grid.two-columns>.form-field>label{min-height:2.7rem}
+.feedback-form .field-hint{gap:.5rem 1rem}
+.content .feedback-submit-panel h2{margin:0 0 .7rem;font-size:1.5rem}
+
+/* Closing invitations: a quiet resource link and a clear feedback action. */
+.course-next-steps{display:grid;grid-template-columns:1fr 1.25fr;gap:2rem;margin-top:3.5rem}
+.content .course-next-step{padding:1.75rem;margin:0;background:var(--tint);border-radius:8px}
+.content .course-next-step h2{font-size:1.4rem;margin:0 0 1rem}
+.content .course-next-step p:last-child{margin-bottom:0}
+.content #project-website-signpost{margin:0}
+.content #course-feedback-signpost{background:var(--brand-deep);color:var(--surface)}
+.content #course-feedback-signpost h2,.content #course-feedback-signpost a{color:var(--surface)}
+.content #course-feedback-signpost a:focus-visible{outline-color:var(--surface)!important}
+
+@media(max-width:700px){
+ .content .approach-list,.content .fire-history,.spread-sequence,.course-next-steps{grid-template-columns:1fr;gap:1.5rem}
+ .quote-grid{grid-template-columns:1fr}
+ .map-pair{gap:1rem;grid-template-columns:1fr 1.2fr}
+ .fire-locations .map-panel svg{height:230px;max-height:230px}
+ .content .map-panel h4{font-size:.85rem}
+ .community-profile .cs-sec{grid-template-columns:1fr;gap:1rem}
+ .community-profile .cs-sm{padding:0;border:0}
+ .failure-list,.reform-list{grid-template-columns:1fr;gap:.5rem}
+ .failure-list dd,.reform-list dd{margin-bottom:1.2rem}
+ .investigation-figures,.evidence-facts{grid-template-columns:max-content minmax(0,1fr)}
+ .content .resource-heading{gap:.65rem;font-size:1.2rem}
+ .resource-heading .resource-label{font-size:.7rem;padding:.2rem .4rem}
+ .content .feedback-section-head h2{font-size:1.2rem;gap:.65rem}
+ .feedback-section>:is(.rating-question,.form-field,.form-grid,.consent-box){margin-left:0}
+ .feedback-section .rating-question{width:100%}
+ .feedback-section .form-grid.two-columns>.form-field>label{min-height:0}
+ .content .feedback-section-head p{margin-left:0}
+ .content .course-next-step{padding:1.5rem}
+}

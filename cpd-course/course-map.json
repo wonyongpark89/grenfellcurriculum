@@ -76,10 +76,17 @@
       },
       {
         "kind": "page",
-        "title": "Who Lived In The Tower?",
+        "title": "Who Lived in the Tower? (1): The Community",
         "content_type": "WikiPage",
         "ref": "g8715666db8cb500f48b95d6f980cc98c",
         "filename": "who-lived-in-the-tower.html"
+      },
+      {
+        "kind": "page",
+        "title": "Who Lived in the Tower? (2): Lives and Voices",
+        "content_type": "WikiPage",
+        "ref": "g8715666db8cb500f48b95d6f980cc98c-part-2",
+        "filename": "who-lived-in-the-tower-2.html"
       },
       {
         "kind": "page",
@@ -233,10 +240,17 @@
       },
       {
         "kind": "page",
-        "title": "Media Failures and Delayed Justice in Hillsborough and Grenfell",
+        "title": "Media Failures and Delayed Justice (1): Hillsborough",
         "content_type": "WikiPage",
         "ref": "g2a91dca0e8374510351431d8f65c1d9b",
         "filename": "media-failures-and-delayed-justice-in-hillsborough-and-grenfell.html"
+      },
+      {
+        "kind": "page",
+        "title": "Media Failures and Delayed Justice (2): Grenfell",
+        "content_type": "WikiPage",
+        "ref": "g2a91dca0e8374510351431d8f65c1d9b-part-2",
+        "filename": "media-failures-and-delayed-justice-in-hillsborough-and-grenfell-2.html"
       },
       {
         "kind": "page",
