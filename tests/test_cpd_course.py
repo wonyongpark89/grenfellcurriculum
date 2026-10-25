@@ -54,12 +54,26 @@ class CourseTests(unittest.TestCase):
         for group, small in zip(mapping, compact):
             self.assertEqual([i['filename'] for i in group['items'] if i['kind'] == 'page'],
                              [i['f'] for i in small['i'] if i['k'] == 'p'])
+            self.assertEqual([i['title'] for i in group['items'] if i['kind'] == 'page'],
+                             [i['t'] for i in small['i'] if i['k'] == 'p'])
         files = [i['filename'] for g in mapping for i in g['items'] if i['kind'] == 'page']
         self.assertEqual(len(files), len(set(files)))
         for filename in files:
             self.assertTrue((COURSE / 'pages' / filename).is_file(), filename)
         for filename in ('glossary.html', 'in-memory.html'):
             self.assertIn('pages/' + filename, read('index.html'))
+
+    def test_course_links_open_separately_but_skip_links_stay_on_page(self):
+        for path in COURSE.rglob('*.html'):
+            for tag, attrs in Page(path.read_text(encoding='utf-8')).elements:
+                href = attrs.get('href', '')
+                if tag != 'a' or not href:
+                    continue
+                if href.startswith('#'):
+                    self.assertNotEqual(attrs.get('target'), '_blank', str(path))
+                else:
+                    self.assertEqual(attrs.get('target'), '_blank', f'{path.name}: {href}')
+                    self.assertIn('noopener', attrs.get('rel', '').split(), f'{path.name}: {href}')
 
     def test_timeline_content_and_structure(self):
         timeline, _ = json.JSONDecoder().raw_decode(read('activities/timeline-of-failures.html').split('const TL=', 1)[1])

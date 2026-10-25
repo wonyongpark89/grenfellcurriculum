@@ -116,7 +116,7 @@ textarea::placeholder{color:var(--muted)}
 .ev-q span{display:block;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--brand-dark);margin-bottom:.2rem}
 @media (max-width:620px){.ev-btn{grid-template-columns:1fr auto}.ev-date{grid-column:1/-1}}
 .chk{display:grid;gap:.55rem}.chk label{display:flex;gap:.7rem;align-items:flex-start;line-height:1.5;cursor:pointer}.chk input{width:1.1rem;height:1.1rem;flex:none;margin-top:.22rem;accent-color:var(--brand)}</style>
-<link rel="stylesheet" href="../redesign.css?v=20261025-lessons">
+<link rel="stylesheet" href="../redesign.css?v=20261025-details">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -171,6 +171,7 @@ function render(){
     h+='<li class="ev'+(seen.has(id)?" seen":"")+'"><button class="ev-btn" aria-expanded="'+open+'" aria-controls="b-'+id+'" data-id="'+id+'"><span class="ev-date">'+e[0]+'</span><span class="ev-title">'+e[1]+'</span><span class="ev-chev" aria-hidden="true">&#9662;</span></button>'+
        '<div class="ev-body" id="b-'+id+'"'+(open?"":" hidden")+'>'+e[2].map(p=>"<p>"+p+"</p>").join("")+'<p class="ev-q"><span>Reflect</span>'+e[3]+'</p></div></li>';});
   $("#panel").innerHTML=h+"</ol>";$("#panel").setAttribute("aria-labelledby","tab-"+phase);
+  $("#panel").querySelectorAll('a[href]').forEach(a=>{a.target='_blank';a.relList.add('noopener');});
 }
 const openSet=new Set();
 document.addEventListener("click",ev=>{const b=ev.target.closest(".ev-btn");if(b){const id=b.dataset.id,o=b.getAttribute("aria-expanded")==="true";
