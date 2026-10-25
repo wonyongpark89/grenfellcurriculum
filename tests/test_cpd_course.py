@@ -97,7 +97,7 @@ class CourseTests(unittest.TestCase):
 
     def test_supporting_resources_and_interactions_preserved(self):
         glossary = Page(read('pages/glossary.html'))
-        self.assertEqual(sum(tag == 'dt' for tag, _ in glossary.elements), 69)
+        self.assertEqual(sum(tag == 'details' and 'definition' in a.get('class', '').split() for tag, a in glossary.elements), 69)
         memorial = read('pages/in-memory.html').split('<ul class="memorial-names">', 1)[1].split('</ul>', 1)[0]
         self.assertEqual(memorial.count('<li>'), 72)
         self.assertIn('data-cpd-feedback-form', read('pages/course-feedback.html'))
@@ -106,7 +106,11 @@ class CourseTests(unittest.TestCase):
         for name in ('preview', 'edit', 'copy', 'print'):
             self.assertIn('id="' + name + '"', read('activities/lesson-design.html'))
         matching = read('activities/matching-pairs.html')
-        self.assertEqual(matching.count('draggable="true"'), 5)
+        self.assertEqual(matching.count('data-side="theme"'), 5)
+        self.assertEqual(matching.count('data-side="requirement"'), 5)
+        self.assertNotIn('draggable="true"', matching)
+        self.assertNotIn('check-connections', matching)
+        self.assertIn('match-announcement', matching)
         self.assertIn('Pearson Edexcel', matching)
         self.assertIn('other connections may also be justified', matching)
         for slug in ('glossary', 'in-memory'):

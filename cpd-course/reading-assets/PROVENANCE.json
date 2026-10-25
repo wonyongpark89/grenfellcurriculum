@@ -1,0 +1,71 @@
+{
+  "live-laugh-love.jpg": {
+    "origin": "Authoritative booklet, assets/live-laugh-love.jpg",
+    "credit": "Live, laugh, love, children of Grenfell Tower and Lancaster West Estate, 20 May 2015; coloured in by Constantine Gras. Reproduced with the artist’s permission, as credited in the supplied booklet.",
+    "sha256": "3c612b04bcf666ad0d381f90c94f1ab2406767241766879ea1cd98c86d54cf94"
+  },
+  "thumb-words-of-survivors.png": {
+    "origin": "Authoritative booklet, assets/thumb-words-of-survivors.png",
+    "credit": "Video still for National Theatre: Grenfell: In the Words of Survivors; original video linked in sample.",
+    "sha256": "8cfa269f24ad95c49f41a7f175510e1d2bcb998fd743b42c03de3939deefe778"
+  },
+  "c20fb1b1d3c7.jpg": {
+    "origin": "Authoritative booklet, assets/src/c20fb1b1d3c7.jpg",
+    "credit": "Video thumbnail for Introducing the CARE-LEAD Pedagogical Model; original video linked in sample.",
+    "sha256": "6b94cbb40d73bc509f3f8d6a1395d0426de65240e3ac34e46a58b857f5bc3ab2"
+  },
+  "manrope-normal-400.woff2": {
+    "origin": "Google Fonts stylesheet used by the existing course",
+    "stylesheet": "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap",
+    "credit": "Manrope / Nunito Sans, Google Fonts distribution.",
+    "sha256": "a30ddcd349703aff7464c34bef3fffdff405ee50c113440d7c8693c02d210972"
+  },
+  "manrope-normal-500.woff2": {
+    "origin": "Google Fonts stylesheet used by the existing course",
+    "stylesheet": "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap",
+    "credit": "Manrope / Nunito Sans, Google Fonts distribution.",
+    "sha256": "a30ddcd349703aff7464c34bef3fffdff405ee50c113440d7c8693c02d210972"
+  },
+  "manrope-normal-600.woff2": {
+    "origin": "Google Fonts stylesheet used by the existing course",
+    "stylesheet": "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap",
+    "credit": "Manrope / Nunito Sans, Google Fonts distribution.",
+    "sha256": "a30ddcd349703aff7464c34bef3fffdff405ee50c113440d7c8693c02d210972"
+  },
+  "manrope-normal-700.woff2": {
+    "origin": "Google Fonts stylesheet used by the existing course",
+    "stylesheet": "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap",
+    "credit": "Manrope / Nunito Sans, Google Fonts distribution.",
+    "sha256": "a30ddcd349703aff7464c34bef3fffdff405ee50c113440d7c8693c02d210972"
+  },
+  "nunito-sans-italic-400.woff2": {
+    "origin": "Google Fonts stylesheet used by the existing course",
+    "stylesheet": "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap",
+    "credit": "Manrope / Nunito Sans, Google Fonts distribution.",
+    "sha256": "8904d953726b43ded1a16bfd43398325d2382dd50780c10f18d048e0e73f84a8"
+  },
+  "nunito-sans-italic-600.woff2": {
+    "origin": "Google Fonts stylesheet used by the existing course",
+    "stylesheet": "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap",
+    "credit": "Manrope / Nunito Sans, Google Fonts distribution.",
+    "sha256": "8904d953726b43ded1a16bfd43398325d2382dd50780c10f18d048e0e73f84a8"
+  },
+  "nunito-sans-normal-400.woff2": {
+    "origin": "Google Fonts stylesheet used by the existing course",
+    "stylesheet": "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap",
+    "credit": "Manrope / Nunito Sans, Google Fonts distribution.",
+    "sha256": "29e3890496844a9ea81975c52771c587c872b4eb317026422d1995b88d21b57d"
+  },
+  "nunito-sans-normal-600.woff2": {
+    "origin": "Google Fonts stylesheet used by the existing course",
+    "stylesheet": "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap",
+    "credit": "Manrope / Nunito Sans, Google Fonts distribution.",
+    "sha256": "29e3890496844a9ea81975c52771c587c872b4eb317026422d1995b88d21b57d"
+  },
+  "nunito-sans-normal-700.woff2": {
+    "origin": "Google Fonts stylesheet used by the existing course",
+    "stylesheet": "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap",
+    "credit": "Manrope / Nunito Sans, Google Fonts distribution.",
+    "sha256": "29e3890496844a9ea81975c52771c587c872b4eb317026422d1995b88d21b57d"
+  }
+}

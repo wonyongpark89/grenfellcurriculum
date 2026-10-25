@@ -1,0 +1,4 @@
+
+/* Approved CPD identity, shared by the standalone learning activities. */
+:root{--brand:#006a46;--brand-dark:#006a46;--brand-deep:#063c2b;--ink:#172b22;--muted:#4c6256;--surface:#fffefa;--bg:#fdf9f2;--line:#ccd6ca;--line-strong:#ccd6ca;--tint:#eef3e9;--radius:8px;--radius-sm:6px;--radius-xs:6px;--shadow-sm:none;--shadow-md:none;--font-body:'Nunito Sans',sans-serif;--font-display:'Manrope',sans-serif}
+body{font-family:var(--font-body);background:var(--bg);font-size:18px;line-height:1.7}h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.025em}button,input,select,textarea{font-family:inherit}button,.btn{border-radius:6px}.ccard,.card,.panel{box-shadow:none}::selection{background:#bdd9bc;color:#063c2b}:focus-visible{outline:3px solid #956209;outline-offset:4px}html{scrollbar-color:#91ab99 #fdf9f2}@media(max-width:520px){body{font-size:17px}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
