@@ -58,3 +58,6 @@ input:focus,select:focus,textarea:focus{outline:3px solid #956209!important;outl
 @media(max-width:900px){.layout{display:block}.content{padding:1.8rem 1.2rem 2.5rem}.nav-toggle{background:var(--bg);min-height:50px}.sidebar{height:auto}.page-nav a{max-width:100%}}
 @media(max-width:520px){body{font-size:16px}.site-bar-inner{flex-wrap:wrap;gap:.7rem}.site-bar .btn{font-size:.85rem;padding:.65rem .9rem}.hero .container{padding-block:2rem}.hero-figure{order:0}.module-card>h2{padding:1rem;gap:.6rem}.module-card li a{padding-left:.65rem}.act{padding-inline:1rem}.card-head{flex-wrap:wrap;gap:.4rem}.page-nav{gap:.7rem}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+/* Complete the outline of tinted quotations and preserve focus on dark panels. */
+blockquote{border:1px solid var(--line);border-radius:8px}
+.hero :focus-visible,.feedback-submit-panel :focus-visible,.skip-link:focus-visible{outline-color:#e4eed9!important}

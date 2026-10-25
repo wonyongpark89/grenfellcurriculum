@@ -19,6 +19,8 @@ The user approved the Manrope / Nunito Sans homepage sample on 25 October 2026. 
 
 Use restrained 1px borders, 6–8px corners and no decorative shadows or gradients. Buttons are rectangular with small rounded corners. Reserve meaningful activity and framework colors for their established semantics, including slider scales and feedback.
 
+Cards and panels use complete 1px outlines and pale surfaces, including within dark sections; pair them with ink text and deep-green headings. Border-only editorial dividers remain on unboxed homepage pathways and update rows. The EDJ diagram's published white raster canvas is composited against the page paper with multiply blending; its labels, dimensions and hotspot geometry remain unchanged. Dark course surfaces use pale focus outlines.
+
 ## Layout and behavior
 
 The shared maximum width is 1240px. Desktop content and header gutters use clamp(22px, 5vw, 72px). Standard mobile content has 22px side gutters. Ancillary page introductions use an unboxed cream surface and large headings. Content sections use 48–80px vertical spacing, scaled down on phones. Team portraits, interactive diagrams, forms, repository filters, pagination and activity controls retain their original structure and behavior.
