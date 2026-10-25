@@ -1,0 +1,10 @@
+{
+  "product": "The Grenfell Curriculum",
+  "status": "user-approved",
+  "approvedReference": "outputs/font-combinations/manrope-nunito.html",
+  "stylesheet": "assets/css/redesign.css",
+  "typography": { "heading": "Manrope", "headingWeight": 700, "body": "Nunito Sans", "bodySize": "18px", "mobileBodySize": "17px" },
+  "colors": { "paper": "#fdf9f2", "deepGreen": "#063c2b", "actionGreen": "#006a46", "ink": "#172b22", "muted": "#4c6256", "line": "#ccd6ca" },
+  "layout": { "maxWidth": "1240px", "mobileGutter": "22px", "radius": "6–8px" },
+  "principles": ["Calm editorial whitespace", "Flat surfaces", "Text-only header brand", "Preserve semantic activity colors", "Preserve all content and interactions"]
+}
