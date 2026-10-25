@@ -106,7 +106,9 @@ class CourseTests(unittest.TestCase):
         for name in ('preview', 'edit', 'copy', 'print'):
             self.assertIn('id="' + name + '"', read('activities/lesson-design.html'))
         matching = read('activities/matching-pairs.html')
-        self.assertEqual(matching.count('draggable="true"'), 5)
+        self.assertEqual(matching.count('data-side="theme"'), 5)
+        self.assertEqual(matching.count('data-side="requirement"'), 5)
+        self.assertIn('match-announcement', matching)
         self.assertIn('Pearson Edexcel', matching)
         self.assertIn('other connections may also be justified', matching)
         for slug in ('glossary', 'in-memory'):

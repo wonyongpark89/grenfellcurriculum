@@ -30,3 +30,7 @@ The root homepage has its own scoped composition. Shared typography, header, but
 The course's reading interface uses 17px body text on desktop and 16px on small phones, with gold `#956209` focus outlines to distinguish keyboard focus from green activity states. These course-specific tokens are defined in `cpd-course/redesign.css`; educational state colors remain unchanged.
 
 Source of truth: `assets/css/redesign.css`, loaded last after page-specific styles. Original component styles remain underneath for responsive behavior and interaction states. Every ancillary page has a skip link and a no-JavaScript navigation fallback. Honor reduced motion.
+
+## CPD content visualisations
+
+The previous course shell remains authoritative: retain its index, sidebar, page layout, typography and palette. Enhance existing material within that theme. Community percentages use proportion bars alongside the complete figures and Census scope. Fire chronology uses time rails; CARE–LEAD uses letter markers; the Hillsborough/Grenfell comparison uses one accessible table with labelled stacked rows on phones. The simple immediate-feedback matcher stays within the original standalone activity and iframe, using the course theme. Do not restore the rejected reading-shell rollout.
