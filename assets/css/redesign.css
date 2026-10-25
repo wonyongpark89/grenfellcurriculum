@@ -42,3 +42,21 @@ body.page-activity .activity-page>.container,body.page-activity .activity-back{w
 @media(max-width:1100px){
  .site-header .site-nav{position:absolute;inset:auto 0 auto;top:100%;max-height:calc(100dvh - 94px);overflow-y:auto;background:var(--warm)}
 }
+
+/* Consistent page introductions, navigation markers and footer alignment. */
+.page-edj .page-hero h1{font-size:clamp(2.5rem,5vw,4.7rem);line-height:1.06}
+.page-edj .page-hero .lede{margin-top:1.1rem;max-width:66ch;font-size:clamp(1.15rem,1.7vw,1.4rem);line-height:1.55;color:var(--charcoal)}
+.page-edj .explorer{padding-top:48px}
+.site-header .site-nav{align-items:center}
+.site-header .site-nav ul{align-items:center;gap:22px}
+.site-header .site-nav li{display:block}
+.site-header .site-nav a{display:block;font-size:15px;line-height:1.65;padding:12px 0;border:0;border-bottom:2px solid transparent;border-radius:0;text-decoration:none}
+.site-header .site-nav a::after{display:none}
+.site-header .site-nav a:hover,.site-header .site-nav a[aria-current="page"]{border-bottom-color:var(--green-800)}
+.site-header .site-nav a[aria-current="page"]{font-weight:600}
+.footer-bottom{text-align:center}
+.footer-bottom p{max-width:none;width:100%;margin-inline:auto}
+@media(max-width:1100px){.site-header .site-nav ul{gap:0}.site-header .site-nav a{padding:12px 0}.site-header .site-nav a[aria-current="page"]{border-bottom-color:var(--green-800);text-decoration:none}}
+@media(max-width:680px){.page-edj .page-hero h1{font-size:2.5rem}.page-edj .explorer{padding-top:32px}}
+
+.site-header .desktop-nav a{line-height:1.65}
