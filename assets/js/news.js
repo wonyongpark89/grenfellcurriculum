@@ -7,6 +7,14 @@
 
 window.GRENFELL_NEWS_ITEMS = [
   {
+    title: 'CPD reader and workbook now available',
+    date: '2026-10-25',
+    displayDate: 'October 2026',
+    summary: 'Download the 108-page Teaching about Grenfell reader and workbook, a companion to the online CPD course with readings, reflection prompts, quizzes and printable activities for teaching about disaster, remembrance and justice.',
+    href: 'assets/resources/cpd/grenfell-cpd-pack-21Oct2026.pdf',
+    linkText: 'Download the reader and workbook (PDF)'
+  },
+  {
     title: 'Grenfell research article published',
     date: '2026-09-09',
     displayDate: 'September 2026',
