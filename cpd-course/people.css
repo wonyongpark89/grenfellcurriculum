@@ -1,0 +1,32 @@
+/* The People lesson uses the shared course theme and an unboxed directory. */
+.content .people-section + .people-section{margin-top:3.5rem}
+.content .people-section>h2{margin:0 0 1.5rem}
+.content .team-list,.content .working-group-list,.content .organisation-list{list-style:none;padding:0;margin:0}
+.content .team-list{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1.6rem}
+.content .team-person{min-width:0;margin:0;padding:0}
+.content .team-person img{display:block;width:132px;height:132px;max-width:100%;object-fit:cover;object-position:center;border-radius:6px;margin:0 0 1.1rem}
+.content .team-person:first-child img{object-position:50% 35%}
+.content .person-details h3{font-size:1.05rem;line-height:1.4;letter-spacing:-.02em;margin:0 0 .55rem;color:var(--brand-deep);text-wrap:initial}
+.content .person-details p{font-size:.86rem;line-height:1.6;color:var(--muted);margin:0}
+.person-details p span{display:block}
+.content .working-group-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.9rem 2rem;margin-top:1.7rem}
+.content .working-group-list li{margin:0;font-weight:700;color:var(--brand-dark)}
+.content .organisation-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2rem 2.2rem}
+.content .organisation-list li{margin:0;font:700 1.05rem/1.6 var(--font-display);letter-spacing:-.02em;color:var(--brand-deep)}
+@media(min-width:901px) and (max-width:1250px){
+ .content .team-list{grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem}
+}
+@media(max-width:700px){
+ .content .team-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem 1.5rem}
+ .content .working-group-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:.9rem 1.5rem}
+ .content .organisation-list{grid-template-columns:1fr;gap:1rem}
+ .content .people-section + .people-section{margin-top:3rem}
+}
+@media(max-width:420px){
+ .content .team-list{grid-template-columns:1fr;gap:1.6rem}
+ .content .team-person{display:grid;grid-template-columns:88px minmax(0,1fr);gap:1.1rem;align-items:center}
+ .content .team-person img{width:88px;height:88px;margin:0}
+ .content .person-details h3{margin-bottom:.3rem}
+ .content .person-details p{font-size:.87rem}
+ .content .working-group-list{grid-template-columns:1fr;gap:.8rem}
+}

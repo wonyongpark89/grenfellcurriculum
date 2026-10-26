@@ -8,6 +8,30 @@
   "layout": { "maxWidth": "1240px", "mobileGutter": "22px", "radius": "6–8px" },
   "principles": ["Calm editorial whitespace", "Flat surfaces", "Text-only header brand", "Preserve semantic activity colors", "Preserve all content and interactions"],
   "surfaces": {
+    "cpdPeople": {
+      "page": "cpd-course/pages/people.html",
+      "stylesheet": "cpd-course/people.css",
+      "scope": "People page only; inherit the existing course theme, typography, content width and sidebar without changing the global design system.",
+      "structure": "Unboxed semantic team list; working-group names and collaborating organisations use simple semantic lists. Preserve all original copy.",
+      "teamLayout": {
+        "defaultColumns": 5,
+        "columns901to1250px": 3,
+        "columnsAt700pxAndBelow": 2,
+        "columnsAt420pxAndBelow": 1,
+        "portraitSize": "132px square",
+        "portraitRadius": "6px",
+        "phonePortrait": "88px square alongside the person's details at 420px and below"
+      },
+      "replacementPortrait": {
+        "person": "Wonyong Park",
+        "asset": "assets/images/wonyong-park-cpd-600.jpg",
+        "provenance": "User-supplied 2026 portrait",
+        "sourceDimensions": "1200 × 896",
+        "assetDimensions": "600 × 448",
+        "approximateFileSize": "43KB",
+        "treatment": "Resize the complete source image; apply square display cropping only in CSS."
+      }
+    },
     "cpdLanding": {
       "status": "user-approved",
       "approvedDirection": "Sample 2: Place first, without the middle dark-green weekly navigation strip",

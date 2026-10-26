@@ -45,6 +45,12 @@ Keep the weekly course outline simple: native `details` / `summary` disclosures 
 
 The previous course shell remains authoritative: retain its index, sidebar, page layout, typography and palette. Enhance existing material within that theme. The community figure reproduces page 18 of the resource book: four dot grids, a language summary and a stacked faith-and-belief bar, with the complete figures and Census scope. It reflows to two columns on phones. Fire chronology uses time rails; CARE–LEAD uses the resource book’s eight green line icons; the Hillsborough/Grenfell comparison uses one accessible table with labelled stacked rows on phones. The simple immediate-feedback matcher stays within the original standalone activity and iframe, using the course theme. Do not restore the rejected reading-shell rollout.
 
+## CPD People page
+
+The People page (`cpd-course/pages/people.html`, with scoped styles in `cpd-course/people.css`) follows the existing course theme, typography, content width and sidebar. Present the project team as an unboxed semantic list, retaining all original names, roles and copy. Portraits are 132px squares with 6px corners; the grid defaults to five columns, uses three at 901–1250px, two at 700px and below, and one at 420px and below. At the smallest breakpoint, an 88px portrait sits beside each person's details. Working-group names and collaborating organisations remain simple semantic lists, with whitespace separating sections.
+
+Wonyong Park's replacement portrait is `assets/images/wonyong-park-cpd-600.jpg`, derived from the user-supplied 2026 portrait by resizing the complete 1200 × 896 image to 600 × 448 (approximately 43KB). Preserve the image's full frame in the asset; square display cropping belongs only in CSS. This refinement is specific to the People page and does not change the global design system or other portrait treatments.
+
 
 ## CPD reading hierarchy and activities
 
