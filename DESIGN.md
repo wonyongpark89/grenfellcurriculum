@@ -61,6 +61,10 @@ The course keeps its established green-and-cream theme, fonts, index and sidebar
 Quotations use an unfilled surface, a dotted green outline, 6px corners, larger reading text and smaller upright attribution. Reflection and quiz panels share consistent padding, headings and input styling; expandable answers sit inside the same green activity panel as their question and reflection field, following the quiz page. Writing fields stay visible without opening an expandable; standalone reflections are available before an activity is completed. Only answer guidance is expandable. Keep educational feedback colors and all existing activity behavior. The repeated temporary-platform and unsaved-notes notices have been removed at the user's request. The feedback form retains its specific submission disclosure.
 
 
+## Lives and Voices quotations
+
+For `cpd-course/pages/who-lived-in-the-tower-2.html`, the user approved sample 1: alternating unfilled dotted-green speech bubbles. The scoped `cpd-course/survivor-quotes.css` treatment keeps all seven quotations, names and source text verbatim and in their original DOM order. Alternate left/right alignment, with each attribution below its own quotation and aligned to the same side. Bubbles use a 2px dotted course-green border, 15px corners and small side tails matching the page surface, with no contrasting fill. Limit quotation width to 80% on desktop and 92% at 600px and below. Decoration and responsive layout require no JavaScript. This is a page-specific exception; retain the established quotation treatment elsewhere.
+
 ## CPD lesson presentation revisions
 
 All lesson paragraphs, figures, source notes and the feedback form use the shared content width. Avoid nested fixed-width wrappers. Resource headings put a small outlined Read / Watch / Read & listen label immediately beside the title, without an enclosing card. Source lines and figure captions use the same muted 0.88rem style.

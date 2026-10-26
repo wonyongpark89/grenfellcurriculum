@@ -1,0 +1,21 @@
+/* Approved alternating survivor quotations, scoped to Lives and Voices. */
+.content .voices{margin:3rem 0;scroll-margin-top:2rem}
+.content .voices>h3{margin:0 0 2rem;font-size:1.65rem}
+.content .voices .voices-list{display:flex;flex-direction:column;gap:1.6rem}
+.content .voices blockquote{padding:0;margin:0;border:0;border-radius:0;background:transparent;box-shadow:none;font-style:normal}
+.content .voices .voice-copy{position:relative;padding:1.3rem 1.6rem;border:2px dotted var(--brand);border-radius:15px;background:var(--surface)}
+.content .voices .voice-copy p{font:400 1.12rem/1.7 var(--font-body);color:var(--ink);margin:0;max-width:none}
+.content .voices cite{display:block;margin:.65rem 1rem 0;color:var(--brand-dark);font:700 .9rem/1.5 var(--font-body)}
+.content .voices>figcaption{margin-top:2rem;padding:0;max-width:none}
+.content .alternating-bubbles blockquote{width:fit-content;max-width:80%;align-self:flex-start;margin-left:12px}
+.content .alternating-bubbles blockquote:nth-child(even){align-self:flex-end;margin-left:0;margin-right:12px}
+.alternating-bubbles .voice-copy::after{content:"";position:absolute;bottom:20px;left:-9px;width:14px;height:14px;background:var(--surface);border-left:2px dotted var(--brand);border-bottom:2px dotted var(--brand);transform:rotate(45deg)}
+.alternating-bubbles blockquote:nth-child(even) .voice-copy::after{left:auto;right:-9px;transform:rotate(225deg)}
+.content .alternating-bubbles blockquote:nth-child(even) cite{text-align:right}
+@media(max-width:900px){.content .voices{scroll-margin-top:4.2rem}}
+@media(max-width:600px){
+ .content .voices>h3{font-size:1.45rem;margin-bottom:1.6rem}
+ .content .voices .voice-copy{padding:1.05rem 1.15rem}
+ .content .voices .voice-copy p{font-size:1.04rem;line-height:1.7}
+ .content .alternating-bubbles blockquote{max-width:92%}
+}

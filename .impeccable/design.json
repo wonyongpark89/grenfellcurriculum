@@ -8,6 +8,19 @@
   "layout": { "maxWidth": "1240px", "mobileGutter": "22px", "radius": "6–8px" },
   "principles": ["Calm editorial whitespace", "Flat surfaces", "Text-only header brand", "Preserve semantic activity colors", "Preserve all content and interactions"],
   "surfaces": {
+    "cpdLivesAndVoicesQuotes": {
+      "status": "user-approved",
+      "approvedDirection": "Sample 1: alternating unfilled dotted-green speech bubbles",
+      "page": "cpd-course/pages/who-lived-in-the-tower-2.html",
+      "stylesheet": "cpd-course/survivor-quotes.css",
+      "scope": "Lives and Voices quotation figure only; preserve other quotation and global design rules.",
+      "content": "Retain all seven verbatim quotations, names and source text in their original DOM order.",
+      "alignment": "Alternate left/right; place each attribution below its own quotation, aligned to the same side.",
+      "appearance": "2px dotted course-green border, 15px corners and small side tails matching the page surface, with no contrasting fill.",
+      "desktopMaxWidth": "80%",
+      "mobileMaxWidth": "92% at 600px and below",
+      "behavior": "Responsive CSS decoration; no JavaScript required."
+    },
     "cpdPeople": {
       "page": "cpd-course/pages/people.html",
       "stylesheet": "cpd-course/people.css",
