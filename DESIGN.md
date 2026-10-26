@@ -40,7 +40,7 @@ The previous course shell remains authoritative: retain its index, sidebar, page
 
 The course keeps its established green-and-cream theme, fonts, index and sidebar. Page titles lead, with the course/week context underneath. Lesson h2/h3 headings use distinct sizes and generous space above; section rhythm comes from whitespace rather than repeated rules. The footer keeps one quiet boundary, while navigation groups, glossary entries, resource rows, activity answers and CARE–LEAD entries use spacing.
 
-Quotations use an unfilled surface, a dotted green outline, 6px corners, larger reading text and smaller upright attribution. Reflection and quiz panels share consistent padding, headings and input styling; answer disclosures sit immediately below the prompt. Keep educational feedback colors and all existing activity behavior. The repeated temporary-platform and unsaved-notes notices have been removed at the user's request. The feedback form retains its specific submission disclosure.
+Quotations use an unfilled surface, a dotted green outline, 6px corners, larger reading text and smaller upright attribution. Reflection and quiz panels share consistent padding, headings and input styling; expandable answers sit inside the same green activity panel as their question and reflection field, following the quiz page. Keep educational feedback colors and all existing activity behavior. The repeated temporary-platform and unsaved-notes notices have been removed at the user's request. The feedback form retains its specific submission disclosure.
 
 
 ## CPD lesson presentation revisions
