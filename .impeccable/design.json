@@ -6,5 +6,37 @@
   "typography": { "heading": "Manrope", "headingWeight": 700, "body": "Nunito Sans", "bodySize": "18px", "mobileBodySize": "17px" },
   "colors": { "paper": "#fdf9f2", "deepGreen": "#063c2b", "actionGreen": "#006a46", "ink": "#172b22", "muted": "#4c6256", "line": "#ccd6ca" },
   "layout": { "maxWidth": "1240px", "mobileGutter": "22px", "radius": "6–8px" },
-  "principles": ["Calm editorial whitespace", "Flat surfaces", "Text-only header brand", "Preserve semantic activity colors", "Preserve all content and interactions"]
+  "principles": ["Calm editorial whitespace", "Flat surfaces", "Text-only header brand", "Preserve semantic activity colors", "Preserve all content and interactions"],
+  "surfaces": {
+    "cpdLanding": {
+      "status": "user-approved",
+      "approvedDirection": "Sample 2: Place first, without the middle dark-green weekly navigation strip",
+      "approvedDate": "2026-10-26",
+      "page": "cpd-course/index.html",
+      "stylesheet": "cpd-course/landing.css",
+      "scope": "Course landing page only; preserve the global identity and existing lesson shell guidance.",
+      "typography": "Inherit Manrope headings and Nunito Sans body text.",
+      "palette": "Inherit paper, deepGreen and actionGreen from the global colors.",
+      "hero": {
+        "image": "assets/images/opener-week1-aerial.jpg",
+        "assetTreatment": "Reuse unchanged; responsive cover crop.",
+        "desktop": "Image-led hero with a cream inset introduction and green start-course button.",
+        "mobile": "Stack image, cream introduction, then course contents."
+      },
+      "layout": {
+        "maxWidth": "1240px",
+        "desktopGutter": "52px",
+        "tabletGutter": "32px",
+        "mobileGutter": "20px",
+        "tabletBreakpoint": "1000px",
+        "mobileBreakpoint": "700px"
+      },
+      "courseOutline": {
+        "structure": "Native details and summary disclosures with fine dividers, week numbers, titles, short summaries and plus/minus indicators.",
+        "expandedContent": "Start-week link and grouped lesson links; two columns on desktop, one on mobile.",
+        "navigation": "Introductory and supporting resource links accompany the outline; no separate dark-green weekly navigation strip.",
+        "accessibility": "Preserve keyboard focus, native disclosure behavior without JavaScript and reduced-motion support."
+      }
+    }
+  }
 }

@@ -31,6 +31,16 @@ The course's reading interface uses 17px body text on desktop and 16px on small 
 
 Source of truth: `assets/css/redesign.css`, loaded last after page-specific styles. Original component styles remain underneath for responsive behavior and interaction states. Every ancillary page has a skip link and a no-JavaScript navigation fallback. Honor reduced motion.
 
+## CPD landing page
+
+The user approved sample 2, “Place first”, on 26 October 2026, with the redundant middle dark-green weekly navigation strip removed. This composition applies only to `cpd-course/index.html`, styled by `cpd-course/landing.css`; the lesson shell and all lesson guidance below remain authoritative for reading pages.
+
+Lead with the existing aerial illustration at `assets/images/opener-week1-aerial.jpg`, reused unchanged. On desktop, the image fills the hero behind a cream inset introduction containing the course title, subtitle, description, green start-course button and compact course facts. Retain Manrope headings, Nunito Sans body text, and the shared paper, deep-green and action-green colors. Use flat surfaces without decorative shadows.
+
+The landing-page content and header have a maximum width of 1240px with 52px desktop side gutters, reducing to 32px at 1000px and 20px at 700px. At the mobile breakpoint, stack the image, cream introduction and course contents in that order; the introduction no longer overlays the image. These gutter values are scoped to this landing page.
+
+Keep the weekly course outline simple: native `details` / `summary` disclosures with fine dividers, week numbers, descriptive titles, short summaries and plus/minus indicators. Expanded weeks show a start-week link and grouped lesson links, in two columns on desktop and one on mobile. Place the introductory and supporting resource links alongside this outline. Do not restore a separate dark-green weekly navigation strip between the hero and course contents. Preserve keyboard focus, native disclosure behavior without JavaScript and reduced-motion support.
+
 ## CPD content visualisations
 
 The previous course shell remains authoritative: retain its index, sidebar, page layout, typography and palette. Enhance existing material within that theme. The community figure reproduces page 18 of the resource book: four dot grids, a language summary and a stacked faith-and-belief bar, with the complete figures and Census scope. It reflows to two columns on phones. Fire chronology uses time rails; CARE–LEAD uses the resource book’s eight green line icons; the Hillsborough/Grenfell comparison uses one accessible table with labelled stacked rows on phones. The simple immediate-feedback matcher stays within the original standalone activity and iframe, using the course theme. Do not restore the rejected reading-shell rollout.
