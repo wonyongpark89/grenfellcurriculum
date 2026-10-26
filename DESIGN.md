@@ -38,6 +38,8 @@ The previous course shell remains authoritative: retain its index, sidebar, page
 
 ## CPD reading hierarchy and activities
 
+The Survivors’ Accounts page reproduces the workbook’s central tower schematic, highlighting floors 20, 18 and 13 and connecting each to its survivor’s account. On narrow screens or without JavaScript, show the labelled tower above the complete accounts. Preserve the source text and quotations; this figure uses the workbook’s unboxed quotation treatment.
+
 The course keeps its established green-and-cream theme, fonts, index and sidebar. Page titles lead, with the course/week context underneath. Lesson h2/h3 headings use distinct sizes and generous space above; section rhythm comes from whitespace rather than repeated rules. The footer keeps one quiet boundary, while navigation groups, glossary entries, resource rows, activity answers and CARE–LEAD entries use spacing.
 
 Quotations use an unfilled surface, a dotted green outline, 6px corners, larger reading text and smaller upright attribution. Reflection and quiz panels share consistent padding, headings and input styling; expandable answers sit inside the same green activity panel as their question and reflection field, following the quiz page. Keep educational feedback colors and all existing activity behavior. The repeated temporary-platform and unsaved-notes notices have been removed at the user's request. The feedback form retains its specific submission disclosure.
