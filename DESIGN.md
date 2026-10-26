@@ -19,7 +19,7 @@ The user approved the Manrope / Nunito Sans homepage sample on 25 October 2026. 
 
 Use restrained 1px borders, 6–8px corners and no decorative shadows or gradients. Buttons are rectangular with small rounded corners. Reserve meaningful activity and framework colors for their established semantics, including slider scales and feedback.
 
-Cards and panels use complete 1px outlines and pale surfaces, including within dark sections; pair them with ink text and deep-green headings. Border-only editorial dividers remain on unboxed homepage pathways and update rows. The EDJ diagram's published white raster canvas is composited against the page paper with multiply blending; its labels, dimensions and hotspot geometry remain unchanged. Dark course surfaces use pale focus outlines.
+Cards and panels use complete 1px outlines and pale surfaces, including within dark sections; pair them with ink text and deep-green headings. Border-only editorial dividers remain on unboxed homepage pathways and update rows. The EDJ framework uses the approved CPD pack SVG wheel and an unboxed reading column, as specified below. Dark course surfaces use pale focus outlines.
 
 ## Layout and behavior
 
@@ -30,6 +30,14 @@ The root homepage has its own scoped composition. Shared typography, header, but
 The course's reading interface uses 17px body text on desktop and 16px on small phones, with gold `#956209` focus outlines to distinguish keyboard focus from green activity states. These course-specific tokens are defined in `cpd-course/redesign.css`; educational state colors remain unchanged.
 
 Source of truth: `assets/css/redesign.css`, loaded last after page-specific styles. Original component styles remain underneath for responsive behavior and interaction states. Every ancillary page has a skip link and a no-JavaScript navigation fallback. Honor reduced motion.
+
+## EDJ framework wheel
+
+The user approved version 4 of the CPD pack wheel adaptation for `edj/index.html`. Its scoped `assets/css/edj-wheel.css` loads after the shared redesign stylesheet; `assets/js/edj-wheel.js` works with `assets/js/edj.js`. Retain the cream-and-green identity, Manrope headings and Nunito Sans body text. Reproduce the pack's concentric geometry, segment order and two central domains, with six knowledge and six action segments. Preserve the existing explanations, quotations and resource links. All 14 segments remain named, keyboard-accessible links; the separate “Browse all components” expansion is removed.
+
+Whole / Know / Do are unboxed text controls, with an underline on the active mode only. Changing mode clears the selected segment. Selected sectors use pale green fill and dark text, with a separate topmost shape outline at a constant 2px through non-scaling SVG strokes. Keyboard focus uses a dashed shape overlay. Suppress browser-native rectangular SVG link outlines and shadows, including pressed states; retain the custom keyboard indicator.
+
+Keep the wheel geometry and position still. Explanations occupy an open, unboxed reading column with a stable footprint: tied to the wheel column on desktop and bounded in height on mobile. Long explanations scroll internally. Selection resets the new panel's internal scroll and focuses it without scrolling the page; it must not shift the wheel or following source section. Ring colors transition over 240ms and panels reveal through opacity alone over 160ms. Disable these transitions and animation for reduced motion; do not add sticky positioning or positional reveal motion.
 
 ## CPD landing page
 

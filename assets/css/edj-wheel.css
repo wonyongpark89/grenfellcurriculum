@@ -1,0 +1,60 @@
+/* CPD pack wheel adapted as a selectable website visual. */
+.edj-page .figure-top{margin-bottom:12px}
+.wheel-controls{display:flex;flex-wrap:wrap;gap:22px;margin-bottom:18px}
+.wheel-controls button{background:transparent;color:var(--muted);border:0;border-bottom:2px solid transparent;border-radius:0;font:600 .8rem/1.4 var(--font-sans);padding:9px 0;cursor:pointer;min-height:40px}
+.wheel-controls button[aria-pressed=true]{background:transparent;color:var(--deep);border-color:var(--deep)}
+.wheel-controls button:hover{color:var(--deep)}
+.edj-page .pack-figure{max-width:640px;background:transparent}
+.pack-wheel{display:block;width:100%;height:auto;overflow:visible}
+.pack-wheel .wl{font-family:var(--font-sans);fill:white;pointer-events:none}
+.pack-wheel .wk{font-family:var(--font-heading);fill:#06301f;pointer-events:none}
+.pack-wheel .wedge{fill:#006a46;stroke:#fdf9f2;stroke-width:.5;cursor:pointer}
+.pack-wheel .alternate .wedge{fill:#007a50}
+.pack-wheel [data-ring=centre] .wedge{fill:#e1f7e8;stroke:none}
+.pack-wheel [data-ring=centre].alternate .wedge{fill:#f4ead9}
+[data-mode=know] .pack-wheel [data-ring=do] .wedge,[data-mode=do] .pack-wheel [data-ring=know] .wedge,[data-mode=do] .pack-wheel [data-ring=centre] .wedge{fill:#e6ede8}
+[data-mode=know] .pack-wheel [data-ring=do] .wl,[data-mode=do] .pack-wheel [data-ring=know] .wl,[data-mode=do] .pack-wheel .wk{fill:#4c6256}
+/* Keep the geometry still: colour carries the transition between states. */
+.pack-wheel .wedge,.pack-wheel .wl,.pack-wheel .wk{transition:fill 240ms cubic-bezier(.16,1,.3,1),stroke 240ms cubic-bezier(.16,1,.3,1)}
+.wheel-controls button{transition:background-color 180ms ease-out,color 180ms ease-out,border-color 180ms ease-out}
+@media(hover:hover){
+ .pack-wheel .wheel-segment:hover .wedge{fill:#12583f}
+ .pack-wheel .wheel-segment:hover .wl,.pack-wheel .wheel-segment:hover .wk{fill:#fffefa}
+}
+.pack-wheel .wheel-segment[aria-current=true] .wedge{fill:#d4e8b6}
+.pack-wheel .wheel-segment[aria-current=true] .wl,.pack-wheel .wheel-segment[aria-current=true] .wk{fill:#063c2b}
+/* SVG links get a browser-native rectangular outline on mouse-down, even
+   without :focus-visible. The custom sector-shaped paths handle focus. */
+.edj-page .pack-wheel a,
+.edj-page .pack-wheel a:focus,
+.edj-page .pack-wheel a:active,
+.edj-page .pack-wheel a:focus-visible{outline:none;box-shadow:none}
+.pack-wheel .wheel-segment:focus-visible .wedge{fill:#e7f0d5}
+.pack-wheel .wheel-segment:focus-visible .wl,.pack-wheel .wheel-segment:focus-visible .wk{fill:#063c2b}
+.edj-page .wheel-controls button:focus-visible{outline-color:#006a46}
+.pack-wheel .selection-outline,.pack-wheel .focus-outline{fill:none;stroke:#063c2b;stroke-width:2px;vector-effect:non-scaling-stroke;stroke-linejoin:round;pointer-events:none}
+.pack-wheel .focus-outline{stroke-dasharray:5 4}
+/* An open reading column, with its own scroll position and stable footprint. */
+html{scrollbar-gutter:stable}
+.js .edj-page .figure-column{position:static}
+.edj-page .detail-column{padding-top:36px}
+.edj-page .detail-panel{border:0;border-radius:0;background:transparent;box-shadow:none;padding:0 16px 10px 0}
+.edj-page .component-link{border-radius:0}
+.js .edj-page .detail-column{position:relative;align-self:stretch;min-height:0}
+.js .edj-page .detail-panel{position:absolute;inset:36px 0 0;overflow-y:auto;overscroll-behavior:contain;scrollbar-gutter:stable;scrollbar-width:thin;scrollbar-color:#809c8b transparent;overflow-anchor:none}
+.edj-page .detail-panel.panel-enter{animation:panel-reveal 160ms ease-out both}
+@keyframes panel-reveal{from{opacity:.75}to{opacity:1}}
+@media(max-width:880px){
+ .js .edj-page .detail-column{height:clamp(440px,70svh,680px);padding:0}
+ .js .edj-page .detail-panel{inset:0}
+}
+@media(max-width:600px){.wheel-controls{gap:18px}.wheel-controls button{font-size:.76rem;padding:9px 0}}
+@media(prefers-reduced-motion:reduce){
+ .pack-wheel .wedge,.pack-wheel .wl,.pack-wheel .wk,.wheel-controls button{transition:none}
+ .edj-page .detail-panel.panel-enter{animation:none}
+}
+@media print{
+ .js .edj-page .detail-column{height:auto}
+ .js .edj-page .detail-panel{position:static;overflow:visible;padding:0}
+ .pack-wheel .selection-outline,.pack-wheel .focus-outline{display:none}
+}
