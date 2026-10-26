@@ -116,7 +116,7 @@ textarea::placeholder{color:var(--muted)}
 .ev-q span{display:block;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--brand-dark);margin-bottom:.2rem}
 @media (max-width:620px){.ev-btn{grid-template-columns:1fr auto}.ev-date{grid-column:1/-1}}
 .chk{display:grid;gap:.55rem}.chk label{display:flex;gap:.7rem;align-items:flex-start;line-height:1.5;cursor:pointer}.chk input{width:1.1rem;height:1.1rem;flex:none;margin-top:.22rem;accent-color:var(--brand)}</style>
-<link rel="stylesheet" href="../redesign.css?v=20261025-details">
+<link rel="stylesheet" href="../redesign.css?v=20261026-reflections">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -136,11 +136,11 @@ textarea::placeholder{color:var(--muted)}
 <button class="tab" role="tab" id="tab-after" data-p="after">After the fire<span class="n">5</span></button>
 </div>
 <div id="panel" role="tabpanel"></div>
-<section id="final" hidden>
+<section id="final">
 <div class="ccard" style="margin-top:1.6rem">
 <div class="card-head">Final reflection</div>
 <div class="ccard-body">
-<p class="muted small">You have explored all 14 events. Take a few minutes to consider the following questions. You can type notes below — they are not submitted anywhere and exist only in your current session.</p>
+<p class="muted small">Take a few minutes to consider the following questions.</p>
 <div class="field"><label for="f1">The Inquiry concluded the fire was the result of “decades of failure” by government and industry. Which failures do you think were most preventable, and why?</label><textarea id="f1"></textarea></div>
 <div class="field"><label for="f2">What patterns or recurring themes do you notice across the before, during and after phases?</label><textarea id="f2"></textarea></div>
 <div class="field"><label for="f3">What does this timeline suggest about the relationship between cost-cutting, deregulation and public safety?</label><textarea id="f3"></textarea></div>
@@ -181,7 +181,7 @@ const openSet=new Set();
 document.addEventListener("click",ev=>{const b=ev.target.closest(".ev-btn");if(b){const id=b.dataset.id,o=b.getAttribute("aria-expanded")==="true";
   b.setAttribute("aria-expanded",!o);document.getElementById("b-"+id).hidden=o;if(o)openSet.delete(id);else{openSet.add(id);seen.add(id);b.parentNode.classList.add("seen");progress();}}
   const t=ev.target.closest(".tab");if(t){phase=t.dataset.p;render();}});
-function progress(){const n=seen.size;$("#bar").style.width=(n/total*100)+"%";$("#ptext").textContent=n+" of "+total+" explored";if(n>=total){$("#final").hidden=false;}}
+function progress(){const n=seen.size;$("#bar").style.width=(n/total*100)+"%";$("#ptext").textContent=n+" of "+total+" explored";}
 render();
 </script>
 </body>

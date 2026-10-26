@@ -33,7 +33,7 @@ Source of truth: `assets/css/redesign.css`, loaded last after page-specific styl
 
 ## CPD content visualisations
 
-The previous course shell remains authoritative: retain its index, sidebar, page layout, typography and palette. Enhance existing material within that theme. The community figure reproduces page 18 of the resource book: four dot grids, a language summary and a stacked faith-and-belief bar, with the complete figures and Census scope. It reflows to two columns on phones. Fire chronology uses time rails; CARE–LEAD uses letter markers; the Hillsborough/Grenfell comparison uses one accessible table with labelled stacked rows on phones. The simple immediate-feedback matcher stays within the original standalone activity and iframe, using the course theme. Do not restore the rejected reading-shell rollout.
+The previous course shell remains authoritative: retain its index, sidebar, page layout, typography and palette. Enhance existing material within that theme. The community figure reproduces page 18 of the resource book: four dot grids, a language summary and a stacked faith-and-belief bar, with the complete figures and Census scope. It reflows to two columns on phones. Fire chronology uses time rails; CARE–LEAD uses the resource book’s eight green line icons; the Hillsborough/Grenfell comparison uses one accessible table with labelled stacked rows on phones. The simple immediate-feedback matcher stays within the original standalone activity and iframe, using the course theme. Do not restore the rejected reading-shell rollout.
 
 
 ## CPD reading hierarchy and activities
@@ -42,7 +42,7 @@ The Survivors’ Accounts page reproduces the workbook’s central tower schemat
 
 The course keeps its established green-and-cream theme, fonts, index and sidebar. Page titles lead, with the course/week context underneath. Lesson h2/h3 headings use distinct sizes and generous space above; section rhythm comes from whitespace rather than repeated rules. The footer keeps one quiet boundary, while navigation groups, glossary entries, resource rows, activity answers and CARE–LEAD entries use spacing.
 
-Quotations use an unfilled surface, a dotted green outline, 6px corners, larger reading text and smaller upright attribution. Reflection and quiz panels share consistent padding, headings and input styling; expandable answers sit inside the same green activity panel as their question and reflection field, following the quiz page. Keep educational feedback colors and all existing activity behavior. The repeated temporary-platform and unsaved-notes notices have been removed at the user's request. The feedback form retains its specific submission disclosure.
+Quotations use an unfilled surface, a dotted green outline, 6px corners, larger reading text and smaller upright attribution. Reflection and quiz panels share consistent padding, headings and input styling; expandable answers sit inside the same green activity panel as their question and reflection field, following the quiz page. Writing fields stay visible without opening an expandable; standalone reflections are available before an activity is completed. Only answer guidance is expandable. Keep educational feedback colors and all existing activity behavior. The repeated temporary-platform and unsaved-notes notices have been removed at the user's request. The feedback form retains its specific submission disclosure.
 
 
 ## CPD lesson presentation revisions

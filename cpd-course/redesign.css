@@ -416,3 +416,12 @@ blockquote{border:1px solid var(--line);border-radius:8px}
  .tension-list{grid-template-columns:1fr;gap:.5rem}
  .tension-list dd:not(:last-child){margin-bottom:1rem}
 }
+
+/* Keep key evidence and teaching tensions in the course green. */
+.content :is(.investigation-figures,.reform-list,.tension-list) dt{color:var(--brand-dark)}
+.content .tension-list .tension-versus{color:inherit}
+
+/* CARE–LEAD icons reproduced from the resource book. */
+.booklet-content .principle-icon{display:flex;align-items:center;justify-content:center;align-self:start;width:3rem;height:3rem;border-radius:50%;background:#f2fbf5;color:var(--brand-dark)}
+.booklet-content .principle-icon svg{display:block;width:1.6rem;height:1.6rem}
+@media(max-width:600px){.booklet-content .principle-icon{width:2.4rem;height:2.4rem}.booklet-content .principle-icon svg{width:1.4rem;height:1.4rem}}
