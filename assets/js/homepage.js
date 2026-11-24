@@ -34,6 +34,13 @@
       action.href = item.href;
       action.append(document.createTextNode(item.linkText), arrow());
       content.append(heading, paragraph, action);
+      if (item.secondaryHref && item.secondaryLinkText) {
+        const secondaryAction = document.createElement('a');
+        secondaryAction.className = 'text-link';
+        secondaryAction.href = item.secondaryHref;
+        secondaryAction.append(document.createTextNode(item.secondaryLinkText), arrow());
+        content.append(document.createTextNode(' '), secondaryAction);
+      }
       article.append(time, content);
       fragment.append(article);
     });
