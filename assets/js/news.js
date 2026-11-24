@@ -7,6 +7,16 @@
 
 window.GRENFELL_NEWS_ITEMS = [
   {
+    title: 'Collaboration recognised in parliamentary motion',
+    date: '2026-11-17',
+    displayDate: 'November 2026',
+    summary: 'An Early Day Motion tabled by Ian Byrne MP welcomes Dr Wonyong Park’s collaboration with The Real Truth Legacy Project. Drawing on Hillsborough, Grenfell and other national scandals, the work explores how education can help young people understand institutional failures, misinformation and miscarriages of justice, assess evidence and hold power to account.',
+    href: 'https://edm.parliament.uk/early-day-motion/66975/the-real-truth-legacy-project',
+    linkText: 'Read the motion',
+    secondaryHref: 'https://www.ianbyrne.org/the-real-truth',
+    secondaryLinkText: 'Explore The Real Truth Legacy Project'
+  },
+  {
     title: 'CPD reader and workbook now available',
     date: '2026-10-25',
     displayDate: 'October 2026',
